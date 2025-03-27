@@ -10,5 +10,12 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  }
+  },
+  build: {
+    assets: '_astro'
+  },
+  // Configuración importante para las rutas de los activos
+  site: 'https://luminakraft.com',  // Cambia esto por tu dominio real
+  base: '/',
+  trailingSlash: 'always'
 }); 
