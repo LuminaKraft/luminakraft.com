@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout 
+  locale={locale} 
+  title="Servicios | LuminaKraft Studios"
+  description="Conoce nuestros servicios profesionales de desarrollo de servidores Minecraft, plugins personalizados, mapas únicos y mucho más."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-5xl font-bold text-center mb-8 text-primary animate-fade-up">Nuestros Servicios</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-16 max-w-4xl mx-auto animate-fade-up animate-delay-200">
+        En LuminaKraft Studios nos especializamos en crear experiencias de juego excepcionales. Nuestro equipo de expertos ofrece una amplia gama de servicios personalizados para hacer realidad tu visión.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+        <!-- Servicio 1 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-300">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Desarrollo de Servidores</h3>
+          <p class="text-white/80 mb-4">Creamos servidores Minecraft completamente personalizados, desde minijuegos hasta grandes redes multimodo con infraestructura escalable.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Configuración completa del servidor</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Optimización de rendimiento</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Sistemas de seguridad avanzados</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-400">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Plugins Personalizados</h3>
+          <p class="text-white/80 mb-4">Desarrollamos plugins únicos y a medida que añaden funcionalidades específicas para hacer que tu servidor destaque entre la multitud.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Sistemas de economía y comercio</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Mecánicas de juego personalizadas</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Integraciones con servicios externos</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-500">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-map"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Diseño de Mapas</h3>
+          <p class="text-white/80 mb-4">Creamos mundos impresionantes y detallados que cautivan a los jugadores, desde arenas de combate hasta enormes mundos de aventura.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Terrenos personalizados</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Estructuras detalladas</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Ambientes inmersivos</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-600">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Diseño Web y Branding</h3>
+          <p class="text-white/80 mb-4">Diseñamos sitios web atractivos, tiendas y sistemas de gestión que complementan tu servidor y mejoran la experiencia del usuario.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Diseño responsivo</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Tiendas integradas</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Paneles de administración</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-700">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Gestión de Comunidad</h3>
+          <p class="text-white/80 mb-4">Ofrecemos servicios de gestión de comunidad para ayudarte a construir y mantener una base de jugadores activa y comprometida.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Estrategias de retención</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Moderación profesional</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Eventos comunitarios</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="service-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1 animate-fade-up animate-delay-800">
+          <div class="service-icon text-4xl text-primary mb-4">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Mantenimiento y Soporte</h3>
+          <p class="text-white/80 mb-4">Proporcionamos servicios de mantenimiento continuo y soporte técnico para asegurar que tu servidor funcione sin problemas.</p>
+          <ul class="text-white/70 space-y-2 mb-6">
+            <li><i class="fas fa-check text-primary mr-2"></i> Actualizaciones regulares</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Respuesta rápida a incidencias</li>
+            <li><i class="fas fa-check text-primary mr-2"></i> Copias de seguridad automáticas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="call-to-action text-center mb-20 animate-fade-up animate-delay-900">
+        <h2 class="text-3xl font-bold mb-6 text-primary">¿Listo para hacer realidad tu proyecto?</h2>
+        <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          Nuestro equipo está preparado para ayudarte a crear la experiencia de juego perfecta para tu comunidad.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#contacto" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+            Contactar Ahora
+          </a>
+          <a href="/faq" class="px-8 py-3 rounded-lg bg-transparent text-white font-bold border border-white/30 transition-all duration-300 hover:border-primary/50 hover:text-primary hover:-translate-y-1">
+            Ver Preguntas Frecuentes
+          </a>
+        </div>
+      </div>
+
+      <div class="testimonials bg-secondary/50 rounded-xl p-10 border border-primary/20 max-w-5xl mx-auto animate-fade-up animate-delay-1000">
+        <h3 class="text-3xl font-bold mb-8 text-center text-primary">Lo que dicen nuestros clientes</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="testimonial p-6 bg-secondary/40 rounded-lg border border-primary/20">
+            <div class="flex items-center mb-4">
+              <img src="https://mc-heads.net/avatar/MHF_Steve" alt="Avatar de cliente" width="48" height="48" class="rounded-md mr-4" />
+              <div>
+                <h4 class="text-xl font-bold text-white">Juan Pérez</h4>
+                <p class="text-white/70">Dueño de MineVerse Network</p>
+              </div>
+            </div>
+            <p class="text-white/80 italic">"El equipo de LuminaKraft transformó completamente nuestro servidor. Su atención al detalle y conocimiento técnico son impresionantes. La cantidad de jugadores se ha duplicado desde la renovación."</p>
+          </div>
+          
+          <div class="testimonial p-6 bg-secondary/40 rounded-lg border border-primary/20">
+            <div class="flex items-center mb-4">
+              <img src="https://mc-heads.net/avatar/MHF_Alex" alt="Avatar de cliente" width="48" height="48" class="rounded-md mr-4" />
+              <div>
+                <h4 class="text-xl font-bold text-white">Ana García</h4>
+                <p class="text-white/70">Creadora de Adventure Realm</p>
+              </div>
+            </div>
+            <p class="text-white/80 italic">"Los plugins personalizados que desarrollaron para nuestro servidor de aventuras son exactamente lo que necesitábamos. El proceso fue profesional de principio a fin y el resultado superó nuestras expectativas."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para animaciones suaves al hacer scroll, usando JavaScript puro para compatibilidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 :
+                   element.classList.contains('animate-delay-500') ? 500 :
+                   element.classList.contains('animate-delay-600') ? 600 :
+                   element.classList.contains('animate-delay-700') ? 700 :
+                   element.classList.contains('animate-delay-800') ? 800 :
+                   element.classList.contains('animate-delay-900') ? 900 :
+                   element.classList.contains('animate-delay-1000') ? 1000 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+  });
+</script>

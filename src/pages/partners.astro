@@ -1,0 +1,471 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+
+// Partners actuales
+const currentPartners = [
+  {
+    name: "MinecraftMaster",
+    role: "YouTuber",
+    followers: "500K+",
+    description: "Creador de contenido especializado en tutoriales y supervivencia en Minecraft.",
+    image: "https://mc-heads.net/avatar/MinecraftMaster",
+    social: {
+      youtube: "https://youtube.com/@minecraftmaster",
+      twitch: "https://twitch.tv/minecraftmaster",
+      twitter: "https://twitter.com/minecraftmaster"
+    },
+    featured: true
+  },
+  {
+    name: "RedstoneGenius",
+    role: "Streamer",
+    followers: "200K+",
+    description: "Experto en redstone y creaciones técnicas que transmite en directo sus proyectos.",
+    image: "https://mc-heads.net/avatar/RedstoneGenius",
+    social: {
+      youtube: "https://youtube.com/@redstonegenius",
+      twitch: "https://twitch.tv/redstonegenius"
+    }
+  },
+  {
+    name: "MiningSurvival",
+    role: "YouTuber",
+    followers: "350K+",
+    description: "Canal dedicado a supervivencia extrema y aventuras en Minecraft.",
+    image: "https://mc-heads.net/avatar/MiningSurvival",
+    social: {
+      youtube: "https://youtube.com/@miningsurvival",
+      instagram: "https://instagram.com/miningsurvival"
+    }
+  },
+  {
+    name: "BuildCraft",
+    role: "Equipo de Construcción",
+    followers: "150K+",
+    description: "Equipo profesional de constructores que crea obras maestras arquitectónicas.",
+    image: "https://mc-heads.net/avatar/BuildCraft",
+    social: {
+      youtube: "https://youtube.com/@buildcraft",
+      twitter: "https://twitter.com/buildcraft"
+    }
+  },
+  {
+    name: "PvPLegend",
+    role: "Streamer",
+    followers: "100K+",
+    description: "Especialista en PvP y competiciones que transmite torneos y eventos.",
+    image: "https://mc-heads.net/avatar/PvPLegend",
+    social: {
+      twitch: "https://twitch.tv/pvplegend",
+      tiktok: "https://tiktok.com/@pvplegend"
+    }
+  },
+  {
+    name: "MCServer",
+    role: "Portal de Servidores",
+    followers: "400K+",
+    description: "Sitio web especializado en reseñas y noticias sobre servidores de Minecraft.",
+    image: "https://mc-heads.net/avatar/MCServer",
+    social: {
+      website: "https://mcserver.com",
+      twitter: "https://twitter.com/mcserver"
+    },
+    featured: true
+  }
+];
+
+// Beneficios del programa
+const partnerBenefits = [
+  {
+    title: "Rango Exclusivo",
+    description: "Recibirás un rango exclusivo de Partner en todos nuestros servidores con permisos especiales.",
+    icon: "crown"
+  },
+  {
+    title: "Servidor Privado",
+    description: "Acceso a un servidor privado para grabar contenido o realizar eventos con tus seguidores.",
+    icon: "server"
+  },
+  {
+    title: "Promoción Cruzada",
+    description: "Promocionaremos tu contenido en nuestras redes sociales y sitio web oficial.",
+    icon: "bullhorn"
+  },
+  {
+    title: "Acceso Anticipado",
+    description: "Serás de los primeros en probar nuevas características y servidores antes de su lanzamiento.",
+    icon: "clock"
+  },
+  {
+    title: "Soporte Prioritario",
+    description: "Canal directo con nuestro equipo de desarrollo para resolver cualquier problema.",
+    icon: "headset"
+  },
+  {
+    title: "Beneficios Económicos",
+    description: "Programa de afiliación con comisiones por donaciones generadas a través de tu código.",
+    icon: "money-bill"
+  }
+];
+
+// Requisitos del programa
+const partnerRequirements = [
+  "Crear contenido relacionado con Minecraft de forma regular",
+  "Contar con al menos 5,000 seguidores en alguna plataforma",
+  "Mantener un comportamiento adecuado y profesional",
+  "Publicar contenido sobre LuminaKraft al menos una vez al mes",
+  "Promover valores positivos y un ambiente respetuoso"
+];
+---
+
+<BaseLayout 
+  locale={locale}
+  title="Programa de Partners | LuminaKraft Studios"
+  description="Únete a nuestro exclusivo programa de partners para creadores de contenido y comunidades de Minecraft."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-5xl font-bold text-center mb-4 text-primary animate-fade-up">Programa de Partners</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-12 max-w-3xl mx-auto animate-fade-up animate-delay-200">
+        Únete a nuestra red de creadores de contenido y comunidades para crecer juntos.
+      </p>
+
+      <!-- Partners destacados -->
+      <div class="featured-partners mb-16 animate-fade-up animate-delay-300">
+        <h2 class="text-2xl font-bold mb-8 text-primary text-center">Partners Destacados</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {currentPartners.filter(partner => partner.featured).map(partner => (
+            <div class="partner-card bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+              <div class="partner-header bg-primary/20 p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                  <img src={partner.image} alt={partner.name} class="w-16 h-16 rounded-full border-2 border-primary" />
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-white">{partner.name}</h3>
+                    <p class="text-primary">{partner.role}</p>
+                  </div>
+                </div>
+                <div class="followers bg-secondary/60 px-3 py-1 rounded-full text-sm text-white font-bold">
+                  {partner.followers}
+                </div>
+              </div>
+              <div class="partner-content p-6">
+                <p class="text-white/90 mb-6">{partner.description}</p>
+                <div class="social-links flex space-x-4">
+                  {'youtube' in partner.social && (
+                    <a href={partner.social.youtube} target="_blank" class="text-white hover:text-red-500 transition-colors">
+                      <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                  )}
+                  {'twitch' in partner.social && (
+                    <a href={partner.social.twitch} target="_blank" class="text-white hover:text-purple-500 transition-colors">
+                      <i class="fab fa-twitch text-2xl"></i>
+                    </a>
+                  )}
+                  {'twitter' in partner.social && (
+                    <a href={partner.social.twitter} target="_blank" class="text-white hover:text-blue-400 transition-colors">
+                      <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                  )}
+                  {'instagram' in partner.social && (
+                    <a href={partner.social.instagram} target="_blank" class="text-white hover:text-pink-500 transition-colors">
+                      <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                  )}
+                  {'tiktok' in partner.social && (
+                    <a href={partner.social.tiktok} target="_blank" class="text-white hover:text-black transition-colors">
+                      <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                  )}
+                  {'website' in partner.social && (
+                    <a href={partner.social.website} target="_blank" class="text-white hover:text-primary transition-colors">
+                      <i class="fas fa-globe text-2xl"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Información del programa -->
+      <div class="program-info bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-16 animate-fade-up animate-delay-400">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-primary">Sobre el Programa</h2>
+            <p class="text-white/90 mb-4">
+              El Programa de Partners de LuminaKraft está diseñado para creadores de contenido y comunidades que comparten nuestra pasión por Minecraft y los servidores multijugador.
+            </p>
+            <p class="text-white/90 mb-4">
+              Buscamos establecer relaciones a largo plazo con personas y organizaciones talentosas, ofreciendo apoyo mutuo y crecimiento conjunto.
+            </p>
+            <p class="text-white/90 mb-4">
+              Como Partner, serás parte de nuestra familia y recibirás beneficios exclusivos mientras nos ayudas a expandir nuestra comunidad.
+            </p>
+            <div class="mt-8">
+              <h3 class="text-xl font-bold mb-4 text-primary">Requisitos para aplicar</h3>
+              <ul class="space-y-2">
+                {partnerRequirements.map(req => (
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                    <span class="text-white/90">{req}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-primary">Beneficios</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {partnerBenefits.map(benefit => (
+                <div class="benefit-card bg-secondary/50 rounded-lg p-4 border border-primary/30 hover:border-primary/50 transition-all">
+                  <div class="flex items-start">
+                    <div class="benefit-icon w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 border border-primary/50 flex-shrink-0">
+                      <i class={`fas fa-${benefit.icon} text-primary`}></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg font-bold text-white">{benefit.title}</h3>
+                      <p class="text-white/80 text-sm">{benefit.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nuestros partners -->
+      <div class="all-partners mb-16 animate-fade-up animate-delay-500">
+        <h2 class="text-3xl font-bold mb-8 text-primary text-center">Nuestros Partners</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentPartners.filter(partner => !partner.featured).map(partner => (
+            <div class="partner-card bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+              <div class="partner-header p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                  <img src={partner.image} alt={partner.name} class="w-12 h-12 rounded-full border-2 border-primary/50" />
+                  <div class="ml-3">
+                    <h3 class="text-lg font-bold text-white">{partner.name}</h3>
+                    <p class="text-primary/90 text-sm">{partner.role}</p>
+                  </div>
+                </div>
+                <div class="followers bg-secondary/60 px-2 py-1 rounded-full text-xs text-white font-bold">
+                  {partner.followers}
+                </div>
+              </div>
+              <div class="partner-content p-4">
+                <p class="text-white/80 text-sm mb-4">{partner.description}</p>
+                <div class="social-links flex space-x-3">
+                  {'youtube' in partner.social && (
+                    <a href={partner.social.youtube} target="_blank" class="text-white hover:text-red-500 transition-colors">
+                      <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                  )}
+                  {'twitch' in partner.social && (
+                    <a href={partner.social.twitch} target="_blank" class="text-white hover:text-purple-500 transition-colors">
+                      <i class="fab fa-twitch text-xl"></i>
+                    </a>
+                  )}
+                  {'twitter' in partner.social && (
+                    <a href={partner.social.twitter} target="_blank" class="text-white hover:text-blue-400 transition-colors">
+                      <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                  )}
+                  {'instagram' in partner.social && (
+                    <a href={partner.social.instagram} target="_blank" class="text-white hover:text-pink-500 transition-colors">
+                      <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                  )}
+                  {'tiktok' in partner.social && (
+                    <a href={partner.social.tiktok} target="_blank" class="text-white hover:text-black transition-colors">
+                      <i class="fab fa-tiktok text-xl"></i>
+                    </a>
+                  )}
+                  {'website' in partner.social && (
+                    <a href={partner.social.website} target="_blank" class="text-white hover:text-primary transition-colors">
+                      <i class="fas fa-globe text-xl"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Formulario de aplicación -->
+      <div class="application-form bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-12 animate-fade-up animate-delay-600">
+        <h2 class="text-3xl font-bold mb-6 text-primary text-center">¿Quieres ser Partner?</h2>
+        <p class="text-white/90 text-center mb-8 max-w-3xl mx-auto">
+          Si cumples con los requisitos y estás interesado en formar parte de nuestro programa, rellena el siguiente formulario y nos pondremos en contacto contigo.
+        </p>
+        
+        <form class="max-w-3xl mx-auto space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="name" class="block text-white mb-2">Nombre/Canal <span class="text-primary">*</span></label>
+              <input type="text" id="name" name="name" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Tu nombre o nombre del canal">
+            </div>
+            <div class="form-group">
+              <label for="email" class="block text-white mb-2">Email <span class="text-primary">*</span></label>
+              <input type="email" id="email" name="email" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="tu@email.com">
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="platform" class="block text-white mb-2">Plataforma Principal <span class="text-primary">*</span></label>
+              <select id="platform" name="platform" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+                <option value="">Selecciona una plataforma</option>
+                <option value="youtube">YouTube</option>
+                <option value="twitch">Twitch</option>
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter</option>
+                <option value="website">Sitio Web</option>
+                <option value="other">Otra</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="followers" class="block text-white mb-2">Número de Seguidores <span class="text-primary">*</span></label>
+              <input type="number" id="followers" name="followers" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Cantidad aproximada">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="links" class="block text-white mb-2">Enlaces a tus Redes Sociales <span class="text-primary">*</span></label>
+            <input type="text" id="links" name="links" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Enlaces separados por comas">
+          </div>
+          
+          <div class="form-group">
+            <label for="content" class="block text-white mb-2">Tipo de Contenido <span class="text-primary">*</span></label>
+            <select id="content" name="content" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+              <option value="">Selecciona tipo de contenido</option>
+              <option value="gameplay">Gameplay/Let's Play</option>
+              <option value="tutorials">Tutoriales</option>
+              <option value="build">Construcciones</option>
+              <option value="technical">Redstone/Técnico</option>
+              <option value="pvp">PvP/Competitivo</option>
+              <option value="community">Comunidad/Social</option>
+              <option value="reviews">Reseñas/Reviews</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="block text-white mb-2">¿Por qué quieres ser Partner? <span class="text-primary">*</span></label>
+            <textarea id="message" name="message" required rows="5" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Cuéntanos sobre ti y por qué quieres unirte a nuestro programa de partners..."></textarea>
+          </div>
+          
+          <div class="form-group text-center">
+            <button type="submit" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+              Enviar Solicitud
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section animate-fade-up animate-delay-700">
+        <h2 class="text-3xl font-bold mb-8 text-primary text-center">Preguntas Frecuentes</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="faq-item bg-secondary/30 rounded-xl p-6 border border-primary/20">
+            <h3 class="text-xl font-bold mb-3 text-white">¿Cuánto tiempo tarda el proceso de aplicación?</h3>
+            <p class="text-white/80">Por lo general, revisamos las solicitudes en un plazo de 7 a 14 días hábiles. Te notificaremos por correo electrónico sobre nuestra decisión.</p>
+          </div>
+          
+          <div class="faq-item bg-secondary/30 rounded-xl p-6 border border-primary/20">
+            <h3 class="text-xl font-bold mb-3 text-white">¿Qué tipo de contenido debo crear?</h3>
+            <p class="text-white/80">El contenido debe estar relacionado con Minecraft y nuestros servidores. Puedes crear tutoriales, gameplay, eventos, construcciones o cualquier otro formato que se ajuste a tu estilo.</p>
+          </div>
+          
+          <div class="faq-item bg-secondary/30 rounded-xl p-6 border border-primary/20">
+            <h3 class="text-xl font-bold mb-3 text-white">¿Hay algún compromiso mínimo de tiempo?</h3>
+            <p class="text-white/80">Pedimos que los partners publiquen al menos un contenido relacionado con LuminaKraft cada mes para mantener activa la colaboración.</p>
+          </div>
+          
+          <div class="faq-item bg-secondary/30 rounded-xl p-6 border border-primary/20">
+            <h3 class="text-xl font-bold mb-3 text-white">¿Puedo ser partner si tengo menos seguidores?</h3>
+            <p class="text-white/80">Evaluamos cada solicitud individualmente. Si tu contenido es de alta calidad y muestra potencial, podemos considerar excepciones al requisito mínimo de seguidores.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para animaciones suaves al hacer scroll, usando JavaScript puro para compatibilidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 :
+                   element.classList.contains('animate-delay-500') ? 500 :
+                   element.classList.contains('animate-delay-600') ? 600 :
+                   element.classList.contains('animate-delay-700') ? 700 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+    
+    // Manejo del formulario
+    const applicationForm = document.querySelector('form');
+    if (applicationForm) {
+      applicationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Aquí iría la lógica para enviar el formulario a un backend
+        // Por ahora mostramos un mensaje simulando el envío exitoso
+        
+        const formContainer = this.parentNode;
+        
+        // Crear mensaje de éxito
+        const successMessage = document.createElement('div');
+        successMessage.classList.add('success-message', 'bg-green-900/50', 'text-white', 'p-8', 'rounded-lg', 'text-center');
+        successMessage.innerHTML = `<h3 class="text-2xl font-bold mb-4">¡Solicitud Enviada!</h3>
+                                  <p class="mb-4">Gracias por tu interés en formar parte de nuestro programa de partners. Hemos recibido tu solicitud y la revisaremos en los próximos días.</p>
+                                  <p>Te contactaremos a través del correo electrónico proporcionado.</p>`;
+        
+        // Reemplazar el formulario con el mensaje
+        formContainer.innerHTML = '';
+        formContainer.appendChild(successMessage);
+        
+        // Desplazarse al mensaje
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+  });
+</script>

@@ -1,0 +1,416 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout 
+  locale={locale}
+  title="Centro de Ayuda | LuminaKraft Studios"
+  description="Obtén soporte técnico, reporta problemas y contacta con nuestro equipo de atención al cliente para resolver cualquier duda."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-5xl font-bold text-center mb-8 text-primary animate-fade-up">Centro de Ayuda</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-16 max-w-3xl mx-auto animate-fade-up animate-delay-200">
+        Estamos aquí para ayudarte con cualquier problema o consulta que puedas tener.
+      </p>
+
+      <div class="support-options grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 animate-fade-up animate-delay-300">
+        <!-- Opción 1: Soporte Técnico -->
+        <div class="support-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+          <div class="card-icon text-5xl text-primary mb-6 text-center">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white text-center">Soporte Técnico</h3>
+          <p class="text-white/80 mb-6 text-center">
+            Resolvemos problemas técnicos relacionados con nuestros servidores, conexiones, rendimiento y más.
+          </p>
+          <div class="text-center">
+            <a href="#technical-form" class="px-6 py-2 rounded-lg bg-primary/80 text-white font-bold shadow-sm border border-primary/50 transition-all duration-300 hover:bg-primary hover:shadow-glow">
+              Contactar Soporte Técnico
+            </a>
+          </div>
+        </div>
+
+        <!-- Opción 2: Reportar Problema -->
+        <div class="support-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+          <div class="card-icon text-5xl text-primary mb-6 text-center">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white text-center">Reportar Problema</h3>
+          <p class="text-white/80 mb-6 text-center">
+            Informa sobre bugs, comportamientos inapropiados de usuarios o cualquier incidencia en los servidores.
+          </p>
+          <div class="text-center">
+            <a href="#report-form" class="px-6 py-2 rounded-lg bg-primary/80 text-white font-bold shadow-sm border border-primary/50 transition-all duration-300 hover:bg-primary hover:shadow-glow">
+              Crear Reporte
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-options grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 animate-fade-up animate-delay-400">
+        <!-- Opción 3: Consulta General -->
+        <div class="support-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+          <div class="card-icon text-5xl text-primary mb-6 text-center">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white text-center">Consulta General</h3>
+          <p class="text-white/80 mb-6 text-center">
+            Para preguntas sobre nuestros servicios, compras, rangos y cualquier otra inquietud.
+          </p>
+          <div class="text-center">
+            <a href="#general-form" class="px-6 py-2 rounded-lg bg-primary/80 text-white font-bold shadow-sm border border-primary/50 transition-all duration-300 hover:bg-primary hover:shadow-glow">
+              Hacer Consulta
+            </a>
+          </div>
+        </div>
+
+        <!-- Opción 4: Discord -->
+        <div class="support-card bg-secondary/30 rounded-xl p-8 border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+          <div class="card-icon text-5xl text-[#5865F2] mb-6 text-center">
+            <i class="fab fa-discord"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white text-center">Soporte en Discord</h3>
+          <p class="text-white/80 mb-6 text-center">
+            Obtén ayuda inmediata en nuestro servidor de Discord. Contamos con canales específicos de soporte.
+          </p>
+          <div class="text-center">
+            <a href="https://discord.com/invite/UJZRrcUFMj" target="_blank" class="px-6 py-2 rounded-lg bg-[#5865F2]/80 text-white font-bold shadow-sm border border-[#5865F2]/50 transition-all duration-300 hover:bg-[#5865F2] hover:shadow-glow">
+              Unirse a Discord
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-resources bg-secondary/50 rounded-xl p-10 border border-primary/20 mb-16 animate-fade-up animate-delay-500">
+        <h3 class="text-2xl font-bold mb-6 text-primary">Recursos de Ayuda</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="resource-item">
+            <h4 class="text-lg font-bold text-white flex items-center">
+              <i class="fas fa-book text-primary mr-3"></i> Wiki del Servidor
+            </h4>
+            <p class="text-white/80 mt-2 ml-8">
+              Nuestra wiki contiene guías detalladas, comandos y explicaciones de los sistemas de juego.
+            </p>
+            <div class="ml-8 mt-3">
+              <a href="https://wiki.luminakraft.com" target="_blank" class="text-primary hover:underline flex items-center">
+                Visitar Wiki <i class="fas fa-external-link-alt text-xs ml-2"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-item">
+            <h4 class="text-lg font-bold text-white flex items-center">
+              <i class="fas fa-question-circle text-primary mr-3"></i> FAQ
+            </h4>
+            <p class="text-white/80 mt-2 ml-8">
+              Respuestas a las preguntas más frecuentes sobre nuestros servidores y servicios.
+            </p>
+            <div class="ml-8 mt-3">
+              <a href="/faq" class="text-primary hover:underline flex items-center">
+                Ver Preguntas Frecuentes
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-item">
+            <h4 class="text-lg font-bold text-white flex items-center">
+              <i class="fas fa-video text-primary mr-3"></i> Tutoriales en Video
+            </h4>
+            <p class="text-white/80 mt-2 ml-8">
+              Tutoriales visuales que te ayudarán a entender mejor nuestros sistemas y características.
+            </p>
+            <div class="ml-8 mt-3">
+              <a href="https://www.youtube.com/@luminakraft/playlists" target="_blank" class="text-primary hover:underline flex items-center">
+                Ver Tutoriales <i class="fas fa-external-link-alt text-xs ml-2"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="resource-item">
+            <h4 class="text-lg font-bold text-white flex items-center">
+              <i class="fas fa-comments text-primary mr-3"></i> Foro de la Comunidad
+            </h4>
+            <p class="text-white/80 mt-2 ml-8">
+              Discusiones, guías y ayuda de otros jugadores en nuestro foro comunitario.
+            </p>
+            <div class="ml-8 mt-3">
+              <a href="/foro" class="text-primary hover:underline flex items-center">
+                Acceder al Foro
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de Soporte Técnico -->
+      <div id="technical-form" class="support-form bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-16 animate-fade-up animate-delay-600">
+        <h3 class="text-2xl font-bold mb-6 text-primary">Formulario de Soporte Técnico</h3>
+        <form class="space-y-6" id="technicalSupportForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="tech-name" class="block text-white mb-2">Nombre <span class="text-primary">*</span></label>
+              <input type="text" id="tech-name" name="name" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Tu nombre en el juego">
+            </div>
+            <div class="form-group">
+              <label for="tech-email" class="block text-white mb-2">Email <span class="text-primary">*</span></label>
+              <input type="email" id="tech-email" name="email" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="tu@email.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="tech-subject" class="block text-white mb-2">Asunto <span class="text-primary">*</span></label>
+            <input type="text" id="tech-subject" name="subject" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Describe brevemente tu problema">
+          </div>
+          
+          <div class="form-group">
+            <label for="tech-server" class="block text-white mb-2">Servidor</label>
+            <select id="tech-server" name="server" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+              <option value="">Selecciona un servidor</option>
+              <option value="survival">Survival</option>
+              <option value="skyblock">SkyBlock</option>
+              <option value="factions">Factions</option>
+              <option value="creative">Creative</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="tech-message" class="block text-white mb-2">Descripción detallada <span class="text-primary">*</span></label>
+            <textarea id="tech-message" name="message" required rows="6" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Describe detalladamente el problema técnico que estás experimentando. Incluye pasos para reproducirlo, mensajes de error, etc."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+              Enviar Solicitud
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulario de Reporte de Problemas -->
+      <div id="report-form" class="support-form bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-16 animate-fade-up animate-delay-700">
+        <h3 class="text-2xl font-bold mb-6 text-primary">Formulario de Reporte</h3>
+        <form class="space-y-6" id="problemReportForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="report-name" class="block text-white mb-2">Nombre <span class="text-primary">*</span></label>
+              <input type="text" id="report-name" name="name" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Tu nombre en el juego">
+            </div>
+            <div class="form-group">
+              <label for="report-email" class="block text-white mb-2">Email <span class="text-primary">*</span></label>
+              <input type="email" id="report-email" name="email" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="tu@email.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="report-type" class="block text-white mb-2">Tipo de Reporte <span class="text-primary">*</span></label>
+            <select id="report-type" name="reportType" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+              <option value="">Selecciona el tipo de reporte</option>
+              <option value="bug">Bug o Error</option>
+              <option value="player">Comportamiento de Jugador</option>
+              <option value="exploit">Exploit o Vulnerabilidad</option>
+              <option value="suggestion">Sugerencia</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="report-server" class="block text-white mb-2">Servidor <span class="text-primary">*</span></label>
+            <select id="report-server" name="server" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+              <option value="">Selecciona un servidor</option>
+              <option value="survival">Survival</option>
+              <option value="skyblock">SkyBlock</option>
+              <option value="factions">Factions</option>
+              <option value="creative">Creative</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="report-message" class="block text-white mb-2">Descripción detallada <span class="text-primary">*</span></label>
+            <textarea id="report-message" name="message" required rows="6" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Describe detalladamente el problema que estás reportando. Si es posible, incluye hora, ubicación y capturas de pantalla."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+              Enviar Reporte
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulario de Consulta General -->
+      <div id="general-form" class="support-form bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-16 animate-fade-up animate-delay-800">
+        <h3 class="text-2xl font-bold mb-6 text-primary">Formulario de Consulta General</h3>
+        <form class="space-y-6" id="generalInquiryForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="general-name" class="block text-white mb-2">Nombre <span class="text-primary">*</span></label>
+              <input type="text" id="general-name" name="name" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="general-email" class="block text-white mb-2">Email <span class="text-primary">*</span></label>
+              <input type="email" id="general-email" name="email" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="tu@email.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="general-subject" class="block text-white mb-2">Asunto <span class="text-primary">*</span></label>
+            <input type="text" id="general-subject" name="subject" required class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Asunto de tu consulta">
+          </div>
+          
+          <div class="form-group">
+            <label for="general-topic" class="block text-white mb-2">Tema</label>
+            <select id="general-topic" name="topic" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors">
+              <option value="">Selecciona un tema</option>
+              <option value="payments">Pagos y Donaciones</option>
+              <option value="ranks">Rangos y Permisos</option>
+              <option value="services">Servicios Profesionales</option>
+              <option value="collab">Colaboraciones</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="general-message" class="block text-white mb-2">Mensaje <span class="text-primary">*</span></label>
+            <textarea id="general-message" name="message" required rows="6" class="w-full bg-secondary/80 border border-primary/30 rounded-lg p-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Escribe tu consulta detalladamente..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+              Enviar Consulta
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para manejar los formularios usando JavaScript puro (sin jQuery)
+  document.addEventListener('DOMContentLoaded', function() {
+    const technicalForm = document.getElementById('technicalSupportForm');
+    const reportForm = document.getElementById('problemReportForm');
+    const generalForm = document.getElementById('generalInquiryForm');
+    
+    // Función común para manejar envío de formularios
+    function handleFormSubmit(event, formType) {
+      event.preventDefault();
+      
+      // Aquí iría la lógica para enviar el formulario a un backend
+      // Por ahora mostramos un mensaje simulando el envío exitoso
+      
+      // Crear mensaje de éxito
+      const successMessage = document.createElement('div');
+      successMessage.classList.add('success-message', 'bg-green-900/50', 'text-white', 'p-4', 'rounded-lg', 'mb-6');
+      successMessage.innerHTML = `<p class="font-bold">¡Mensaje enviado correctamente!</p>
+                                 <p class="mt-2">Gracias por contactarnos. Responderemos a tu ${formType} lo antes posible.</p>`;
+      
+      // Obtener el formulario actual
+      const currentForm = event.target;
+      
+      // Insertar mensaje antes del formulario
+      currentForm.parentNode.insertBefore(successMessage, currentForm);
+      
+      // Resetear el formulario
+      currentForm.reset();
+      
+      // Desplazarse al mensaje de éxito
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Eliminar el mensaje después de 5 segundos
+      setTimeout(() => {
+        successMessage.classList.add('fade-out');
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translateY(-10px)';
+        successMessage.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          successMessage.remove();
+        }, 500);
+      }, 5000);
+    }
+    
+    // Asignar eventos a los formularios
+    if (technicalForm) {
+      technicalForm.addEventListener('submit', function(e) {
+        handleFormSubmit(e, 'consulta técnica');
+      });
+    }
+    
+    if (reportForm) {
+      reportForm.addEventListener('submit', function(e) {
+        handleFormSubmit(e, 'reporte');
+      });
+    }
+    
+    if (generalForm) {
+      generalForm.addEventListener('submit', function(e) {
+        handleFormSubmit(e, 'consulta');
+      });
+    }
+    
+    // Script para animaciones suaves al hacer scroll
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 :
+                   element.classList.contains('animate-delay-500') ? 500 :
+                   element.classList.contains('animate-delay-600') ? 600 :
+                   element.classList.contains('animate-delay-700') ? 700 :
+                   element.classList.contains('animate-delay-800') ? 800 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+    
+    // Navegación suave a los formularios
+    const formLinks = document.querySelectorAll('a[href^="#"]');
+    formLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

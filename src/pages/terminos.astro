@@ -1,0 +1,198 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout 
+  locale={locale}
+  title="Términos de Servicio | LuminaKraft Studios"
+  description="Términos y condiciones para el uso de los servidores y servicios de LuminaKraft Studios."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-5xl font-bold text-center mb-8 text-primary animate-fade-up">Términos de Servicio</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-12 max-w-3xl mx-auto animate-fade-up animate-delay-200">
+        Por favor, lee detenidamente nuestros términos y condiciones para el uso de nuestros servidores y servicios.
+      </p>
+
+      <div class="bg-secondary/30 rounded-xl p-8 border border-primary/20 mb-12 animate-fade-up animate-delay-300">
+        <p class="text-white/80 mb-4">Última actualización: 28 de Marzo, 2025</p>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">1. Aceptación de los Términos</h2>
+          <p class="text-white/90 mb-3">
+            Al acceder y utilizar los servidores, sitio web y servicios de LuminaKraft Studios (en adelante "LuminaKraft"), aceptas cumplir y estar sujeto a estos Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no podrás acceder a nuestros servicios.
+          </p>
+          <p class="text-white/90">
+            Estos términos se aplican a todos los usuarios, incluidos los visitantes, jugadores regulares, colaboradores y miembros del equipo.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">2. Modificaciones de los Términos</h2>
+          <p class="text-white/90 mb-3">
+            LuminaKraft se reserva el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación. Es tu responsabilidad revisar periódicamente estos términos para estar al tanto de las actualizaciones.
+          </p>
+          <p class="text-white/90">
+            El uso continuado de nuestros servicios después de la publicación de los cambios constituye la aceptación de dichos cambios.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">3. Reglas de Conducta</h2>
+          <p class="text-white/90 mb-3">
+            Al utilizar nuestros servidores y servicios, aceptas:
+          </p>
+          <ul class="list-disc text-white/90 ml-6 space-y-2 mb-3">
+            <li>Tratar a todos los usuarios con respeto y dignidad</li>
+            <li>No utilizar lenguaje abusivo, ofensivo, discriminatorio o inapropiado</li>
+            <li>No hacer spam ni publicidad no autorizada</li>
+            <li>No acosar ni intimidar a otros jugadores</li>
+            <li>No utilizar hacks, trampas, mods no autorizados o cualquier software que otorgue ventajas injustas</li>
+            <li>No explotar bugs o glitches del juego</li>
+            <li>No intentar acceder a áreas restringidas o información privilegiada sin autorización</li>
+            <li>No suplantar la identidad de miembros del staff o de otros jugadores</li>
+            <li>No compartir información personal de otros sin su consentimiento</li>
+          </ul>
+          <p class="text-white/90">
+            El incumplimiento de estas reglas puede resultar en advertencias, suspensiones temporales o permanentes de tu cuenta, según la gravedad y frecuencia de las infracciones.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">4. Cuentas de Usuario</h2>
+          <p class="text-white/90 mb-3">
+            Eres responsable de mantener la seguridad de tu cuenta de Minecraft y de todas las actividades que ocurran bajo tu cuenta. LuminaKraft no se hace responsable por pérdidas o daños derivados del incumplimiento de esta obligación de seguridad.
+          </p>
+          <p class="text-white/90 mb-3">
+            No debes compartir tu cuenta con otros usuarios ni permitir que terceros accedan a tu cuenta.
+          </p>
+          <p class="text-white/90">
+            LuminaKraft se reserva el derecho de suspender o terminar cuentas a su exclusivo criterio, particularmente en casos de violaciones de estos términos o comportamiento perjudicial para la comunidad.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">5. Compras y Donaciones</h2>
+          <p class="text-white/90 mb-3">
+            Todas las compras y donaciones realizadas a LuminaKraft son finales y no reembolsables, excepto cuando la ley aplicable establezca lo contrario.
+          </p>
+          <p class="text-white/90 mb-3">
+            Los beneficios adquiridos a través de compras o donaciones están sujetos a los términos específicos indicados en el momento de la transacción.
+          </p>
+          <p class="text-white/90">
+            LuminaKraft se reserva el derecho de modificar, suspender o terminar cualquier paquete, beneficio o promoción en cualquier momento.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">6. Propiedad Intelectual</h2>
+          <p class="text-white/90 mb-3">
+            Todo el contenido de nuestro sitio web, servidores y servicios, incluyendo pero no limitado a texto, gráficos, logotipos, iconos, imágenes, clips de audio, descargas digitales y software, es propiedad de LuminaKraft o de sus proveedores de contenido y está protegido por leyes internacionales de derechos de autor.
+          </p>
+          <p class="text-white/90 mb-3">
+            Minecraft es una marca registrada de Mojang AB. LuminaKraft no está afiliado con Mojang AB.
+          </p>
+          <p class="text-white/90">
+            Los usuarios conservan los derechos de propiedad intelectual sobre el contenido que creen dentro de nuestros servidores, pero otorgan a LuminaKraft una licencia no exclusiva para usar, reproducir, adaptar, publicar, traducir y distribuir dicho contenido en cualquier medio.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">7. Limitación de Responsabilidad</h2>
+          <p class="text-white/90 mb-3">
+            LuminaKraft proporciona sus servicios "tal cual" y "según disponibilidad", sin garantías de ningún tipo, ya sean expresas o implícitas.
+          </p>
+          <p class="text-white/90 mb-3">
+            LuminaKraft no garantiza que sus servicios serán ininterrumpidos, oportunos, seguros o libres de errores.
+          </p>
+          <p class="text-white/90">
+            En ningún caso LuminaKraft será responsable por daños directos, indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo pero no limitado a la pérdida de progreso en el juego, objetos virtuales o divisas, derivados del uso o la imposibilidad de usar nuestros servicios.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">8. Privacidad</h2>
+          <p class="text-white/90 mb-3">
+            El uso de nuestros servicios está también sujeto a nuestra <a href="/privacidad" class="text-primary hover:underline">Política de Privacidad</a>, que explica cómo recopilamos, usamos y protegemos tu información personal.
+          </p>
+        </div>
+        
+        <div class="terms-section mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-primary">9. Ley Aplicable</h2>
+          <p class="text-white/90 mb-3">
+            Estos términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
+          </p>
+          <p class="text-white/90">
+            Cualquier disputa legal que surja de o en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales en España.
+          </p>
+        </div>
+        
+        <div class="terms-section">
+          <h2 class="text-2xl font-bold mb-4 text-primary">10. Contacto</h2>
+          <p class="text-white/90 mb-3">
+            Si tienes alguna pregunta sobre estos Términos de Servicio, puedes contactarnos en:
+          </p>
+          <p class="text-white/90">
+            Email: <a href="mailto:legal@luminakraft.com" class="text-primary hover:underline">legal@luminakraft.com</a><br>
+            Discord: <a href="https://discord.com/invite/UJZRrcUFMj" target="_blank" class="text-primary hover:underline">discord.gg/UJZRrcUFMj</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center animate-fade-up animate-delay-400">
+        <p class="text-white/80 mb-6">Para más información o asistencia:</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/soporte" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+            Centro de Ayuda
+          </a>
+          <a href="/privacidad" class="px-8 py-3 rounded-lg bg-transparent text-white font-bold border border-white/30 transition-all duration-300 hover:border-primary/50 hover:text-primary hover:-translate-y-1">
+            Política de Privacidad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para animaciones suaves al hacer scroll, usando JavaScript puro para compatibilidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+  });
+</script>

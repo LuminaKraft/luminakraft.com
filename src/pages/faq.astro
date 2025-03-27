@@ -1,0 +1,227 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout 
+  locale={locale}
+  title="Preguntas Frecuentes | LuminaKraft Studios"
+  description="Encuentra respuestas a las preguntas más comunes sobre nuestros servidores, servicios y comunidad de Minecraft."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-5xl font-bold text-center mb-8 text-primary animate-fade-up">Preguntas Frecuentes</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-16 max-w-3xl mx-auto animate-fade-up animate-delay-200">
+        Encuentra respuestas a las preguntas más comunes sobre nuestros servidores, servicios y comunidad.
+      </p>
+
+      <div class="faq-container space-y-6 animate-fade-up animate-delay-300">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Cómo puedo unirme a los servidores de LuminaKraft?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Para unirte a nuestros servidores, sigue estos pasos:</p>
+            <ol class="list-decimal list-inside mt-2 space-y-2 ml-4">
+              <li>Asegúrate de tener la versión de Minecraft Java 1.20.4</li>
+              <li>Inicia Minecraft y ve a "Multijugador"</li>
+              <li>Haz clic en "Añadir servidor"</li>
+              <li>Introduce "play.luminakraft.com" como dirección del servidor</li>
+              <li>¡Listo! Ya puedes conectarte y empezar a jugar</li>
+            </ol>
+            <p class="mt-4">También puedes unirte a nuestro Discord para mantenerte al día con todas las novedades y participar en nuestra comunidad.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Cuáles son los requisitos mínimos para jugar en LuminaKraft?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Los requisitos mínimos para una experiencia óptima son:</p>
+            <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+              <li>Minecraft Java Edition 1.20.4</li>
+              <li>4GB de RAM asignados a Minecraft</li>
+              <li>Procesador dual-core a 2.8 GHz o superior</li>
+              <li>Conexión a Internet estable (10 Mbps recomendado)</li>
+            </ul>
+            <p class="mt-4">Para una mejor experiencia visual, recomendamos utilizar shaders y texturas opcionales que puedes encontrar en nuestra sección de recursos.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Cómo funciona el sistema de rangos y permisos?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Nuestro sistema de rangos está diseñado para recompensar a los jugadores activos y a quienes apoyan el servidor:</p>
+            <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+              <li><span class="text-white font-bold">Jugador:</span> Rango inicial disponible para todos los jugadores</li>
+              <li><span class="text-blue-300 font-bold">VIP:</span> Incluye comandos adicionales, acceso prioritario y beneficios cosméticos</li>
+              <li><span class="text-green-300 font-bold">Élite:</span> Todos los beneficios VIP más slots de homes adicionales y permisos exclusivos</li>
+              <li><span class="text-purple-300 font-bold">Supremo:</span> Máximos beneficios, acceso a servidores en fase beta y más</li>
+            </ul>
+            <p class="mt-4">Puedes obtener rangos superiores a través de nuestra tienda o participando activamente en eventos especiales. Más información en la sección de donaciones.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Qué hacer si encuentro un bug o tengo problemas técnicos?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Si encuentras algún bug o experimentas problemas técnicos, puedes:</p>
+            <ol class="list-decimal list-inside mt-2 space-y-2 ml-4">
+              <li>Contactar a un miembro del staff directamente en el servidor usando <code>/helpop tu mensaje</code></li>
+              <li>Reportar el bug en nuestro Discord en el canal #reportes</li>
+              <li>Enviar un ticket detallado a través de nuestro <a href="/soporte" class="text-primary hover:underline">Centro de Ayuda</a></li>
+            </ol>
+            <p class="mt-4">Procura incluir capturas de pantalla y toda la información relevante para que podamos solucionar el problema lo antes posible.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Cómo puedo contribuir o colaborar con LuminaKraft?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Hay varias formas de contribuir a nuestra comunidad:</p>
+            <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+              <li>Participando activamente en los servidores y eventos</li>
+              <li>Creando contenido como videos, streams o fan art</li>
+              <li>Postulándote para el equipo de moderación cuando haya convocatorias abiertas</li>
+              <li>Apoyando financieramente a través de donaciones</li>
+              <li>Participando en nuestro <a href="/partners" class="text-primary hover:underline">Programa de Partners</a> si eres creador de contenido</li>
+            </ul>
+            <p class="mt-4">Valoramos todas las contribuciones, grandes o pequeñas, que ayudan a hacer crecer nuestra comunidad.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Cuáles son las normas principales de los servidores?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>Nuestras normas principales incluyen:</p>
+            <ol class="list-decimal list-inside mt-2 space-y-2 ml-4">
+              <li>Respetar a todos los jugadores y al staff</li>
+              <li>No usar hacks, cheats o modificaciones que otorguen ventajas injustas</li>
+              <li>No hacer spam ni publicidad de otros servidores</li>
+              <li>No usar lenguaje inapropiado, discriminatorio u ofensivo</li>
+              <li>No explotar bugs o glitches del juego</li>
+            </ol>
+            <p class="mt-4">Puedes consultar nuestras normas completas en el servidor con el comando <code>/reglas</code> o en nuestra sección de <a href="/terminos" class="text-primary hover:underline">Términos de Servicio</a>.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item bg-secondary/30 rounded-xl overflow-hidden border border-primary/20">
+          <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-bold text-white">¿Ofrecen servicios personalizados para otros servidores?</h3>
+            <span class="toggle-icon text-primary text-2xl">+</span>
+          </div>
+          <div class="faq-answer p-6 pt-0 hidden bg-secondary/50 text-white/80">
+            <p>¡Sí! Ofrecemos una amplia gama de servicios personalizados para otros servidores y proyectos:</p>
+            <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+              <li>Desarrollo de plugins a medida</li>
+              <li>Creación de mapas personalizados</li>
+              <li>Configuración y optimización de servidores</li>
+              <li>Diseño web y sistemas de tiendas</li>
+              <li>Consultoría técnica y estratégica</li>
+            </ul>
+            <p class="mt-4">Puedes encontrar más información en nuestra sección de <a href="/servicios" class="text-primary hover:underline">Servicios</a> o contactarnos directamente para discutir tu proyecto.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-16 animate-fade-up animate-delay-400">
+        <p class="text-white/80 mb-6">¿No encuentras la respuesta que buscas?</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/soporte" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+            Contactar con Soporte
+          </a>
+          <a href="https://discord.com/invite/UJZRrcUFMj" target="_blank" class="px-8 py-3 rounded-lg bg-[#5865F2]/80 text-white font-bold border border-[#5865F2]/50 transition-all duration-300 hover:bg-[#5865F2] hover:border-[#5865F2] hover:-translate-y-1">
+            Unirse a Discord <i class="fab fa-discord ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para el acordeón de las FAQs, usando JavaScript puro para compatibilidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        // Obtener el contenedor padre y el elemento de respuesta
+        const faqItem = this.parentElement;
+        const answer = this.nextElementSibling;
+        const toggleIcon = this.querySelector('.toggle-icon');
+        
+        // Toggle de la respuesta
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          toggleIcon.textContent = '−';
+          faqItem.classList.add('border-primary/50');
+        } else {
+          answer.classList.add('hidden');
+          toggleIcon.textContent = '+';
+          faqItem.classList.remove('border-primary/50');
+        }
+      });
+    });
+    
+    // Script para animaciones suaves al hacer scroll
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+  });
+</script>

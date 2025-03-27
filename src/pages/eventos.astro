@@ -1,0 +1,535 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation } from "../utils/i18n";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+
+// Eventos próximos
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Torneo PvP: Arena Primaveral",
+    date: "10 de Abril, 2025",
+    time: "18:00 CEST",
+    description: "Participa en nuestro torneo mensual de PvP con increíbles premios. Inscripciones abiertas hasta el 9 de abril.",
+    image: "/imgs/events/pvp-tournament.webp",
+    category: "Competitivo",
+    server: "Factions",
+    registration: true
+  },
+  {
+    id: 2,
+    title: "Inauguración SkyBlock Infinity",
+    date: "15 de Abril, 2025",
+    time: "20:00 CEST",
+    description: "Evento de lanzamiento de nuestro nuevo servidor SkyBlock Infinity con regalos para todos los asistentes y desafíos especiales.",
+    image: "/imgs/events/skyblock-launch.webp",
+    category: "Lanzamiento",
+    server: "SkyBlock",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "Construcción Colaborativa: Ciudad Medieval",
+    date: "20 de Abril, 2025",
+    time: "16:00 CEST",
+    description: "Únete a nuestros builders para construir una enorme ciudad medieval en el servidor Creative. ¡Las mejores contribuciones recibirán premios!",
+    image: "/imgs/events/build-collab.webp",
+    category: "Creativo",
+    server: "Creative",
+    registration: true
+  }
+];
+
+// Eventos en curso
+const ongoingEvents = [
+  {
+    id: 4,
+    title: "Desafío de Supervivencia: La Isla Perdida",
+    dates: "1 - 30 de Abril, 2025",
+    description: "Sobrevive durante 30 días en una isla aislada con recursos limitados y monstruos personalizados. Completa misiones diarias para ganar recompensas.",
+    image: "/imgs/events/survival-challenge.webp",
+    category: "Desafío",
+    server: "Survival",
+    progress: 25
+  },
+  {
+    id: 5,
+    title: "Festival de Primavera",
+    dates: "25 de Marzo - 15 de Abril, 2025",
+    description: "Celebra la primavera con eventos diarios, decoraciones especiales y coleccionables exclusivos en todos nuestros servidores.",
+    image: "/imgs/events/spring-festival.webp",
+    category: "Temporada",
+    server: "Todos",
+    progress: 60,
+    featured: true
+  }
+];
+
+// Eventos pasados
+const pastEvents = [
+  {
+    id: 6,
+    title: "Torneo de Parkour Extremo",
+    date: "15 de Marzo, 2025",
+    description: "Los jugadores más ágiles se enfrentaron en circuitos de parkour cada vez más difíciles.",
+    image: "/imgs/events/parkour-tournament.webp",
+    category: "Competitivo",
+    server: "Minigames",
+    winners: ["AgileCrafter", "JumpMaster", "ParkourKing"]
+  },
+  {
+    id: 7,
+    title: "Evento de San Valentín: Cupido Minecraft",
+    date: "14 de Febrero, 2025",
+    description: "Celebramos el amor y la amistad con actividades temáticas y construcciones especiales.",
+    image: "/imgs/events/valentine-event.webp",
+    category: "Temporada",
+    server: "Todos"
+  },
+  {
+    id: 8,
+    title: "Guerra de Facciones: Batalla por el Dominio",
+    date: "28 de Febrero, 2025",
+    description: "Las mejores facciones se enfrentaron en una épica batalla por el control del mapa y recursos exclusivos.",
+    image: "/imgs/events/faction-war.webp",
+    category: "Guerra",
+    server: "Factions",
+    winners: ["ImperialForce", "ShadowLords", "DragonRiders"]
+  }
+];
+
+// Calendario de eventos mensuales
+const calendarEvents = [
+  { day: 2, title: "Sorteo Semanal", category: "Comunidad" },
+  { day: 5, title: "Minijuegos en Grupo", category: "Diversión" },
+  { day: 8, title: "Carrera de Obstáculos", category: "Competitivo" },
+  { day: 10, title: "Torneo PvP", category: "Competitivo" },
+  { day: 12, title: "Evento de Staff", category: "Especial" },
+  { day: 15, title: "Inauguración SkyBlock", category: "Lanzamiento" },
+  { day: 18, title: "Noche de Historias", category: "Comunidad" },
+  { day: 20, title: "Construcción Colaborativa", category: "Creativo" },
+  { day: 22, title: "Caza del Tesoro", category: "Aventura" },
+  { day: 25, title: "Sorteo Mensual", category: "Premios" },
+  { day: 28, title: "Boss Raid", category: "Combate" },
+  { day: 30, title: "Fiesta de Fin de Mes", category: "Celebración" }
+];
+---
+
+<BaseLayout 
+  locale={locale}
+  title="Eventos | LuminaKraft Studios"
+  description="Calendarios de eventos, competiciones y actividades especiales en los servidores de LuminaKraft."
+>
+  <section class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-5xl font-bold text-center mb-4 text-primary animate-fade-up">Eventos de LuminaKraft</h1>
+      
+      <p class="text-xl text-center text-white/90 mb-12 max-w-3xl mx-auto animate-fade-up animate-delay-200">
+        Descubre todas las actividades, torneos y eventos especiales de nuestra comunidad.
+      </p>
+
+      <!-- Evento destacado -->
+      {upcomingEvents.filter(event => event.featured || ongoingEvents.find(e => e.featured)).map(event => (
+        <div class="featured-event relative bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 mb-16 animate-fade-up animate-delay-300">
+          <div class="absolute top-0 left-0 bg-primary/90 text-white py-1 px-4 rounded-br-lg font-bold z-10">
+            Destacado
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="event-image h-64 md:h-auto overflow-hidden">
+              <img src={event.image} alt={event.title} class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+            </div>
+            <div class="event-content p-8">
+              <span class="inline-block bg-secondary/70 text-white/90 text-sm px-3 py-1 rounded-full mb-3">
+                {event.category}
+              </span>
+              <h2 class="text-3xl font-bold mb-3 text-white">{event.title}</h2>
+              <div class="event-details mb-4">
+                <p class="text-primary font-bold flex items-center">
+                  <i class="fas fa-calendar-alt mr-2"></i> {'date' in event ? event.date : event.dates}
+                </p>
+                {'time' in event && (
+                  <p class="text-white/80 flex items-center mt-1">
+                    <i class="fas fa-clock mr-2"></i> {event.time}
+                  </p>
+                )}
+                <p class="text-white/80 flex items-center mt-1">
+                  <i class="fas fa-server mr-2"></i> Servidor: {event.server}
+                </p>
+              </div>
+              <p class="text-white/90 mb-6">{event.description}</p>
+              {'registration' in event && event.registration ? (
+                <a href="#" class="px-6 py-2 bg-primary/90 text-white font-bold rounded-lg hover:bg-primary transition-colors shadow-sm hover:shadow-glow inline-block">
+                  Inscribirse Ahora
+                </a>
+              ) : 'progress' in event ? (
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-white/80 text-sm">Progreso</span>
+                    <span class="text-white/80 text-sm">{event.progress}%</span>
+                  </div>
+                  <div class="w-full bg-secondary/50 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style={`width: ${event.progress}%`}></div>
+                  </div>
+                </div>
+              ) : (
+                <a href="#" class="px-6 py-2 bg-primary/90 text-white font-bold rounded-lg hover:bg-primary transition-colors shadow-sm hover:shadow-glow inline-block">
+                  Ver Detalles
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Filtro de eventos -->
+      <div class="event-filters flex flex-wrap justify-center gap-4 mb-12 animate-fade-up animate-delay-400">
+        <button class="filter-btn px-4 py-2 bg-primary/90 text-white rounded-lg hover:bg-primary transition-colors">
+          Todos
+        </button>
+        <button class="filter-btn px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+          Próximos
+        </button>
+        <button class="filter-btn px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+          En curso
+        </button>
+        <button class="filter-btn px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+          Pasados
+        </button>
+        <button class="filter-btn px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+          Competitivos
+        </button>
+        <button class="filter-btn px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+          Creativos
+        </button>
+      </div>
+
+      <!-- Próximos eventos -->
+      <div class="upcoming-events mb-16 animate-fade-up animate-delay-500">
+        <h2 class="text-3xl font-bold mb-6 text-primary"><i class="fas fa-calendar-day mr-2"></i> Próximos Eventos</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcomingEvents.map(event => !event.featured && (
+            <div class="event-card bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow hover:-translate-y-1">
+              <div class="event-image h-48 overflow-hidden relative">
+                <img src={event.image} alt={event.title} class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+                <span class="absolute top-3 left-3 bg-secondary/80 text-white/90 text-xs px-2 py-1 rounded-full">
+                  {event.category}
+                </span>
+              </div>
+              <div class="event-content p-6">
+                <h3 class="text-xl font-bold mb-2 text-white hover:text-primary transition-colors">
+                  <a href="#">{event.title}</a>
+                </h3>
+                <div class="event-details mb-3">
+                  <p class="text-primary font-bold text-sm flex items-center">
+                    <i class="fas fa-calendar-alt mr-2"></i> {event.date}
+                  </p>
+                  <p class="text-white/80 text-sm flex items-center mt-1">
+                    <i class="fas fa-clock mr-2"></i> {event.time}
+                  </p>
+                  <p class="text-white/80 text-sm flex items-center mt-1">
+                    <i class="fas fa-server mr-2"></i> {event.server}
+                  </p>
+                </div>
+                <p class="text-white/80 text-sm mb-4 line-clamp-3">{event.description}</p>
+                {event.registration ? (
+                  <a href="#" class="px-4 py-1.5 bg-primary/90 text-white text-sm font-bold rounded-lg hover:bg-primary transition-colors shadow-sm inline-block">
+                    Inscribirse
+                  </a>
+                ) : (
+                  <a href="#" class="px-4 py-1.5 bg-secondary/50 text-white text-sm font-bold rounded-lg hover:bg-secondary/80 transition-colors inline-block">
+                    Detalles
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Eventos en curso -->
+      <div class="ongoing-events mb-16 animate-fade-up animate-delay-600">
+        <h2 class="text-3xl font-bold mb-6 text-primary"><i class="fas fa-play-circle mr-2"></i> Eventos en Curso</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {ongoingEvents.map(event => !event.featured && (
+            <div class="event-card bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow">
+              <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="event-image h-40 md:h-auto overflow-hidden">
+                  <img src={event.image} alt={event.title} class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+                </div>
+                <div class="event-content p-6 md:col-span-2">
+                  <span class="inline-block bg-secondary/70 text-white/90 text-xs px-2 py-0.5 rounded-full mb-2">
+                    {event.category}
+                  </span>
+                  <h3 class="text-xl font-bold mb-2 text-white hover:text-primary transition-colors">
+                    <a href="#">{event.title}</a>
+                  </h3>
+                  <div class="event-details mb-2">
+                    <p class="text-primary font-bold text-sm flex items-center">
+                      <i class="fas fa-calendar-alt mr-2"></i> {event.dates}
+                    </p>
+                    <p class="text-white/80 text-sm flex items-center mt-1">
+                      <i class="fas fa-server mr-2"></i> {event.server}
+                    </p>
+                  </div>
+                  <p class="text-white/80 text-sm mb-3">{event.description}</p>
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-white/80 text-xs">Progreso</span>
+                      <span class="text-white/80 text-xs">{event.progress}%</span>
+                    </div>
+                    <div class="w-full bg-secondary/50 rounded-full h-2">
+                      <div class="bg-primary h-2 rounded-full" style={`width: ${event.progress}%`}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Calendario de eventos -->
+      <div class="events-calendar mb-16 animate-fade-up animate-delay-700">
+        <h2 class="text-3xl font-bold mb-6 text-primary"><i class="fas fa-calendar mr-2"></i> Calendario de Eventos</h2>
+        
+        <div class="bg-secondary/30 rounded-xl p-6 border border-primary/20">
+          <div class="calendar-header flex justify-between items-center mb-6">
+            <button class="calendar-nav px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+              <i class="fas fa-chevron-left mr-1"></i> Marzo
+            </button>
+            <h3 class="text-2xl font-bold text-primary">Abril 2025</h3>
+            <button class="calendar-nav px-4 py-2 bg-secondary/50 text-white rounded-lg hover:bg-secondary/80 transition-colors">
+              Mayo <i class="fas fa-chevron-right ml-1"></i>
+            </button>
+          </div>
+          
+          <div class="calendar-grid">
+            <div class="grid grid-cols-7 gap-2 text-center mb-2">
+              <div class="text-white/90 font-bold">L</div>
+              <div class="text-white/90 font-bold">M</div>
+              <div class="text-white/90 font-bold">X</div>
+              <div class="text-white/90 font-bold">J</div>
+              <div class="text-white/90 font-bold">V</div>
+              <div class="text-white/90 font-bold">S</div>
+              <div class="text-white/90 font-bold">D</div>
+            </div>
+            
+            <div class="grid grid-cols-7 gap-2">
+              <div class="calendar-day opacity-50">27</div>
+              <div class="calendar-day opacity-50">28</div>
+              <div class="calendar-day opacity-50">29</div>
+              <div class="calendar-day opacity-50">30</div>
+              <div class="calendar-day opacity-50">31</div>
+              <div class="calendar-day">1</div>
+              <div class="calendar-day event-day">
+                <span>2</span>
+                <div class="event-indicator bg-primary"></div>
+              </div>
+              
+              {Array.from({ length: 30 }, (_, i) => i + 3).map(day => {
+                const hasEvent = calendarEvents.some(event => event.day === day - 2);
+                return (
+                  <div class={`calendar-day ${hasEvent ? 'event-day' : ''}`}>
+                    <span>{day > 30 ? day - 30 : day}</span>
+                    {hasEvent && <div class="event-indicator bg-primary"></div>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          <div class="calendar-events mt-6">
+            <h4 class="text-xl font-bold text-white mb-4">Eventos del Mes</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {calendarEvents.map(event => (
+                <div class="calendar-event-item flex items-start gap-2">
+                  <div class="event-date text-center">
+                    <div class="bg-primary/80 text-white text-sm font-bold rounded-t-md px-2 py-1">ABR</div>
+                    <div class="bg-secondary/80 text-white text-lg font-bold rounded-b-md px-2 py-0.5">{event.day}</div>
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-white">{event.title}</h5>
+                    <p class="text-white/70 text-sm">{event.category}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eventos pasados -->
+      <div class="past-events mb-12 animate-fade-up animate-delay-800">
+        <h2 class="text-3xl font-bold mb-6 text-primary"><i class="fas fa-history mr-2"></i> Eventos Pasados</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pastEvents.map(event => (
+            <div class="event-card bg-secondary/30 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all hover:shadow-glow">
+              <div class="event-image h-48 overflow-hidden relative">
+                <img src={event.image} alt={event.title} class="w-full h-full object-cover transition-transform hover:scale-105 duration-500 filter brightness-75" />
+                <span class="absolute top-3 left-3 bg-secondary/80 text-white/90 text-xs px-2 py-1 rounded-full">
+                  {event.category}
+                </span>
+                <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                  <span class="bg-secondary/80 text-white px-4 py-2 rounded-lg font-bold">Finalizado</span>
+                </div>
+              </div>
+              <div class="event-content p-6">
+                <h3 class="text-xl font-bold mb-2 text-white hover:text-primary transition-colors">
+                  <a href="#">{event.title}</a>
+                </h3>
+                <p class="text-primary font-bold text-sm flex items-center mb-3">
+                  <i class="fas fa-calendar-alt mr-2"></i> {event.date}
+                </p>
+                <p class="text-white/80 text-sm mb-3">{event.description}</p>
+                
+                {'winners' in event && (
+                  <div class="winners mt-3">
+                    <h4 class="text-white font-bold text-sm mb-2">Ganadores:</h4>
+                    <div class="flex flex-wrap gap-2">
+                      {event.winners.map((winner, index) => (
+                        <span class={`text-xs font-bold px-2 py-1 rounded-full ${
+                          index === 0 ? 'bg-yellow-500/80 text-yellow-950' :
+                          index === 1 ? 'bg-gray-400/80 text-gray-950' :
+                          index === 2 ? 'bg-amber-700/80 text-amber-950' :
+                          'bg-primary/80 text-white'
+                        }`}>
+                          {index === 0 ? '🥇 ' : index === 1 ? '🥈 ' : index === 2 ? '🥉 ' : ''}{winner}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <a href="#" class="mt-4 inline-block text-primary hover:underline text-sm">
+                  Ver resumen completo
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="event-cta bg-primary/30 rounded-xl p-8 border border-primary/20 text-center animate-fade-up animate-delay-900">
+        <h3 class="text-2xl font-bold mb-3 text-white">¿Quieres proponer un evento?</h3>
+        <p class="text-white/90 mb-6 max-w-2xl mx-auto">
+          ¿Tienes ideas para eventos divertidos o competiciones? ¡Compártelas con nosotros! Valoramos las propuestas de nuestra comunidad.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/soporte" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+            Proponer un Evento
+          </a>
+          <a href="https://discord.com/invite/UJZRrcUFMj" target="_blank" class="px-8 py-3 rounded-lg bg-[#5865F2]/80 text-white font-bold border border-[#5865F2]/50 transition-all duration-300 hover:bg-[#5865F2] hover:border-[#5865F2] hover:-translate-y-1">
+            Unirse a Discord <i class="fab fa-discord ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(1, 26, 56, 0.5);
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .calendar-day:hover {
+    background-color: rgba(1, 26, 56, 0.8);
+    color: white;
+  }
+  
+  .calendar-day.opacity-50 {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(1, 26, 56, 0.3);
+  }
+  
+  .event-day {
+    border: 1px solid rgba(14, 165, 233, 0.3);
+  }
+  
+  .event-indicator {
+    position: absolute;
+    bottom: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+</style>
+
+<script>
+  // Script para animaciones suaves al hacer scroll, usando JavaScript puro para compatibilidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-fade-up');
+    
+    function checkVisibility() {
+      animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+    
+    // Configuración inicial
+    animatedElements.forEach(element => {
+      const delay = element.classList.contains('animate-delay-200') ? 200 :
+                   element.classList.contains('animate-delay-300') ? 300 :
+                   element.classList.contains('animate-delay-400') ? 400 :
+                   element.classList.contains('animate-delay-500') ? 500 :
+                   element.classList.contains('animate-delay-600') ? 600 :
+                   element.classList.contains('animate-delay-700') ? 700 :
+                   element.classList.contains('animate-delay-800') ? 800 :
+                   element.classList.contains('animate-delay-900') ? 900 : 0;
+      
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease, transform 0.6s ease`;
+      element.style.transitionDelay = `${delay}ms`;
+    });
+    
+    // Verificar visibilidad inicialmente y al hacer scroll
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+    
+    // Funcionalidad para los filtros
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Resetear todos los botones
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-primary/90');
+          btn.classList.add('bg-secondary/50');
+        });
+        
+        // Activar el botón actual
+        this.classList.remove('bg-secondary/50');
+        this.classList.add('bg-primary/90');
+        
+        // Aquí iría la lógica de filtrado
+        // Por ahora es solo visual
+      });
+    });
+  });
+</script>
