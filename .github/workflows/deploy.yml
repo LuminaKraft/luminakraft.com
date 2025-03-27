@@ -48,3 +48,21 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: "dist/"
           target: "/datos/luminakraft/web"
+          strip_components: 0
+          overwrite: true
+      
+      # Verificar permisos después de la transferencia
+      - name: Verify and fix permissions
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: sftp.luminakraft.com
+          port: 4988
+          username: kogp
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            # Asegurar permisos adecuados para todos los archivos
+            find /datos/luminakraft/web/dist -type f -exec chmod 644 {} \;
+            # Asegurar permisos adecuados para todos los directorios
+            find /datos/luminakraft/web/dist -type d -exec chmod 755 {} \;
+            # Listar archivos para verificar
+            ls -la /datos/luminakraft/web/dist
