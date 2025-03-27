@@ -12,10 +12,13 @@ export default defineConfig({
     }
   },
   build: {
-    assets: '_astro'
+    // Asegura que los assets se pongan en una carpeta previsible
+    assets: '_assets',
+    // Usar rutas absolutas para todos los assets
+    assetsPrefix: '/'
   },
-  // Configuración importante para las rutas de los activos
-  site: 'https://luminakraft.com',  // Cambia esto por tu dominio real
+  // Configuración para rutas absolutas
   base: '/',
+  outDir: './dist',
   trailingSlash: 'always'
 }); 
