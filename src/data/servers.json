@@ -3,7 +3,7 @@
     "id": "onepieceworld",
     "name": "One Piece World",
     "slug": "onepieceworld",
-    "isNew": true,
+    "isNew": false,
     "isActive": false,
     "images": [
       "/imgs/servers/onepieceworld/screenshot1.webp",
@@ -49,7 +49,7 @@
     "modloader": "Forge",
     "gamemode": "RPG / Aventura",
     "descriptionKey": "ancientkraft-desc",
-    "leaderboardPath": "/data/servers/ancientkraft/leaderboard.json"
+    "leaderboardPath": null
   },
   {
     "id": "pt-the_full_course",
@@ -77,6 +77,6 @@
     "modloader": "Vanilla",
     "gamemode": "Supervivencia",
     "descriptionKey": "pt-the_full_course-desc",
-    "leaderboardPath": "/data/servers/pt-the_full_course/leaderboard.json"
+    "leaderboardPath": null
   }
 ] 
