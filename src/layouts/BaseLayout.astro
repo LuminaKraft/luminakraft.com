@@ -183,7 +183,7 @@ const t = (key) => getTranslation(key, locale);
         const menuButton = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeButton = document.querySelector('.close-menu');
-        const menuLinks = document.querySelectorAll('#mobileMenu a[href^="#"]');
+        const menuLinks = document.querySelectorAll('#mobileMenu a');
         
         // Función para abrir el menú
         function openMenu() {
@@ -220,7 +220,6 @@ const t = (key) => getTranslation(key, locale);
           };
         });
         
-        // Resto del código para el scroll y cambio de idioma
         // Scroll suave para todos los enlaces internos
         const internalLinks = document.querySelectorAll('a[href^="#"]:not(.no-smooth)');
         internalLinks.forEach(link => {
