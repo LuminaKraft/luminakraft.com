@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 // Traducir según el idioma
-const t = (key: string) => getTranslation(key, locale);
+const t = (key) => getTranslation(key, locale);
 ---
 
 <!DOCTYPE html>
@@ -89,7 +89,7 @@ const t = (key: string) => getTranslation(key, locale);
       </div>
     </header>
 
-    <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center">
+    <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center" id="mobileMenu">
       <span class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer">&times;</span>
       <div class="flex flex-col space-y-6 text-center">
         <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors">{t('inicio')}</a>
@@ -176,40 +176,55 @@ const t = (key: string) => getTranslation(key, locale);
       </div>
     </footer>
 
-    <script>
-      // Funcionalidad para el menú móvil
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const closeMenu = document.querySelector('.close-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a[href^="#"]');
+    <script is:inline>
+      // Script para el menú móvil - Implementación simple y directa
+      window.addEventListener('load', function() {
+        // Selección de elementos
+        const menuButton = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeButton = document.querySelector('.close-menu');
+        const menuLinks = document.querySelectorAll('#mobileMenu a[href^="#"]');
         
-        if (mobileMenuBtn && mobileMenu && closeMenu) {
-          // Abrir menú
-          mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('translate-x-0');
-            document.body.style.overflow = 'hidden';
-          });
-          
-          // Cerrar menú
-          closeMenu.addEventListener('click', function() {
-            mobileMenu.classList.remove('translate-x-0');
-            document.body.style.overflow = '';
-          });
-          
-          // Cerrar menú al hacer clic en un enlace
-          mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-              mobileMenu.classList.remove('translate-x-0');
-              document.body.style.overflow = '';
-            });
-          });
+        // Función para abrir el menú
+        function openMenu() {
+          mobileMenu.style.transform = 'translateX(0)';
+          document.body.style.overflow = 'hidden';
         }
         
+        // Función para cerrar el menú
+        function closeMenu() {
+          mobileMenu.style.transform = 'translateX(100%)';
+          document.body.style.overflow = '';
+        }
+        
+        // Evento para el botón de menú
+        if (menuButton) {
+          menuButton.onclick = function(e) {
+            e.preventDefault();
+            openMenu();
+          };
+        }
+        
+        // Evento para el botón de cierre
+        if (closeButton) {
+          closeButton.onclick = function(e) {
+            e.preventDefault();
+            closeMenu();
+          };
+        }
+        
+        // Eventos para los enlaces del menú
+        menuLinks.forEach(function(link) {
+          link.onclick = function() {
+            closeMenu();
+          };
+        });
+        
+        // Resto del código para el scroll y cambio de idioma
         // Scroll suave para todos los enlaces internos
         const internalLinks = document.querySelectorAll('a[href^="#"]:not(.no-smooth)');
         internalLinks.forEach(link => {
-          link.addEventListener('click', function(e) {
+          link.onclick = function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
@@ -223,12 +238,12 @@ const t = (key: string) => getTranslation(key, locale);
               // Actualizar la URL sin recargar la página
               history.pushState('', '', targetId);
             }
-          });
+          };
         });
         
         // Cambio de idioma
-        const languageSelector = document.getElementById('language-selector') as HTMLSelectElement;
-        const mobileLangSelector = document.getElementById('mobile-language-selector') as HTMLSelectElement;
+        const languageSelector = document.getElementById('language-selector');
+        const mobileLangSelector = document.getElementById('mobile-language-selector');
         
         // Establecer el valor del selector de idioma basado en localStorage o la URL actual
         const setInitialLanguageSelector = () => {
@@ -252,7 +267,7 @@ const t = (key: string) => getTranslation(key, locale);
         setInitialLanguageSelector();
         
         // Función para cambiar el idioma
-        function changeLanguage(lang: string) {
+        function changeLanguage(lang) {
           // Guardar el idioma en localStorage
           localStorage.setItem('selectedLanguage', lang);
           
@@ -291,20 +306,20 @@ const t = (key: string) => getTranslation(key, locale);
         }
         
         if (languageSelector) {
-          languageSelector.addEventListener('change', function() {
+          languageSelector.onchange = function() {
             changeLanguage(this.value);
-          });
+          };
         }
         
         if (mobileLangSelector) {
-          mobileLangSelector.addEventListener('change', function() {
+          mobileLangSelector.onchange = function() {
             changeLanguage(this.value);
-          });
+          };
         }
         
         // Menú sticky al hacer scroll
         const header = document.querySelector('header');
-        window.addEventListener('scroll', function() {
+        window.onscroll = function() {
           if (window.scrollY > 50) {
             header?.classList.add('py-2', 'shadow-md');
             header?.classList.remove('py-3');
@@ -312,8 +327,8 @@ const t = (key: string) => getTranslation(key, locale);
             header?.classList.remove('py-2', 'shadow-md');
             header?.classList.add('py-3');
           }
-        });
+        };
       });
     </script>
   </body>
-</html> 
+</html>
