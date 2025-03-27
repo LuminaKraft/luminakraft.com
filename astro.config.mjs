@@ -10,15 +10,5 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  },
-  build: {
-    // Asegura que los assets se pongan en una carpeta previsible
-    assets: '_assets',
-    // Usar rutas absolutas para todos los assets
-    assetsPrefix: '/'
-  },
-  // Configuración para rutas absolutas
-  base: '/',
-  outDir: './dist',
-  trailingSlash: 'always'
-}); 
+  }
+});
