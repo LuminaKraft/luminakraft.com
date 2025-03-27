@@ -1,0 +1,319 @@
+---
+import { getTranslation } from '../utils/i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: 'es' | 'en';
+}
+
+const { 
+  title = 'LuminaKraft Studios | Innovative Minecraft Server Development',
+  description = 'LuminaKraft Studios is an innovative minecraft server development company. Explore our exciting server releases and join our community!',
+  locale = 'es'
+} = Astro.props;
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<!DOCTYPE html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#011a38" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="LuminaKraft, server development, minecraft server, game studio" />
+    <meta name="author" content="LuminaKraft Studios" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- DNS prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//mc-heads.net" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    
+    <!-- Preconexión a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    
+    <!-- Meta etiquetas OpenGraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp" />
+    <meta property="og:url" content="https://www.luminakraft.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp" />
+    <link rel="icon" href="/imgs/favicon.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.webp" />
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body class="bg-secondary text-white font-kanit overflow-x-hidden min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 w-full z-50 bg-secondary/70 backdrop-blur-sm transition-all duration-300 py-3">
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a href="/" class="transition-transform hover:scale-110">
+              <img src="/imgs/favicon.webp" alt="LuminaKraft Studios Logo" class="w-12 h-12" width="48" height="48" fetchpriority="high" />
+            </a>
+            <div class="language-selector ml-4">
+              <select id="language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1 text-sm hover:border-primary transition-colors">
+                <option value="es" selected={locale === 'es'}>ES</option>
+                <option value="en" selected={locale === 'en'}>EN</option>
+              </select>
+            </div>
+          </div>
+          <div class="hidden md:flex space-x-6 nav-links">
+            <a href="/#inicio" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('inicio')}</a>
+            <a href="/#servidores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('servidores')}</a>
+            <a href="/#servicios" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('servicios')}</a>
+            <a href="/#colaboradores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('colaboradores')}</a>
+            <a href="/#nosotros" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('nosotros')}</a>
+            <a href="/#donaciones" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('donaciones')}</a>
+            <a href="/#contacto" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('contacto')}</a>
+            <a href="https://wiki.luminakraft.com" target="_blank" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+          </div>
+          <button class="md:hidden mobile-menu-button text-2xl text-white" id="mobileMenuBtn" aria-label="Abrir menú">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center">
+      <span class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer">&times;</span>
+      <div class="flex flex-col space-y-6 text-center">
+        <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors">{t('inicio')}</a>
+        <a href="/#servidores" class="text-xl text-white hover:text-primary transition-colors">{t('servidores')}</a>
+        <a href="/#servicios" class="text-xl text-white hover:text-primary transition-colors">{t('servicios')}</a>
+        <a href="/#colaboradores" class="text-xl text-white hover:text-primary transition-colors">{t('colaboradores')}</a>
+        <a href="/#nosotros" class="text-xl text-white hover:text-primary transition-colors">{t('nosotros')}</a>
+        <a href="/#donaciones" class="text-xl text-white hover:text-primary transition-colors">{t('donaciones')}</a>
+        <a href="/#contacto" class="text-xl text-white hover:text-primary transition-colors">{t('contacto')}</a>
+        <a href="https://wiki.luminakraft.com" target="_blank" class="text-xl text-white hover:text-primary transition-colors">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+      </div>
+      <div class="mt-8">
+        <label for="mobile-language-selector" class="text-white mr-2">{t('select-language')}</label>
+        <select id="mobile-language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1">
+          <option value="es" selected={locale === 'es'}>Español</option>
+          <option value="en" selected={locale === 'en'}>English</option>
+        </select>
+      </div>
+    </div>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="bg-secondary relative overflow-hidden py-12 mt-8">
+      <div class="container mx-auto px-4">
+        <div class="footer-content flex flex-col md:flex-row md:justify-between gap-8 max-w-5xl mx-auto">
+          <div class="footer-section">
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('quick-links')}</h3>
+            <ul class="space-y-2">
+              <li><a href="/#inicio" class="text-white hover:text-primary transition-colors">{t('inicio')}</a></li>
+              <li><a href="/#servidores" class="text-white hover:text-primary transition-colors">{t('servidores')}</a></li>
+              <li><a href="/#servicios" class="text-white hover:text-primary transition-colors">{t('servicios')}</a></li>
+              <li><a href="/#colaboradores" class="text-white hover:text-primary transition-colors">{t('colaboradores')}</a></li>
+              <li><a href="/#nosotros" class="text-white hover:text-primary transition-colors">{t('nosotros')}</a></li>
+              <li><a href="/#donaciones" class="text-white hover:text-primary transition-colors">{t('donaciones')}</a></li>
+              <li><a href="/#contacto" class="text-white hover:text-primary transition-colors">{t('contacto')}</a></li>
+              <li>
+                <a href="https://wiki.luminakraft.com" target="_blank" class="text-white hover:text-primary transition-colors">
+                  Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('support')}</h3>
+            <ul class="space-y-2">
+              <li><a href="/faq" class="text-white hover:text-primary transition-colors">{t('faq')}</a></li>
+              <li><a href="/soporte" class="text-white hover:text-primary transition-colors">{t('help-center')}</a></li>
+              <li><a href="/terminos" class="text-white hover:text-primary transition-colors">{t('terms')}</a></li>
+              <li><a href="/privacidad" class="text-white hover:text-primary transition-colors">{t('privacy')}</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('community')}</h3>
+            <ul class="space-y-2">
+              <li><a href="/blog" class="text-white hover:text-primary transition-colors">{t('blog')}</a></li>
+              <li><a href="/foro" class="text-white hover:text-primary transition-colors">{t('forum')}</a></li>
+              <li><a href="/eventos" class="text-white hover:text-primary transition-colors">{t('events')}</a></li>
+              <li><a href="/partners" class="text-white hover:text-primary transition-colors">{t('partners')}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="social-links flex justify-center mt-8 space-x-6">
+          <a href="https://discord.com/invite/UJZRrcUFMj" title="Únete a nuestro Discord" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://www.tiktok.com/@luminakraft" title="Síguenos en TikTok" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.youtube.com/@luminakraft" title="Suscríbete a nuestro canal de YouTube" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://x.com/luminakraft" title="Síguenos en X" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/luminakraft" title="Síguenos en Instagram" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <p class="copyright text-center text-white/70 mt-8">
+          {t('copyright')}
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Funcionalidad para el menú móvil
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeMenu = document.querySelector('.close-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a[href^="#"]');
+        
+        if (mobileMenuBtn && mobileMenu && closeMenu) {
+          // Abrir menú
+          mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('translate-x-0');
+            document.body.style.overflow = 'hidden';
+          });
+          
+          // Cerrar menú
+          closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('translate-x-0');
+            document.body.style.overflow = '';
+          });
+          
+          // Cerrar menú al hacer clic en un enlace
+          mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.remove('translate-x-0');
+              document.body.style.overflow = '';
+            });
+          });
+        }
+        
+        // Scroll suave para todos los enlaces internos
+        const internalLinks = document.querySelectorAll('a[href^="#"]:not(.no-smooth)');
+        internalLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // 80px de offset para el header
+                behavior: 'smooth'
+              });
+              
+              // Actualizar la URL sin recargar la página
+              history.pushState('', '', targetId);
+            }
+          });
+        });
+        
+        // Cambio de idioma
+        const languageSelector = document.getElementById('language-selector') as HTMLSelectElement;
+        const mobileLangSelector = document.getElementById('mobile-language-selector') as HTMLSelectElement;
+        
+        // Establecer el valor del selector de idioma basado en localStorage o la URL actual
+        const setInitialLanguageSelector = () => {
+          // Detectar idioma de la URL
+          const path = window.location.pathname;
+          const isEnglishPath = path.startsWith('/en');
+          
+          // Guardar en localStorage
+          localStorage.setItem('selectedLanguage', isEnglishPath ? 'en' : 'es');
+          
+          // Establecer selector
+          if (languageSelector) {
+            languageSelector.value = isEnglishPath ? 'en' : 'es';
+          }
+          if (mobileLangSelector) {
+            mobileLangSelector.value = isEnglishPath ? 'en' : 'es';
+          }
+        };
+        
+        // Establecer selector inicial
+        setInitialLanguageSelector();
+        
+        // Función para cambiar el idioma
+        function changeLanguage(lang: string) {
+          // Guardar el idioma en localStorage
+          localStorage.setItem('selectedLanguage', lang);
+          
+          // Adaptar URL según el idioma
+          const currentPath = window.location.pathname;
+          const isServerPage = currentPath.includes('/servers/');
+          const serverSlug = isServerPage ? currentPath.split('/').pop() : '';
+          
+          // Si se selecciona español (idioma predeterminado)
+          if (lang === 'es') {
+            // Si estamos en una página en inglés, cambiar a español
+            if (currentPath.startsWith('/en')) {
+              if (isServerPage && serverSlug) {
+                window.location.href = `/servers/${serverSlug}`;
+              } else {
+                window.location.href = currentPath.replace('/en', '') || '/';
+              }
+              return;
+            }
+          }
+          // Si se selecciona inglés
+          else if (lang === 'en') {
+            // Si estamos en español, cambiar a inglés
+            if (!currentPath.startsWith('/en')) {
+              if (isServerPage && serverSlug) {
+                window.location.href = `/en/servers/${serverSlug}`;
+              } else {
+                window.location.href = `/en${currentPath === '/' ? '' : currentPath}`;
+              }
+              return;
+            }
+          }
+          
+          // Si no requiere cambio de URL, solo recargar
+          window.location.reload();
+        }
+        
+        if (languageSelector) {
+          languageSelector.addEventListener('change', function() {
+            changeLanguage(this.value);
+          });
+        }
+        
+        if (mobileLangSelector) {
+          mobileLangSelector.addEventListener('change', function() {
+            changeLanguage(this.value);
+          });
+        }
+        
+        // Menú sticky al hacer scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            header?.classList.add('py-2', 'shadow-md');
+            header?.classList.remove('py-3');
+          } else {
+            header?.classList.remove('py-2', 'shadow-md');
+            header?.classList.add('py-3');
+          }
+        });
+      });
+    </script>
+  </body>
+</html> 

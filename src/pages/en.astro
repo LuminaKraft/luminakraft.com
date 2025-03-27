@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ServerCard from "../components/ServerCard.astro";
+import { getTranslation } from "../utils/i18n";
+import servers from "../data/servers.json";
+
+// Definir el idioma
+const locale = 'en';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout locale={locale}>
+  <!-- Hero Section -->
+  <HeroSection locale={locale} />
+
+  <!-- Servidores Section -->
+  <section id="servidores" class="py-20 px-4 relative overflow-hidden">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-primary animate-fade-up">{t('featured-servers')}</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {servers.map((server, index) => (
+          <div class="server-item h-full flex flex-col">
+            <ServerCard 
+              id={server.id}
+              name={server.name}
+              slug={server.slug}
+              isNew={server.isNew}
+              isActive={server.isActive}
+              image={server.images[0]}
+              logo={server.logo}
+              collaborators={server.collaborators}
+              descriptionKey={server.descriptionKey}
+              locale={locale}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout> 

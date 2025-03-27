@@ -1,0 +1,349 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ServerCard from "../components/ServerCard.astro";
+import { getTranslation } from "../utils/i18n";
+import servers from "../data/servers.json";
+
+// Definir el idioma
+const locale = 'es';
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout locale={locale}>
+  <!-- Hero Section -->
+  <HeroSection locale={locale} />
+
+  <!-- Servidores Section -->
+  <section id="servidores" class="py-20 px-4 relative overflow-hidden">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-primary animate-fade-up">{t('featured-servers')}</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {servers.map((server, index) => (
+          <div class="server-item h-full flex flex-col">
+            <ServerCard 
+              id={server.id}
+              name={server.name}
+              slug={server.slug}
+              isNew={server.isNew}
+              isActive={server.isActive}
+              image={server.images[0]}
+              logo={server.logo}
+              collaborators={server.collaborators}
+              descriptionKey={server.descriptionKey}
+              locale={locale}
+            />
+          </div>
+        ))}
+        
+        <!-- Próximamente card -->
+        <div class="server-item h-full flex flex-col">
+          <div class="server-card h-full flex flex-col relative overflow-hidden rounded-xl bg-secondary/60 backdrop-blur p-5 border border-primary/30 transition-all hover:border-primary/70 hover:shadow-glow group animate-fade-up" style="animation-delay: 300ms;">
+            <div class="flex items-center justify-center h-48 bg-secondary/50 rounded-lg">
+              <span class="text-6xl text-primary/50">?</span>
+            </div>
+            <h3 class="text-2xl font-bold mt-4 text-primary">???</h3>
+            <p class="text-white/80 my-3 min-h-[60px]">{t('coming-soon-desc')}</p>
+            <div class="mt-auto">
+              <a href="#" class="block w-full bg-gradient-to-r from-primary/50 to-primary/50 text-white py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden opacity-70 cursor-not-allowed">
+                <span class="relative z-10">{t('stay-tuned')}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section -->
+  <section id="servicios" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('our-services')}</h2>
+      
+      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200">{t('services-intro')}</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+        <div class="service-item flex items-start bg-secondary/40 rounded-lg p-5 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300">
+          <span class="text-primary mr-4 mt-1 text-xl"><i class="fas fa-server"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">{t('service-1')}</h3>
+          </div>
+        </div>
+        
+        <div class="service-item flex items-start bg-secondary/40 rounded-lg p-5 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300">
+          <span class="text-primary mr-4 mt-1 text-xl"><i class="fas fa-tools"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">{t('service-2')}</h3>
+          </div>
+        </div>
+        
+        <div class="service-item flex items-start bg-secondary/40 rounded-lg p-5 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300">
+          <span class="text-primary mr-4 mt-1 text-xl"><i class="fas fa-cubes"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">{t('service-3')}</h3>
+          </div>
+        </div>
+        
+        <div class="service-item flex items-start bg-secondary/40 rounded-lg p-5 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400">
+          <span class="text-primary mr-4 mt-1 text-xl"><i class="fas fa-code"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">{t('service-4')}</h3>
+          </div>
+        </div>
+        
+        <div class="service-item flex items-start bg-secondary/40 rounded-lg p-5 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400">
+          <span class="text-primary mr-4 mt-1 text-xl"><i class="fas fa-cloud"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">{t('service-5')}</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex justify-center animate-fade-up animate-delay-500">
+        <a href="/servicios" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+          {t('learn-more')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colaboradores Section -->
+  <section id="colaboradores" class="py-20 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('our-collaborators')}</h2>
+      
+      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200">{t('collaborators-intro')}</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-up animate-delay-300">
+        <!-- Colaborador 1 -->
+        <div class="collaborator bg-secondary/40 backdrop-blur rounded-xl p-6 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all flex flex-col md:flex-row items-center md:items-start gap-6">
+          <img 
+            src="/imgs/servers/ancientkraft/colab.webp" 
+            alt="Colaborador Los Picaos" 
+            class="w-24 h-24 rounded-xl border-2 border-primary/50 hover:scale-105 transition-transform"
+            width="96"
+            height="96"
+            loading="lazy"
+          />
+          <div>
+            <div class="text-xl font-bold text-primary mb-1">Los Picaos</div>
+            <div class="text-white/70 mb-4">{t('colab-lospicaos')}</div>
+            <div class="flex space-x-3">
+              <a 
+                href="https://discord.gg/wB3n78uGY8"
+                target="_blank"
+                rel="noopener"
+                class="text-white hover:text-primary transition-colors text-2xl"
+                title="Discord"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Colaborador 2 -->
+        <div class="collaborator bg-secondary/40 backdrop-blur rounded-xl p-6 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all flex flex-col md:flex-row items-center md:items-start gap-6">
+          <img 
+            src="/imgs/servers/pt-the_full_course/colab.webp" 
+            alt="Colaborador PT: The Full Course" 
+            class="w-24 h-24 rounded-xl border-2 border-primary/50 hover:scale-105 transition-transform"
+            width="96"
+            height="96"
+            loading="lazy"
+          />
+          <div>
+            <div class="text-xl font-bold text-primary mb-1">PT: The Full Course</div>
+            <div class="text-white/70 mb-4">{t('colab-ptfullcourse')}</div>
+            <div class="flex space-x-3">
+              <a 
+                href="https://discord.gg/pt-the-full-course-1080714738369036359"
+                target="_blank"
+                rel="noopener"
+                class="text-white hover:text-primary transition-colors text-2xl"
+                title="Discord"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros, Donaciones y Contacto Sections -->
+  <!-- Estos quedarían pendientes para la siguiente fase del desarrollo -->
+  
+  <!-- Ejemplo del resto de secciones para completar -->
+  <section id="nosotros" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('about-us')}</h2>
+      <p class="text-lg mb-6 animate-fade-up animate-delay-200">{t('about-1')}</p>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-300">{t('about-2')}</p>
+      
+      <h3 class="text-3xl font-bold text-center text-primary mt-16 mb-10 animate-fade-up">{t('team-title')}</h3>
+      
+      <!-- Equipo Fundador -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-up animate-delay-300">
+        <!-- CEO y Fundador -->
+        <div class="rounded-xl bg-secondary/60 backdrop-blur p-8 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all">
+          <div class="flex flex-col items-center mb-6">
+            <img 
+              src="https://mc-heads.net/avatar/Kristiansitou/120" 
+              alt={t('ceo-name')}
+              class="w-28 h-28 rounded-full border-4 border-primary/70 mb-4 hover:scale-105 transition-all"
+              width="120"
+              height="120"
+              loading="lazy"
+            />
+            <h4 class="text-xl font-bold">
+              {t('ceo-name')} <span class="text-sm opacity-70">({t('ceo-alias')})</span>
+            </h4>
+            <p class="text-primary font-bold mt-1">{t('ceo-role')}</p>
+            <p class="text-sm text-white/60 mt-2">{t('ceo-skills')}</p>
+          </div>
+          
+          <p class="text-white/80 mb-6 text-center sm:text-justify">
+            {t('ceo-description')}
+          </p>
+          
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">Java</span>
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">Python</span>
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">C#</span>
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">JS</span>
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">Kotlin</span>
+            <span class="px-3 py-1 bg-primary/20 rounded-md text-sm">PHP</span>
+          </div>
+        </div>
+        
+        <!-- Co-fundador -->
+        <div class="rounded-xl bg-secondary/60 backdrop-blur p-8 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all">
+          <div class="flex flex-col items-center mb-6">
+            <img 
+              src="https://mc-heads.net/avatar/Junior373_/120" 
+              alt={t('cofounder-name')}
+              class="w-28 h-28 rounded-full border-4 border-primary/70 mb-4 hover:scale-105 transition-all"
+              width="120"
+              height="120"
+              loading="lazy"
+            />
+            <h4 class="text-xl font-bold">
+              {t('cofounder-name')} <span class="text-sm opacity-70">({t('cofounder-alias')})</span>
+            </h4>
+            <p class="text-primary font-bold mt-1">{t('cofounder-role')}</p>
+            <p class="text-sm text-white/60 mt-2">{t('cofounder-skills')}</p>
+          </div>
+          
+          <p class="text-white/80 text-center sm:text-justify">
+            {t('cofounder-description')}
+          </p>
+        </div>
+      </div>
+      
+      <!-- Workers Section -->
+      <div class="mt-16 p-6 rounded-xl bg-primary/10 border-l-4 border-primary animate-fade-up animate-delay-500">
+        <h4 class="text-xl font-bold text-primary mb-3">{t('workers-title')}</h4>
+        <p class="text-white/80 mb-6">{t('workers-description')}</p>
+        
+        <div id="workers-container" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4 justify-items-center">
+          <!-- Los workers se cargarán mediante JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donaciones" class="py-20 px-4 relative overflow-hidden">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('donate-section')}</h2>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-200">{t('donate-intro')}</p>
+      <div id="donate-button-container" class="flex justify-center items-center animate-fade-up animate-delay-300"></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('contact-us')}</h2>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-200">{t('contact-intro')}</p>
+      <div class="animate-fade-up animate-delay-300">
+        <p id="email-placeholder" class="mb-6 text-xl">info@luminakraft.com</p>
+        <a href="mailto:info@luminakraft.com" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+          {t('send-message')}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Script para PayPal
+  document.addEventListener('DOMContentLoaded', function() {
+    const donateContainer = document.getElementById('donate-button-container');
+    
+    if (donateContainer) {
+      const paypalScript = document.createElement('script');
+      paypalScript.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js';
+      paypalScript.charset = 'UTF-8';
+      
+      paypalScript.onload = function() {
+        // Usar tipo de aserción para evitar errores de TypeScript
+        const PayPalWindow = window as any;
+        if (typeof PayPalWindow.PayPal !== 'undefined') {
+          PayPalWindow.PayPal.Donation.Button({
+            env: 'production',
+            hosted_button_id: '99GHNYAKDZQGU',
+            image: {
+              src: 'https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donateCC_LG.gif',
+              alt: 'Botón Donar con PayPal',
+              title: 'PayPal - The safer, easier way to pay online!',
+            }
+          }).render('#donate-button-container');
+        }
+      };
+      
+      document.body.appendChild(paypalScript);
+    }
+    
+    // Cargar workers
+    const workersContainer = document.getElementById('workers-container');
+    if (workersContainer) {
+      fetch('/data/workers.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error cargando workers');
+          }
+          return response.json();
+        })
+        .then(workers => {
+          workers.forEach(worker => {
+            const workerEl = document.createElement('div');
+            workerEl.className = 'flex flex-col items-center justify-between w-full';
+            
+            workerEl.innerHTML = `
+              <div class="worker-avatar-container border-2 border-primary/50 rounded-lg overflow-hidden w-16 h-16 md:w-20 md:h-20 hover:scale-110 transition-transform mx-auto">
+                <img 
+                  src="https://mc-heads.net/avatar/${worker.username}/64" 
+                  alt="${worker.username}" 
+                  class="w-full h-full object-cover"
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-sm text-center mt-2 truncate w-full">${worker.username}</p>
+            `;
+            
+            workersContainer.appendChild(workerEl);
+          });
+        })
+        .catch(error => {
+          console.error('Error al cargar los workers:', error);
+          workersContainer.innerHTML = '<p class="text-white/50 text-center">Error al cargar los workers</p>';
+        });
+    }
+  });
+</script> 

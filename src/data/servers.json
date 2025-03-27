@@ -1,0 +1,82 @@
+[
+  {
+    "id": "onepieceworld",
+    "name": "One Piece World",
+    "slug": "onepieceworld",
+    "isNew": true,
+    "isActive": false,
+    "images": [
+      "/imgs/servers/onepieceworld/screenshot1.webp",
+      "/imgs/servers/onepieceworld/screenshot2.webp",
+      "/imgs/servers/onepieceworld/screenshot3.webp"
+    ],
+    "logo": "/imgs/servers/onepieceworld/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      }
+    ],
+    "versions": ["1.20.1"],
+    "modloader": "Forge",
+    "gamemode": "RPG",
+    "descriptionKey": "onepieceworld-desc",
+    "leaderboardPath": "/data/servers/onepieceworld/leaderboard.json"
+  },
+  {
+    "id": "ancientkraft",
+    "name": "AncientKraft",
+    "slug": "ancientkraft",
+    "isNew": false,
+    "isActive": false,
+    "images": [
+      "/imgs/servers/ancientkraft/screenshot1.webp",
+      "/imgs/servers/ancientkraft/screenshot2.webp",
+      "/imgs/servers/ancientkraft/screenshot3.webp"
+    ],
+    "logo": "/imgs/servers/ancientkraft/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      },
+      {
+        "name": "Los Picaos",
+        "logo": "/imgs/servers/ancientkraft/colab.webp"
+      }
+    ],
+    "versions": ["1.20.1"],
+    "modloader": "Forge",
+    "gamemode": "RPG / Aventura",
+    "descriptionKey": "ancientkraft-desc",
+    "leaderboardPath": "/data/servers/ancientkraft/leaderboard.json"
+  },
+  {
+    "id": "pt-the_full_course",
+    "name": "PT: The Full Course",
+    "slug": "pt-the_full_course",
+    "isNew": false,
+    "isActive": false,
+    "images": [
+      "/imgs/servers/pt-the_full_course/screenshot1.webp",
+      "/imgs/servers/pt-the_full_course/screenshot2.webp",
+      "/imgs/servers/pt-the_full_course/screenshot3.webp"
+    ],
+    "logo": "/imgs/servers/pt-the_full_course/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      },
+      {
+        "name": "PT: The Full Course",
+        "logo": "/imgs/servers/pt-the_full_course/colab.webp"
+      }
+    ],
+    "versions": ["1.20.1"],
+    "modloader": "Vanilla",
+    "gamemode": "Supervivencia",
+    "descriptionKey": "pt-the_full_course-desc",
+    "leaderboardPath": "/data/servers/pt-the_full_course/leaderboard.json"
+  }
+] 

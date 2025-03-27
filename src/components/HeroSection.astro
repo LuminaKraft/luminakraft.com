@@ -1,0 +1,157 @@
+---
+import { getTranslation } from '../utils/i18n';
+import RotatingWords from './RotatingWords.astro';
+
+interface Props {
+  locale?: 'es' | 'en';
+}
+
+const { locale = 'es' } = Astro.props;
+
+// Traducir según el idioma
+const t = (key: string) => getTranslation(key, locale);
+
+// Palabras para la animación
+const rotatingWords = [
+  'word-adventure',
+  'word-experience',
+  'word-universe',
+  'word-journey',
+  'word-world',
+  'word-destiny',
+  'word-realm',
+  'word-legacy'
+];
+---
+
+<section id="inicio" class="hero min-h-screen flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="particles-container">
+      <div class="particle animate-float animate-infinite animate-duration-[15s] animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[25s] animate-delay-500 animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[20s] animate-delay-1000 animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[18s] animate-delay-1500 animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[22s] animate-delay-2000 animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[19s] animate-delay-2500 animate-ease-in-out absolute"></div>
+      <div class="particle animate-float animate-infinite animate-duration-[23s] animate-delay-3000 animate-ease-in-out absolute"></div>
+    </div>
+  </div>
+  
+  <div class="hero-content text-center z-10 animate-fade-in-up animate-duration-1000 animate-delay-300">
+    <h1 class="text-shadow mb-8">
+      <RotatingWords words={rotatingWords} locale={locale} />
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto animate-fade-in animate-duration-1000 animate-delay-500">
+      {t('hero-desc')}
+    </p>
+    
+    <a 
+      href="#servidores" 
+      class="hero-cta inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary/90 text-white font-bold text-lg shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1 animate-float animate-infinite animate-duration-3000"
+    >
+      <span class="cta-text">{t('explore-servers')}</span>
+      <span class="cta-icon animate-spin-pulse">
+        <i class="fas fa-compass"></i>
+      </span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, rgba(1, 26, 56, 0.7) 0%, rgba(1, 26, 56, 0.8) 100%), url('/imgs/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  @keyframes spin-pulse {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(90deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotate(270deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-pulse {
+    animation: spin-pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes float-button {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float-button 3s ease-in-out infinite;
+  }
+  
+  .particles-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .particle {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .particle:nth-child(1) {
+    top: 10%;
+    left: 20%;
+  }
+  
+  .particle:nth-child(2) {
+    top: 30%;
+    left: 80%;
+  }
+  
+  .particle:nth-child(3) {
+    top: 50%;
+    left: 15%;
+  }
+  
+  .particle:nth-child(4) {
+    top: 70%;
+    left: 60%;
+  }
+  
+  .particle:nth-child(5) {
+    top: 20%;
+    left: 40%;
+  }
+  
+  .particle:nth-child(6) {
+    top: 60%;
+    left: 30%;
+  }
+  
+  .particle:nth-child(7) {
+    top: 80%;
+    left: 70%;
+  }
+</style> 

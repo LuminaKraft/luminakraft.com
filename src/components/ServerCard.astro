@@ -1,0 +1,128 @@
+---
+import { getTranslation } from '../utils/i18n';
+
+interface Collaborator {
+  name: string;
+  logo: string;
+}
+
+interface Props {
+  id: string;
+  name: string;
+  slug: string;
+  isNew: boolean;
+  isActive: boolean;
+  image: string;
+  logo?: string;
+  collaborators: Collaborator[];
+  descriptionKey: string;
+  locale?: 'es' | 'en';
+}
+
+const { 
+  id, 
+  name, 
+  slug, 
+  isNew, 
+  isActive,
+  image, 
+  logo, 
+  collaborators, 
+  descriptionKey,
+  locale = 'es'
+} = Astro.props;
+
+// Usar directamente la clave de descripción proporcionada
+const serverDescKey = descriptionKey;
+---
+
+<div class={`server-card relative overflow-hidden rounded-xl bg-secondary/60 backdrop-blur p-5 border border-primary/30 transition-all hover:border-primary/70 hover:shadow-glow group animate-fade-up h-full flex flex-col ${isNew ? 'border-primary/70 shadow-glow' : ''}`}>
+  <!-- Etiqueta de nuevo -->
+  {isNew && (
+    <div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10 animate-pulse">
+      <span>NEW</span>
+    </div>
+  )}
+  
+  <!-- Etiqueta de cerrado -->
+  {!isActive && (
+    <div class="absolute top-4 right-4 bg-gray-600/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+      <span>{getTranslation('server-closed', locale)}</span>
+    </div>
+  )}
+  
+  <!-- Imagen de fondo del servidor -->
+  <div class="server-image-container w-full h-48 overflow-hidden rounded-lg relative">
+    <img 
+      src={image} 
+      alt={`Servidor ${name}`} 
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      width="800" 
+      height="450" 
+      loading={isNew ? "eager" : "lazy"}
+    />
+    
+    <!-- Logo del servidor superpuesto -->
+    {logo && (
+      <div class="absolute inset-0 flex items-center justify-center p-4">
+        <div class="max-w-[80%] max-h-[80%] flex items-center justify-center bg-black/30 backdrop-blur-sm rounded-lg p-3">
+          <img 
+            src={logo} 
+            alt={`Logo de ${name}`} 
+            class="max-w-full max-h-full object-contain"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    )}
+  </div>
+  
+  <!-- Nombre del servidor -->
+  <h3 class="text-2xl font-bold mt-4 text-primary">{name}</h3>
+  
+  <!-- Descripción del servidor -->
+  <p class="text-white/80 my-3 min-h-[60px]">{getTranslation(serverDescKey, locale)}</p>
+  
+  <!-- Colaboradores -->
+  <div class="flex items-center space-x-2 mb-4">
+    {collaborators.map((collab, i) => (
+      <>
+        <img 
+          src={collab.logo} 
+          alt={`${collab.name} Logo`} 
+          class="w-8 h-8 rounded-full border border-primary/50 transition-transform hover:scale-110"
+          width="32" 
+          height="32" 
+          loading="lazy"
+        />
+        {i < collaborators.length - 1 && 
+          <span class="text-primary mx-1">×</span>
+        }
+      </>
+    ))}
+  </div>
+  
+  <!-- Botón para unirse o ver servidor cerrado -->
+  <div class="mt-auto">
+    <a 
+      href={locale === 'en' ? `/en/servers/${slug}` : `/servers/${slug}`}
+      class={`block w-full py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden ${
+        isActive 
+          ? 'bg-gradient-to-r from-primary/80 to-primary text-white hover:shadow-glow hover:scale-[1.02] transform duration-300' 
+          : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-[1.02] transform duration-300'
+      }`}
+    >
+      <span class="relative z-10">{isActive ? getTranslation('join-now', locale) : getTranslation('view-server', locale)}</span>
+      {isActive && (
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      )}
+    </a>
+  </div>
+</div>
+
+<style>
+    .server-card {
+        transition: all 0.3s ease;
+        min-height: 26rem;
+    }
+</style> 
