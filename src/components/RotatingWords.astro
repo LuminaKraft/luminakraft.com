@@ -6,20 +6,41 @@ interface Props {
   locale?: 'es' | 'en';
 }
 
-const { words, locale = 'es' } = Astro.props;
+const { words = [
+  'word-adventure',
+  'word-universe',
+  'word-journey',
+  'word-destiny',
+  'word-realm',
+  'word-legacy',
+  'word-world',
+  'word-magic',
+  'word-story',
+  'word-quest',
+  'word-fantasy',
+  'word-legend',
+  'word-saga',
+  'word-tale',
+  'word-epic',
+  'word-mission',
+  'word-chronicle',
+  'word-odyssey',
+  'word-mythology',
+  'word-fable'
+], locale = 'es' } = Astro.props;
 
 // Traducir según el idioma
 const t = (key: string) => getTranslation(key, locale);
 ---
 
-<div class="title-container flex flex-wrap justify-center items-center gap-1">
-  <div class="text-white text-3xl md:text-4xl lg:text-5xl font-bold animate-fade-in animate-duration-1000">
+<div class="title-container flex flex-col justify-center items-center text-center">
+  <div class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
     {t('hero-title-start')}
   </div>
-  <div id="rotatingWordsContainer" class="relative h-16 md:h-20 lg:h-24 overflow-hidden min-w-[200px] md:min-w-[240px] flex items-center justify-center">
+  <div id="rotatingWordsContainer" class="relative h-16 md:h-20 lg:h-24 overflow-hidden w-full flex justify-center items-center">
     {words.map((wordKey, index) => (
       <span 
-        class={`absolute flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold text-primary opacity-0 transition-all duration-500 ${index === 0 ? 'active opacity-100 animate-fade-in-right animate-duration-700' : ''}`}
+        class={`absolute flex items-center justify-center text-4xl md:text-5xl lg:text-6xl font-bold text-primary opacity-0 transition-opacity duration-500 ${index === 0 ? 'active opacity-100' : ''}`}
         data-word={t(wordKey)}
         data-index={index}
       >
@@ -33,6 +54,15 @@ const t = (key: string) => getTranslation(key, locale);
   .text-primary {
     color: #4a90e2;
     text-shadow: 0 0 15px rgba(74, 144, 226, 0.8), 0 0 30px rgba(74, 144, 226, 0.4);
+    letter-spacing: 1px;
+    font-weight: 800;
+    transform: scale(1.05);
+  }
+  
+  #rotatingWordsContainer {
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);
+    border-radius: 8px;
+    padding: 0.5rem 0;
   }
 </style>
 
@@ -72,37 +102,39 @@ const t = (key: string) => getTranslation(key, locale);
     
     let currentIndex = 0;
     
-    // Añadir clase inicial a la primera palabra
-    words[0].classList.add('animate-fade-in-right', 'animate-duration-700');
+    // Función para mostrar la palabra actual
+    function showWord(index) {
+      // Ocultar todas las palabras
+      words.forEach(word => {
+        word.classList.remove('active', 'opacity-100');
+        word.classList.add('opacity-0');
+      });
+      
+      // Mostrar la palabra actual
+      words[index].classList.remove('opacity-0');
+      words[index].classList.add('active', 'opacity-100');
+    }
+    
+    // Mostrar la primera palabra
+    showWord(currentIndex);
     
     // Configurar el intervalo de rotación
     rotationInterval = setInterval(() => {
-      // Preparar animaciones para salida
-      words[currentIndex].classList.remove('opacity-100', 'active', 'animate-fade-in-right', 'animate-duration-2000');
-      words[currentIndex].classList.add('animate-fade-out-left', 'animate-duration-500');
+      // Cambiar al siguiente índice
+      currentIndex = (currentIndex + 1) % words.length;
       
-      setTimeout(() => {
-        words[currentIndex].classList.remove('animate-fade-out-left');
-        words[currentIndex].classList.add('opacity-0');
-        
-        // Cambiar al siguiente índice
-        currentIndex = (currentIndex + 1) % words.length;
-        
-        // Mostrar nueva palabra con animaciones
-        words[currentIndex].classList.remove('opacity-0');
-        words[currentIndex].classList.add('opacity-100', 'active', 'animate-fade-in-right', 'animate-duration-700');
-        
-        // Añadir efecto adicional después de que aparezca la palabra
-        setTimeout(() => {
-          // No añadir ningún efecto adicional para mantener la limpieza visual
-        }, 700);
-      }, 500);
-    }, 4000);
+      // Mostrar la nueva palabra
+      showWord(currentIndex);
+    }, 2000);
   }
-  
-  // Ejecutar una sola vez cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', setupRotatingWords, { once: true });
-  
-  // Para compatibilidad con la navegación de Astro
-  document.addEventListener('astro:page-load', setupRotatingWords, { once: true });
-</script> 
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    setupRotatingWords();
+  });
+
+  // También inicializar si astro:page-load se dispara (para navegación SPA)
+  document.addEventListener('astro:page-load', function() {
+    setupRotatingWords();
+  });
+</script>

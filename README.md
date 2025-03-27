@@ -5,7 +5,7 @@ Este proyecto es una reescritura completa del sitio web de LuminaKraft utilizand
 - 🚀 [Astro](https://astro.build/) - Framework para sitios web con contenido
 - 🎨 [Tailwind CSS](https://tailwindcss.com/) - Framework CSS de utilidades
 - 📝 [TypeScript](https://www.typescriptlang.org/) - JavaScript con sintaxis para tipos
-- ✨ [@midudev/tailwind-animations](https://github.com/midudev/tailwind-animations) - Plugin para animaciones
+- ✨ [CSS Personalizado](https://developer.mozilla.org/es/docs/Web/CSS/animation) - Animaciones CSS nativas
 
 ## 🗂️ Estructura del proyecto
 
@@ -29,7 +29,7 @@ Este proyecto es una reescritura completa del sitio web de LuminaKraft utilizand
 
 ```bash
 # Navegar al directorio del proyecto
-cd new
+cd web
 
 # Instalar dependencias
 npm install
@@ -46,7 +46,7 @@ npm run build
 - **Diseño Modular**: Componentes reutilizables para todas las secciones.
 - **Rutas Dinámicas**: Páginas generadas dinámicamente para servidores.
 - **Multilenguaje**: Soporte completo para español e inglés.
-- **Animaciones**: Transiciones suaves y efectos visuales.
+- **Animaciones**: Transiciones suaves y efectos visuales implementados con CSS nativo para máxima compatibilidad con navegadores.
 - **Optimización**: Carga diferida y alta puntuación en rendimiento.
 - **Mantenibilidad**: Estructura organizada y fácil de ampliar.
 
@@ -65,4 +65,5 @@ La información de los servidores se almacena de forma centralizada en `src/data
 ## 📝 Notas
 
 - Para añadir un nuevo servidor, simplemente agrega su información al archivo `servers.json`.
-- Para agregar un nuevo idioma, crea un nuevo archivo JSON en `/lang/` y actualiza la configuración i18n en `astro.config.mjs`. 
+- Para agregar un nuevo idioma, crea un nuevo archivo JSON en `/lang/` y actualiza la configuración i18n en `astro.config.mjs`.
+- Las animaciones del sitio están implementadas con CSS nativo para garantizar la máxima compatibilidad con todos los navegadores, incluyendo Firefox y navegadores basados en Firefox.
