@@ -1,0 +1,2062 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="theme-color" content="#011a38"><meta http-equiv="x-dns-prefetch-control" content="on"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>One Piece World | LuminaKraft Studios</title><meta name="description" content="Live the great adventure of One Piece: find Devil Fruits and master the seas."><meta name="keywords" content="LuminaKraft, server development, minecraft server, game studio"><meta name="author" content="LuminaKraft Studios"><meta name="robots" content="index, follow"><!-- DNS prefetch para recursos externos --><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//fonts.gstatic.com"><link rel="dns-prefetch" href="//mc-heads.net"><link rel="dns-prefetch" href="//cdnjs.cloudflare.com"><!-- Preconexión a Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><!-- Meta etiquetas OpenGraph --><meta property="og:title" content="One Piece World | LuminaKraft Studios"><meta property="og:description" content="Live the great adventure of One Piece: find Devil Fruits and master the seas."><meta property="og:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp"><meta property="og:url" content="https://www.luminakraft.com"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="One Piece World | LuminaKraft Studios"><meta name="twitter:description" content="Live the great adventure of One Piece: find Devil Fruits and master the seas."><meta name="twitter:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp"><link rel="icon" href="/imgs/favicon.webp" type="image/webp"><link rel="apple-touch-icon" href="/imgs/apple-touch-icon.webp"><!-- FontAwesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><style data-vite-dev-id="C:/Users/Kristian/Windows Backup/Documents/_luminakraft/web/node_modules/@astrojs/tailwind/base.css">*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}/*
+! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+.\!container {
+  width: 100% !important;
+}
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .\!container {
+    max-width: 640px !important;
+  }
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .\!container {
+    max-width: 768px !important;
+  }
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .\!container {
+    max-width: 1024px !important;
+  }
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .\!container {
+    max-width: 1280px !important;
+  }
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .\!container {
+    max-width: 1536px !important;
+  }
+
+  .container {
+    max-width: 1536px;
+  }
+}
+.pointer-events-none {
+  pointer-events: none;
+}
+.visible {
+  visibility: visible;
+}
+.fixed {
+  position: fixed;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+}
+.inset-0 {
+  inset: 0px;
+}
+.-bottom-2 {
+  bottom: -0.5rem;
+}
+.bottom-10 {
+  bottom: 2.5rem;
+}
+.left-0 {
+  left: 0px;
+}
+.left-1\/2 {
+  left: 50%;
+}
+.right-0 {
+  right: 0px;
+}
+.right-4 {
+  right: 1rem;
+}
+.right-6 {
+  right: 1.5rem;
+}
+.top-0 {
+  top: 0px;
+}
+.top-1\/2 {
+  top: 50%;
+}
+.top-4 {
+  top: 1rem;
+}
+.top-6 {
+  top: 1.5rem;
+}
+.top-\[60px\] {
+  top: 60px;
+}
+.z-0 {
+  z-index: 0;
+}
+.z-10 {
+  z-index: 10;
+}
+.z-50 {
+  z-index: 50;
+}
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+.col-span-full {
+  grid-column: 1 / -1;
+}
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
+.mb-16 {
+  margin-bottom: 4rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mt-0 {
+  margin-top: 0px;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+.h-1 {
+  height: 0.25rem;
+}
+.h-12 {
+  height: 3rem;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-24 {
+  height: 6rem;
+}
+.h-28 {
+  height: 7rem;
+}
+.h-48 {
+  height: 12rem;
+}
+.h-64 {
+  height: 16rem;
+}
+.h-8 {
+  height: 2rem;
+}
+.h-full {
+  height: 100%;
+}
+.max-h-0 {
+  max-height: 0px;
+}
+.max-h-60 {
+  max-height: 15rem;
+}
+.max-h-full {
+  max-height: 100%;
+}
+.min-h-\[300px\] {
+  min-height: 300px;
+}
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-24 {
+  width: 6rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-48 {
+  width: 12rem;
+}
+.w-64 {
+  width: 16rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-3xl {
+  max-width: 48rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+.max-w-\[250px\] {
+  max-width: 250px;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.flex-shrink {
+  flex-shrink: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.translate-x-full {
+  --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.scale-100 {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.scale-125 {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+.cursor-default {
+  cursor: default;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.select-all {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-md {
+  border-radius: 0.375rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.border {
+  border-width: 1px;
+}
+.border-0 {
+  border-width: 0px;
+}
+.border-2 {
+  border-width: 2px;
+}
+.border-4 {
+  border-width: 4px;
+}
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+.border-l-4 {
+  border-left-width: 4px;
+}
+.border-t {
+  border-top-width: 1px;
+}
+.border-gray-600\/50 {
+  border-color: rgb(75 85 99 / 0.5);
+}
+.border-primary {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 144 226 / var(--tw-border-opacity, 1));
+}
+.border-primary\/10 {
+  border-color: rgb(74 144 226 / 0.1);
+}
+.border-primary\/20 {
+  border-color: rgb(74 144 226 / 0.2);
+}
+.border-primary\/30 {
+  border-color: rgb(74 144 226 / 0.3);
+}
+.border-primary\/50 {
+  border-color: rgb(74 144 226 / 0.5);
+}
+.border-primary\/70 {
+  border-color: rgb(74 144 226 / 0.7);
+}
+.border-white\/20 {
+  border-color: rgb(255 255 255 / 0.2);
+}
+.bg-\[\#5865F2\]\/80 {
+  background-color: rgb(88 101 242 / 0.8);
+}
+.bg-black\/20 {
+  background-color: rgb(0 0 0 / 0.2);
+}
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
+}
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
+}
+.bg-black\/60 {
+  background-color: rgb(0 0 0 / 0.6);
+}
+.bg-gray-600\/90 {
+  background-color: rgb(75 85 99 / 0.9);
+}
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+.bg-gray-700\/80 {
+  background-color: rgb(55 65 81 / 0.8);
+}
+.bg-gray-700\/90 {
+  background-color: rgb(55 65 81 / 0.9);
+}
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 144 226 / var(--tw-bg-opacity, 1));
+}
+.bg-primary\/10 {
+  background-color: rgb(74 144 226 / 0.1);
+}
+.bg-primary\/20 {
+  background-color: rgb(74 144 226 / 0.2);
+}
+.bg-primary\/60 {
+  background-color: rgb(74 144 226 / 0.6);
+}
+.bg-primary\/80 {
+  background-color: rgb(74 144 226 / 0.8);
+}
+.bg-primary\/90 {
+  background-color: rgb(74 144 226 / 0.9);
+}
+.bg-red-500\/80 {
+  background-color: rgb(239 68 68 / 0.8);
+}
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 26 56 / var(--tw-bg-opacity, 1));
+}
+.bg-secondary\/20 {
+  background-color: rgb(1 26 56 / 0.2);
+}
+.bg-secondary\/30 {
+  background-color: rgb(1 26 56 / 0.3);
+}
+.bg-secondary\/40 {
+  background-color: rgb(1 26 56 / 0.4);
+}
+.bg-secondary\/60 {
+  background-color: rgb(1 26 56 / 0.6);
+}
+.bg-secondary\/70 {
+  background-color: rgb(1 26 56 / 0.7);
+}
+.bg-secondary\/80 {
+  background-color: rgb(1 26 56 / 0.8);
+}
+.bg-secondary\/95 {
+  background-color: rgb(1 26 56 / 0.95);
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
+}
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.from-primary {
+  --tw-gradient-from: #4a90e2 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(74 144 226 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-primary\/40 {
+  --tw-gradient-from: rgb(74 144 226 / 0.4) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(74 144 226 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-primary\/50 {
+  --tw-gradient-from: rgb(74 144 226 / 0.5) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(74 144 226 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-primary\/80 {
+  --tw-gradient-from: rgb(74 144 226 / 0.8) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(74 144 226 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-secondary\/20 {
+  --tw-gradient-from: rgb(1 26 56 / 0.2) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(1 26 56 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-secondary\/50 {
+  --tw-gradient-from: rgb(1 26 56 / 0.5) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(1 26 56 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-primary\/10 {
+  --tw-gradient-to: rgb(74 144 226 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(74 144 226 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.to-blue-500 {
+  --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+}
+.to-primary {
+  --tw-gradient-to: #4a90e2 var(--tw-gradient-to-position);
+}
+.to-primary\/50 {
+  --tw-gradient-to: rgb(74 144 226 / 0.5) var(--tw-gradient-to-position);
+}
+.to-primary\/80 {
+  --tw-gradient-to: rgb(74 144 226 / 0.8) var(--tw-gradient-to-position);
+}
+.to-secondary {
+  --tw-gradient-to: #011a38 var(--tw-gradient-to-position);
+}
+.to-secondary\/80 {
+  --tw-gradient-to: rgb(1 26 56 / 0.8) var(--tw-gradient-to-position);
+}
+.to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-center {
+  background-position: center;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.pb-16 {
+  padding-bottom: 4rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pt-24 {
+  padding-top: 6rem;
+}
+.pt-32 {
+  padding-top: 8rem;
+}
+.pt-\[56\.25\%\] {
+  padding-top: 56.25%;
+}
+.text-center {
+  text-align: center;
+}
+.font-kanit {
+  font-family: Kanit, sans-serif;
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+}
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity, 1));
+}
+.text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(74 144 226 / var(--tw-text-opacity, 1));
+}
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.text-white\/50 {
+  color: rgb(255 255 255 / 0.5);
+}
+.text-white\/60 {
+  color: rgb(255 255 255 / 0.6);
+}
+.text-white\/70 {
+  color: rgb(255 255 255 / 0.7);
+}
+.text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
+}
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-100 {
+  opacity: 1;
+}
+.opacity-30 {
+  opacity: 0.3;
+}
+.opacity-70 {
+  opacity: 0.7;
+}
+.opacity-80 {
+  opacity: 0.8;
+}
+.shadow-glow {
+  --tw-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+  --tw-shadow-colored: 0 0 10px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.blur-xl {
+  --tw-blur: blur(24px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.backdrop-blur {
+  --tw-backdrop-blur: blur(8px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+.backdrop-blur-md {
+  --tw-backdrop-blur: blur(12px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.duration-500 {
+  transition-duration: 500ms;
+}
+.duration-700 {
+  transition-duration: 700ms;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.after\:absolute::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+.after\:bottom-0::after {
+  content: var(--tw-content);
+  bottom: 0px;
+}
+.after\:left-0::after {
+  content: var(--tw-content);
+  left: 0px;
+}
+.after\:h-0\.5::after {
+  content: var(--tw-content);
+  height: 0.125rem;
+}
+.after\:w-0::after {
+  content: var(--tw-content);
+  width: 0px;
+}
+.after\:bg-primary::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 144 226 / var(--tw-bg-opacity, 1));
+}
+.after\:transition-all::after {
+  content: var(--tw-content);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.after\:duration-300::after {
+  content: var(--tw-content);
+  transition-duration: 300ms;
+}
+.hover\:-translate-y-1:hover {
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:-translate-y-2:hover {
+  --tw-translate-y: -0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:scale-\[1\.01\]:hover {
+  --tw-scale-x: 1.01;
+  --tw-scale-y: 1.01;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:scale-\[1\.02\]:hover {
+  --tw-scale-x: 1.02;
+  --tw-scale-y: 1.02;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:transform:hover {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:border-primary:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 144 226 / var(--tw-border-opacity, 1));
+}
+.hover\:border-primary\/30:hover {
+  border-color: rgb(74 144 226 / 0.3);
+}
+.hover\:border-primary\/40:hover {
+  border-color: rgb(74 144 226 / 0.4);
+}
+.hover\:border-primary\/60:hover {
+  border-color: rgb(74 144 226 / 0.6);
+}
+.hover\:border-primary\/70:hover {
+  border-color: rgb(74 144 226 / 0.7);
+}
+.hover\:bg-\[\#5865F2\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 101 242 / var(--tw-bg-opacity, 1));
+}
+.hover\:bg-black\/50:hover {
+  background-color: rgb(0 0 0 / 0.5);
+}
+.hover\:bg-gray-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+}
+.hover\:bg-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 144 226 / var(--tw-bg-opacity, 1));
+}
+.hover\:bg-primary\/20:hover {
+  background-color: rgb(74 144 226 / 0.2);
+}
+.hover\:bg-primary\/30:hover {
+  background-color: rgb(74 144 226 / 0.3);
+}
+.hover\:bg-primary\/40:hover {
+  background-color: rgb(74 144 226 / 0.4);
+}
+.hover\:bg-primary\/90:hover {
+  background-color: rgb(74 144 226 / 0.9);
+}
+.hover\:bg-secondary\/30:hover {
+  background-color: rgb(1 26 56 / 0.3);
+}
+.hover\:bg-secondary\/60:hover {
+  background-color: rgb(1 26 56 / 0.6);
+}
+.hover\:bg-white\/20:hover {
+  background-color: rgb(255 255 255 / 0.2);
+}
+.hover\:text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(74 144 226 / var(--tw-text-opacity, 1));
+}
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+.hover\:shadow-glow:hover {
+  --tw-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+  --tw-shadow-colored: 0 0 10px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.hover\:shadow-primary\/20:hover {
+  --tw-shadow-color: rgb(74 144 226 / 0.2);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.hover\:after\:w-full:hover::after {
+  content: var(--tw-content);
+  width: 100%;
+}
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
+}
+.group:hover .group-hover\:scale-105 {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.group:hover .group-hover\:scale-110 {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.group:hover .group-hover\:bg-black\/50 {
+  background-color: rgb(0 0 0 / 0.5);
+}
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+.group:hover .group-hover\:backdrop-blur-xl {
+  --tw-backdrop-blur: blur(24px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+@media (min-width: 640px) {
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:text-justify {
+    text-align: justify;
+  }
+}
+@media (min-width: 768px) {
+
+  .md\:order-1 {
+    order: 1;
+  }
+
+  .md\:order-2 {
+    order: 2;
+  }
+
+  .md\:col-span-full {
+    grid-column: 1 / -1;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:h-20 {
+    height: 5rem;
+  }
+
+  .md\:h-64 {
+    height: 16rem;
+  }
+
+  .md\:w-20 {
+    width: 5rem;
+  }
+
+  .md\:w-64 {
+    width: 16rem;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+
+  .lg\:h-24 {
+    height: 6rem;
+  }
+
+  .lg\:h-80 {
+    height: 20rem;
+  }
+
+  .lg\:w-80 {
+    width: 20rem;
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-9 {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+</style>
+<style data-vite-dev-id="C:/Users/Kristian/Windows Backup/Documents/_luminakraft/web/src/pages/servers/[slug].astro?astro&#38;type=style&#38;index=0&#38;lang.css">.reveal-element[data-astro-cid-mgvwgchb]{opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease}.reveal-element[data-astro-cid-mgvwgchb].revealed{opacity:1;transform:translateY(0)}.shine-effect[data-astro-cid-mgvwgchb]{position:relative;overflow:hidden}.shine-effect[data-astro-cid-mgvwgchb]::after{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.3) 50%,transparent 70%);transform:rotate(25deg);animation:shine 3s infinite;pointer-events:none}@keyframes shine{0%{transform:translateX(-100%) rotate(25deg)}100%{transform:translateX(100%) rotate(25deg)}}.hover\:scale-135[data-astro-cid-mgvwgchb]:hover{transform:scale(1.35)}</style>
+<style data-vite-dev-id="C:/Users/Kristian/Windows Backup/Documents/_luminakraft/web/src/pages/servers/[slug].astro?astro&#38;type=style&#38;index=1&#38;lang.css">.join-guide[data-astro-cid-mgvwgchb]{margin-top:2rem}.process-flow[data-astro-cid-mgvwgchb]{position:relative;padding:2rem 0}.progress-track[data-astro-cid-mgvwgchb]{position:absolute;left:2.5rem;top:0;bottom:0;width:4px;background-color:rgba(255,255,255,0.1);overflow:hidden}.progress-bar[data-astro-cid-mgvwgchb]{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(to bottom,var(--primaryColor),rgba(74,144,226,0.3));transition:height 0.8s ease}.steps-container[data-astro-cid-mgvwgchb]{position:relative;padding-left:1rem}.join-step[data-astro-cid-mgvwgchb]{display:flex;margin-bottom:2.5rem;opacity:0.6;transition:opacity 0.5s ease}.join-step[data-astro-cid-mgvwgchb].active{opacity:1}.step-icon[data-astro-cid-mgvwgchb]{position:relative;flex-shrink:0;margin-right:1.5rem}.step-icon-inner[data-astro-cid-mgvwgchb]{display:flex;align-items:center;justify-content:center;width:5rem;height:5rem;border-radius:50%;background-color:rgba(0,0,0,0.4);color:var(--primaryColor);font-size:1.75rem;border:2px solid rgba(74,144,226,0.3);transition:all 0.3s ease}.step-number[data-astro-cid-mgvwgchb]{position:absolute;top:-0.5rem;right:-0.5rem;width:2rem;height:2rem;border-radius:50%;background-color:var(--primaryColor);color:white;font-weight:bold;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(74,144,226,0.5)}.join-step[data-astro-cid-mgvwgchb].active .step-icon-inner[data-astro-cid-mgvwgchb]{border-color:var(--primaryColor);box-shadow:0 0 25px rgba(74,144,226,0.3);transform:scale(1.05)}.step-content[data-astro-cid-mgvwgchb]{flex-grow:1;padding:0.5rem 1rem;background-color:rgba(0,0,0,0.2);border-radius:1rem;border:1px solid rgba(255,255,255,0.1)}.step-title[data-astro-cid-mgvwgchb]{font-size:1.25rem;font-weight:bold;color:var(--primaryColor);margin-bottom:0.5rem}.step-description[data-astro-cid-mgvwgchb]{color:rgba(255,255,255,0.8);margin-bottom:1rem}.step-action[data-astro-cid-mgvwgchb]{margin-top:1rem}.action-button[data-astro-cid-mgvwgchb]{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background-color:rgba(74,144,226,0.15);border:1px solid rgba(74,144,226,0.3);border-radius:0.5rem;color:var(--primaryColor);font-weight:500;cursor:pointer;transition:all 0.3s ease}.action-button[data-astro-cid-mgvwgchb]:hover{background-color:rgba(74,144,226,0.25);border-color:rgba(74,144,226,0.5);transform:translateY(-2px)}.copy-container[data-astro-cid-mgvwgchb]{position:relative;width:-moz-fit-content;width:fit-content}.copy-button[data-astro-cid-mgvwgchb]{display:flex;align-items:center;justify-content:space-between;width:100%;padding-right:0.5rem}.code-preview[data-astro-cid-mgvwgchb]{font-family:monospace;padding-right:1rem}.copy-tooltip[data-astro-cid-mgvwgchb]{position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%) translateY(10px);padding:0.3rem 0.6rem;background-color:rgba(0,0,0,0.8);color:white;font-size:0.8rem;border-radius:0.25rem;opacity:0;visibility:hidden;transition:all 0.3s ease;white-space:nowrap;pointer-events:none}.copy-tooltip[data-astro-cid-mgvwgchb]:after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border-width:5px;border-style:solid;border-color:rgba(0,0,0,0.8) transparent transparent transparent}.copy-container[data-astro-cid-mgvwgchb].copied .copy-tooltip[data-astro-cid-mgvwgchb]{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}.server-address[data-astro-cid-mgvwgchb]{display:flex;flex-direction:column;gap:0.5rem}.address-label[data-astro-cid-mgvwgchb]{font-size:0.9rem;color:rgba(255,255,255,0.6)}.version-badge[data-astro-cid-mgvwgchb]{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background-color:rgba(0,0,0,0.3);border-radius:0.5rem;color:var(--primaryColor);font-weight:500}.support-section[data-astro-cid-mgvwgchb]{margin-top:3rem;padding:1.5rem;background-color:rgba(0,0,0,0.3);border-radius:1rem;display:flex;align-items:center;gap:1.5rem;border:1px solid rgba(255,255,255,0.1)}.support-icon[data-astro-cid-mgvwgchb]{width:4rem;height:4rem;border-radius:50%;background-color:rgba(74,144,226,0.2);color:var(--primaryColor);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.support-content[data-astro-cid-mgvwgchb]{flex-grow:1}.support-content[data-astro-cid-mgvwgchb] h3[data-astro-cid-mgvwgchb]{color:var(--primaryColor);font-weight:bold;margin-bottom:0.5rem}.support-content[data-astro-cid-mgvwgchb] p[data-astro-cid-mgvwgchb]{color:rgba(255,255,255,0.8);margin-bottom:1rem}.discord-button[data-astro-cid-mgvwgchb]{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background-color:rgba(88,101,242,0.2);border:1px solid rgba(88,101,242,0.4);border-radius:0.5rem;color:rgb(88,101,242);font-weight:500;transition:all 0.3s ease}.discord-button[data-astro-cid-mgvwgchb]:hover{background-color:rgba(88,101,242,0.3);transform:translateY(-2px)}@media (max-width: 640px){.progress-track[data-astro-cid-mgvwgchb]{left:1.5rem}.step-icon-inner[data-astro-cid-mgvwgchb]{width:3rem;height:3rem;font-size:1.25rem}.step-number[data-astro-cid-mgvwgchb]{width:1.5rem;height:1.5rem;font-size:0.8rem}.support-section[data-astro-cid-mgvwgchb]{flex-direction:column;text-align:center}.support-icon[data-astro-cid-mgvwgchb]{margin:0 auto}}</style>
+<style data-vite-dev-id="C:/Users/Kristian/Windows Backup/Documents/_luminakraft/web/src/pages/servers/[slug].astro?astro&#38;type=style&#38;index=2&#38;lang.css">.text-primary[data-astro-cid-mgvwgchb]{color:var(--primaryColor)}.bg-primary[data-astro-cid-mgvwgchb]{background-color:var(--primaryColor)}.hover\:bg-primary[data-astro-cid-mgvwgchb]:hover{background-color:var(--primaryColor)}.from-primary[data-astro-cid-mgvwgchb]{--tw-gradient-from: var(--primaryColor)}.to-primary[data-astro-cid-mgvwgchb]{--tw-gradient-to: var(--primaryColor)}.border-primary[data-astro-cid-mgvwgchb]{border-color:var(--primaryColor)}.shadow-glow[data-astro-cid-mgvwgchb]{box-shadow:0 0 15px rgba(var(--primaryColor),0.5)}.bg-secondary[data-astro-cid-mgvwgchb]{background-color:var(--secondaryColor)}.parallax-bg[data-astro-cid-mgvwgchb]{position:relative;overflow:hidden}.parallax-bg[data-astro-cid-mgvwgchb]::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%,var(--primaryColor) 0%,transparent 70%);opacity:0.1;z-index:-1;transform:translateZ(0);transition:opacity 0.5s ease}.hero-glow[data-astro-cid-mgvwgchb]{position:relative}.hero-glow[data-astro-cid-mgvwgchb]::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at center,var(--primaryColor) 0%,transparent 70%);opacity:0.2;z-index:-1;filter:blur(40px);transition:all 0.5s ease}.feature-card[data-astro-cid-mgvwgchb]{transition:transform 0.5s ease,box-shadow 0.5s ease,border-color 0.3s ease;position:relative;overflow:hidden;z-index:1}.feature-card[data-astro-cid-mgvwgchb]::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);z-index:-1;transition:opacity 0.5s ease;opacity:0}.feature-card[data-astro-cid-mgvwgchb]:hover::before{opacity:1}.feature-card[data-astro-cid-mgvwgchb]:hover .feature-icon[data-astro-cid-mgvwgchb]{transform:translateY(-10px)}.feature-icon[data-astro-cid-mgvwgchb]{transition:transform 0.5s ease}.screenshot-container[data-astro-cid-mgvwgchb]{position:relative;overflow:hidden}.screenshot-overlay[data-astro-cid-mgvwgchb]{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 50%);opacity:0;transition:opacity 0.5s ease;display:flex;align-items:flex-end;justify-content:center;padding:1rem}.screenshot-container[data-astro-cid-mgvwgchb]:hover .screenshot-overlay[data-astro-cid-mgvwgchb]{opacity:1}.screenshot-container[data-astro-cid-mgvwgchb]:hover img[data-astro-cid-mgvwgchb]{transform:scale(1.1)}.join-button[data-astro-cid-mgvwgchb]{position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;z-index:1}.join-button[data-astro-cid-mgvwgchb]::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.7s ease;z-index:0}.join-button[data-astro-cid-mgvwgchb]:hover::before{left:100%}</style><script type="module" src="/@vite/client"></script>
+<script type="module" src="/node_modules/@astrojs/tailwind/base.css"></script>
+<script type="module" src="/src/pages/servers/[slug].astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/pages/servers/[slug].astro?astro&type=style&index=1&lang.css"></script>
+<script type="module" src="/src/pages/servers/[slug].astro?astro&type=style&index=2&lang.css"></script></head> <body class="bg-secondary text-white font-kanit overflow-x-hidden min-h-screen flex flex-col"> <header class="fixed top-0 left-0 w-full z-50 bg-secondary/70 backdrop-blur-sm transition-all duration-300 py-3"> <div class="container mx-auto px-4"> <nav class="flex justify-between items-center"> <div class="flex items-center"> <a href="/" class="transition-transform hover:scale-110"> <img src="/imgs/favicon.webp" alt="LuminaKraft Studios Logo" class="w-12 h-12" width="48" height="48" fetchpriority="high"> </a> <div class="language-selector ml-4"> <select id="language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1 text-sm hover:border-primary transition-colors"> <option value="es">ES</option> <option value="en" selected="true">EN</option> </select> </div> </div> <div class="hidden md:flex space-x-6 nav-links"> <a href="/#inicio" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Home</a> <a href="/#servidores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Our Servers</a> <a href="/#servicios" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Services</a> <a href="/#colaboradores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Collaborators</a> <a href="/#nosotros" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">About Us</a> <a href="/#donaciones" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Donations</a> <a href="/#contacto" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Contact</a> <a href="https://wiki.luminakraft.com" target="_blank" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a> </div> <button class="md:hidden mobile-menu-button text-2xl text-white" id="mobileMenuBtn" aria-label="Abrir menú">☰</button> </nav> </div> </header> <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center" id="mobileMenu"> <span class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer">&times;</span> <div class="flex flex-col space-y-6 text-center"> <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors">Home</a> <a href="/#servidores" class="text-xl text-white hover:text-primary transition-colors">Our Servers</a> <a href="/#servicios" class="text-xl text-white hover:text-primary transition-colors">Services</a> <a href="/#colaboradores" class="text-xl text-white hover:text-primary transition-colors">Collaborators</a> <a href="/#nosotros" class="text-xl text-white hover:text-primary transition-colors">About Us</a> <a href="/#donaciones" class="text-xl text-white hover:text-primary transition-colors">Donations</a> <a href="/#contacto" class="text-xl text-white hover:text-primary transition-colors">Contact</a> <a href="https://wiki.luminakraft.com" target="_blank" class="text-xl text-white hover:text-primary transition-colors">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a> </div> <div class="mt-8"> <label for="mobile-language-selector" class="text-white mr-2">Language:</label> <select id="mobile-language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1"> <option value="es">Español</option> <option value="en" selected="true">English</option> </select> </div> </div> <main class="flex-grow">     <div class="fixed top-[60px] left-0 right-0 z-50 bg-red-500/80 text-white py-1 px-4 text-center font-medium text-sm flex items-center justify-center gap-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-circle-exclamation" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> <span data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Este servidor ha finalizado</span> </div><div class="pt-24 pb-16 px-4 parallax-bg" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="container mx-auto max-w-6xl" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Cabecera del servidor --> <div class="flex flex-col items-center text-center mb-12 reveal-element" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 flex items-center justify-center mb-6 hero-glow" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <img src="/imgs/servers/onepieceworld/logo.webp" alt="One Piece World Logo" class="scale-125 max-w-full max-h-full object-contain transition-transform duration-700 hover:scale-135" loading="eager" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> </div> <div data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="flex items-center justify-center flex-wrap gap-3 mb-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">One Piece World</h1>  </div> <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-6" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Live the great adventure of One Piece: find Devil Fruits and master the seas.</p> <div class="flex flex-wrap items-center justify-center gap-3" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <span class="px-3 py-1 bg-black/30 backdrop-blur-sm rounded-full text-sm border border-primary/30 transition-all hover:border-primary/60 hover:bg-black/50 cursor-default" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> RPG </span> <span class="px-3 py-1 bg-black/30 backdrop-blur-sm rounded-full text-sm border border-primary/30 transition-all hover:border-primary/60 hover:bg-black/50 cursor-default" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> Forge </span> <span class="px-3 py-1 bg-black/30 backdrop-blur-sm rounded-full text-sm border border-primary/30 transition-all hover:border-primary/60 hover:bg-black/50 cursor-default" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> 1.20.1 </span> </div> </div> </div> <!-- Características del servidor --> <div class="mb-12 reveal-element" data-reveal-delay="200" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h2 class="text-2xl font-bold text-primary mb-6" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Main Features</h2> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay="200" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-apple-whole text-3xl text-primary" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <h3 class="text-xl font-bold text-primary mb-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Devil Fruits</h3> <p class="text-white/80" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Consume powerful fruits that will grant you special abilities, but beware of the sea!</p> </div><div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay="300" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-fist-raised text-3xl text-primary" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <h3 class="text-xl font-bold text-primary mb-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Haki and Fighting Styles</h3> <p class="text-white/80" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Master Haki, martial arts and combat styles inspired by characters like Sanji or Zoro.</p> </div><div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay="400" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-ship text-3xl text-primary" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <h3 class="text-xl font-bold text-primary mb-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Explore the Grand Line</h3> <p class="text-white/80" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Navigate through legendary islands, discover treasures and face dangerous pirates and marines.</p> </div><div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay="500" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-users text-3xl text-primary" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <h3 class="text-xl font-bold text-primary mb-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Multiplayer Adventures</h3> <p class="text-white/80" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Join a crew, face other players, or form alliances to dominate the seas.</p> </div> </div> </div> <!-- Tráiler del servidor si existe --> <div class="mb-12 reveal-element" data-reveal-delay="300" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h2 class="text-2xl font-bold text-primary mb-6" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Trailer for One Piece World</h2> <div class="relative overflow-hidden pt-[56.25%] rounded-lg border border-primary/20 transition-all hover:border-primary/40 hover:shadow-lg" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <iframe class="absolute top-0 left-0 w-full h-full border-0" src="https://www.youtube.com/embed/OadtwVyeRKI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></iframe> </div> </div> <!-- Imágenes del servidor --> <div class="mb-12 reveal-element" data-reveal-delay="400" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h2 class="text-2xl font-bold text-primary mb-6" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Screenshots</h2> <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="screenshot-container rounded-lg border border-primary/20 overflow-hidden" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <img src="/imgs/servers/onepieceworld/screenshot1.webp" alt="One Piece World Screenshot 1" class="w-full h-64 object-cover transition-transform duration-700" width="800" height="450" loading="eager" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="screenshot-overlay" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Eliminado el texto de Screenshot # --> </div> </div><div class="screenshot-container rounded-lg border border-primary/20 overflow-hidden" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <img src="/imgs/servers/onepieceworld/screenshot2.webp" alt="One Piece World Screenshot 2" class="w-full h-64 object-cover transition-transform duration-700" width="800" height="450" loading="lazy" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="screenshot-overlay" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Eliminado el texto de Screenshot # --> </div> </div><div class="screenshot-container rounded-lg border border-primary/20 overflow-hidden" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <img src="/imgs/servers/onepieceworld/screenshot3.webp" alt="One Piece World Screenshot 3" class="w-full h-64 object-cover transition-transform duration-700" width="800" height="450" loading="lazy" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="screenshot-overlay" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Eliminado el texto de Screenshot # --> </div> </div> </div> </div> <div class="text-center mb-16 reveal-element" data-reveal-delay="500" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="inline-block px-8 py-4 rounded-full bg-gray-700/90 text-white font-bold text-lg border border-gray-600/50 relative overflow-hidden opacity-80" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <span class="flex items-center justify-center gap-2" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-circle-xmark" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> <span data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Servidor cerrado</span> </span> </div> </div> <!-- Guía para unirse al servidor --> <div id="join-server" class="bg-black/30 backdrop-blur-md rounded-xl p-8 border border-primary/20 reveal-element" data-reveal-delay="600" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h2 class="text-2xl font-bold text-primary mb-6 text-center" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">How to join One Piece World</h2> <!-- Proceso visual para unirse --> <div class="join-guide" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Proceso para servidores con modpack -->
+            <div class="process-flow" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Barra de progreso animada --> <div class="progress-track" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="progress-bar" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></div> </div> <!-- Pasos ilustrados --> <div class="steps-container" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <!-- Paso 1: Descargar launcher --> <div class="join-step active" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon-inner" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-download" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <div class="step-number" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">1</div> </div> <div class="step-content" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h3 class="step-title" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Download the Installer</h3> <p class="step-description" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Get the installer from our official site</p> <div class="step-action" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener" class="action-button" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-download" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> <span data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Prism Launcher</span> </a> </div> </div> </div> <!-- Paso 2: Instalar modpack --> <div class="join-step" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon-inner" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-puzzle-piece" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <div class="step-number" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">2</div> </div> <div class="step-content" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h3 class="step-title" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Install the Modpack</h3> <p class="step-description" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Follow the instructions in the installer</p> <div class="step-action" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="copy-container" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <button class="copy-button action-button" data-clipboard-text="onepieceworld" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="code-preview" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">onepieceworld</div> <div class="copy-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-copy" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> </button> <div class="copy-tooltip" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Código copiado!</div> </div> </div> </div> </div> <!-- Paso 3: Conectar al servidor --> <div class="join-step" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="step-icon-inner" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-gamepad" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <div class="step-number" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">3</div> </div> <div class="step-content" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h3 class="step-title" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Launch the Game</h3> <p class="step-description" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Open the game and press the &quot;Set Sail to One Piece World!</p> <div class="step-action" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="server-address" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="address-label" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Dirección del servidor:</div> <div class="copy-container" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <button class="copy-button action-button" data-clipboard-text="onepieceworld.luminakraft.net" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="code-preview" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">onepieceworld.luminakraft.net</div> <div class="copy-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-copy" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> </button> <div class="copy-tooltip" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">IP copiada!</div> </div> </div> </div> </div> </div> </div> </div> <!-- Ayuda y soporte --> <div class="support-section" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <div class="support-icon" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fas fa-headset" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> </div> <div class="support-content" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <h3 data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">¿Necesitas ayuda?</h3> <p data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Si tienes algún problema para conectarte, ¡nuestro equipo estará encantado de ayudarte!</p> <a href="https://discord.gg/UJZRrcUFMj" target="_blank" rel="noopener" class="discord-button" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"> <i class="fab fa-discord" data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;"></i> <span data-astro-cid-mgvwgchb style="--primaryColor: #ffb400;--secondaryColor: #1a2735;">Únete a nuestro Discord</span> </a> </div> </div> </div> </div>  </div> </div>  </main> <footer class="bg-secondary relative overflow-hidden py-12 mt-8"> <div class="container mx-auto px-4"> <div class="footer-content flex flex-col md:flex-row md:justify-between gap-8 max-w-5xl mx-auto"> <div class="footer-section text-center"> <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">Quick Links</h3> <ul class="space-y-2"> <li><a href="/#inicio" class="text-white hover:text-primary transition-colors">Home</a></li> <li><a href="/#servidores" class="text-white hover:text-primary transition-colors">Our Servers</a></li> <li><a href="/#servicios" class="text-white hover:text-primary transition-colors">Services</a></li> <li><a href="/#colaboradores" class="text-white hover:text-primary transition-colors">Collaborators</a></li> <li><a href="/#nosotros" class="text-white hover:text-primary transition-colors">About Us</a></li> <li><a href="/#donaciones" class="text-white hover:text-primary transition-colors">Donations</a></li> <li><a href="/#contacto" class="text-white hover:text-primary transition-colors">Contact</a></li> <li> <a href="https://wiki.luminakraft.com" target="_blank" class="text-white hover:text-primary transition-colors">
+Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i> </a> </li> </ul> </div> <div class="footer-section text-center"> <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">Support</h3> <ul class="space-y-2"> <li><a href="/faq" class="text-white hover:text-primary transition-colors">FAQ</a></li> <li><a href="/soporte" class="text-white hover:text-primary transition-colors">Help Center</a></li> <li><a href="/terminos" class="text-white hover:text-primary transition-colors">Terms of Service</a></li> <li><a href="/privacidad" class="text-white hover:text-primary transition-colors">Privacy Policy</a></li> </ul> </div> <div class="footer-section text-center"> <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">Community</h3> <ul class="space-y-2"> <li><a href="/blog" class="text-white hover:text-primary transition-colors">Blog</a></li> <li><a href="/foro" class="text-white hover:text-primary transition-colors">Forum</a></li> <li><a href="/eventos" class="text-white hover:text-primary transition-colors">Events</a></li> <li><a href="/partners" class="text-white hover:text-primary transition-colors">Partner Program</a></li> </ul> </div> </div> <div class="social-links flex justify-center mt-8 space-x-6"> <a href="https://discord.com/invite/UJZRrcUFMj" title="Únete a nuestro Discord" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative"> <i class="fab fa-discord"></i> </a> <a href="https://www.tiktok.com/@luminakraft" title="Síguenos en TikTok" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative"> <i class="fab fa-tiktok"></i> </a> <a href="https://www.youtube.com/@luminakraft" title="Suscríbete a nuestro canal de YouTube" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative"> <i class="fab fa-youtube"></i> </a> <a href="https://x.com/luminakraft" title="Síguenos en X" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative"> <i class="fab fa-x-twitter"></i> </a> <a href="https://www.instagram.com/luminakraft" title="Síguenos en Instagram" target="_blank" class="text-white text-2xl w-12 h-12 flex items-center justify-center rounded-full bg-secondary/30 hover:bg-primary/20 border border-primary/30 transition-all hover:scale-110 hover:border-primary/60 hover:shadow-glow relative"> <i class="fab fa-instagram"></i> </a> </div> <p class="copyright text-center text-white/70 mt-8"> © 2025 LuminaKraft Studios. All rights reserved. </p> </div> </footer> <script>
+      // Script para el menú móvil - Implementación simple y directa
+      window.addEventListener('load', function() {
+        // Selección de elementos
+        const menuButton = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeButton = document.querySelector('.close-menu');
+        const menuLinks = document.querySelectorAll('#mobileMenu a');
+        
+        // Función para abrir el menú
+        function openMenu() {
+          mobileMenu.style.transform = 'translateX(0)';
+          document.body.style.overflow = 'hidden';
+        }
+        
+        // Función para cerrar el menú
+        function closeMenu() {
+          mobileMenu.style.transform = 'translateX(100%)';
+          document.body.style.overflow = '';
+        }
+        
+        // Evento para el botón de menú
+        if (menuButton) {
+          menuButton.onclick = function(e) {
+            e.preventDefault();
+            openMenu();
+          };
+        }
+        
+        // Evento para el botón de cierre
+        if (closeButton) {
+          closeButton.onclick = function(e) {
+            e.preventDefault();
+            closeMenu();
+          };
+        }
+        
+        // Eventos para los enlaces del menú
+        menuLinks.forEach(function(link) {
+          link.onclick = function() {
+            closeMenu();
+          };
+        });
+        
+        // Scroll suave para todos los enlaces internos
+        const internalLinks = document.querySelectorAll('a[href^="#"]:not(.no-smooth)');
+        internalLinks.forEach(link => {
+          link.onclick = function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // 80px de offset para el header
+                behavior: 'smooth'
+              });
+              
+              // Actualizar la URL sin recargar la página
+              history.pushState('', '', targetId);
+            }
+          };
+        });
+        
+        // Cambio de idioma
+        const languageSelector = document.getElementById('language-selector');
+        const mobileLangSelector = document.getElementById('mobile-language-selector');
+        
+        // Establecer el valor del selector de idioma basado en localStorage o la URL actual
+        const setInitialLanguageSelector = () => {
+          // Detectar idioma de la URL
+          const path = window.location.pathname;
+          const isEnglishPath = path.startsWith('/en');
+          
+          // Guardar en localStorage
+          localStorage.setItem('selectedLanguage', isEnglishPath ? 'en' : 'es');
+          
+          // Establecer selector
+          if (languageSelector) {
+            languageSelector.value = isEnglishPath ? 'en' : 'es';
+          }
+          if (mobileLangSelector) {
+            mobileLangSelector.value = isEnglishPath ? 'en' : 'es';
+          }
+        };
+        
+        // Establecer selector inicial
+        setInitialLanguageSelector();
+        
+        // Función para cambiar el idioma
+        function changeLanguage(lang) {
+          // Guardar el idioma en localStorage
+          localStorage.setItem('selectedLanguage', lang);
+          
+          // Adaptar URL según el idioma
+          const currentPath = window.location.pathname;
+          const isServerPage = currentPath.includes('/servers/');
+          const serverSlug = isServerPage ? currentPath.split('/').pop() : '';
+          
+          // Si se selecciona español (idioma predeterminado)
+          if (lang === 'es') {
+            // Si estamos en una página en inglés, cambiar a español
+            if (currentPath.startsWith('/en')) {
+              if (isServerPage && serverSlug) {
+                window.location.href = `/servers/${serverSlug}`;
+              } else {
+                window.location.href = currentPath.replace('/en', '') || '/';
+              }
+              return;
+            }
+          }
+          // Si se selecciona inglés
+          else if (lang === 'en') {
+            // Si estamos en español, cambiar a inglés
+            if (!currentPath.startsWith('/en')) {
+              if (isServerPage && serverSlug) {
+                window.location.href = `/en/servers/${serverSlug}`;
+              } else {
+                window.location.href = `/en${currentPath === '/' ? '' : currentPath}`;
+              }
+              return;
+            }
+          }
+          
+          // Si no requiere cambio de URL, solo recargar
+          window.location.reload();
+        }
+        
+        if (languageSelector) {
+          languageSelector.onchange = function() {
+            changeLanguage(this.value);
+          };
+        }
+        
+        if (mobileLangSelector) {
+          mobileLangSelector.onchange = function() {
+            changeLanguage(this.value);
+          };
+        }
+        
+        // Menú sticky al hacer scroll
+        const header = document.querySelector('header');
+        window.onscroll = function() {
+          if (window.scrollY > 50) {
+            header?.classList.add('py-2', 'shadow-md');
+            header?.classList.remove('py-3');
+          } else {
+            header?.classList.remove('py-2', 'shadow-md');
+            header?.classList.add('py-3');
+          }
+        };
+      });
+    </script> </body> </html> <script>(function(){const serverId = "onepieceworld";
+const leaderboardPath = "/data/servers/onepieceworld/leaderboard.json";
+const isActive = false;
+
+  // Controlador para la guía de unión
+  const joinSteps = document.querySelectorAll('.join-step');
+  const progressBar = document.querySelector('.progress-bar');
+  
+  // Inicializar con el primer paso activo
+  let currentStep = 0;
+  
+  // Función para activar un paso
+  const activateStep = (stepIndex) => {
+    // Desactivar todos los pasos
+    joinSteps.forEach(step => step.classList.remove('active'));
+    
+    // Activar hasta el paso actual
+    for (let i = 0; i <= stepIndex; i++) {
+      if (joinSteps[i]) {
+        joinSteps[i].classList.add('active');
+      }
+    }
+    
+    // Actualizar la barra de progreso
+    if (progressBar) {
+      const progress = ((stepIndex + 1) / joinSteps.length) * 100;
+      progressBar.style.height = `${progress}%`;
+    }
+  };
+  
+  // Activar el primer paso inicialmente
+  activateStep(0);
+  
+  // Cambiar al siguiente paso cuando se hace clic en un paso
+  joinSteps.forEach((step, index) => {
+    step.addEventListener('click', () => {
+      if (index <= currentStep + 1) { // Solo permite avanzar de uno en uno
+        currentStep = index;
+        activateStep(currentStep);
+      }
+    });
+  });
+  
+  // Funcionalidad del botón de copia
+  const copyButtons = document.querySelectorAll('.copy-button');
+  
+  copyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const container = button.closest('.copy-container');
+      const textToCopy = button.getAttribute('data-clipboard-text');
+      
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        // Mostrar efecto de copiado
+        container.classList.add('copied');
+        
+        // Ocultar después de 2 segundos
+        setTimeout(() => {
+          container.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
+  
+  // Resto del código existente...
+})();</script> 

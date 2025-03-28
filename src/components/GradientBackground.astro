@@ -1,0 +1,68 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`gradient-background ${className}`}>
+  <div class="gradient-overlay"></div>
+</div>
+
+<style>
+  .gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  
+  .gradient-overlay {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(74, 144, 226, 0.2) 0%,
+      rgba(42, 82, 152, 0.2) 30%,
+      rgba(16, 24, 40, 0.1) 70%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    transition: transform 8s ease-in-out, opacity 5s ease-in-out;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gradients = document.querySelectorAll('.gradient-overlay') as NodeListOf<HTMLElement>;
+    
+    const animateGradients = () => {
+      gradients.forEach((gradient) => {
+        // Generar nuevas propiedades para la transición
+        const randomX = Math.floor(Math.random() * 20) - 10; // Valores entre -10 y 10
+        const randomY = Math.floor(Math.random() * 20) - 10; // Valores entre -10 y 10
+        const randomScale = 0.95 + (Math.random() * 0.2); // Valores entre 0.95 y 1.15
+        
+        // Aplicar transformación con transición CSS
+        gradient.style.transform = `translate(${randomX}%, ${randomY}%) scale(${randomScale})`;
+        
+        // Variar ligeramente la opacidad
+        const randomOpacity = 0.7 + (Math.random() * 0.3); // Valores entre 0.7 y 1.0
+        gradient.style.opacity = randomOpacity.toString();
+      });
+    };
+    
+    // Animar los gradientes inicialmente
+    animateGradients();
+    
+    // Repetir la animación cada 10 segundos
+    setInterval(animateGradients, 10000);
+  });
+</script>

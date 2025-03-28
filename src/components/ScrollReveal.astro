@@ -1,0 +1,89 @@
+---
+// Componente de animación de aparición al hacer scroll
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.reveal-element');
+    
+    const revealElement = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delayValue = el.dataset.revealDelay || '0';
+          const delay = parseInt(delayValue);
+          
+          setTimeout(() => {
+            el.classList.add('revealed');
+          }, delay);
+          
+          // Si tiene data-reveal-once, dejar de observar después de revelar
+          if (el.dataset.revealOnce === 'true') {
+            observer.unobserve(el);
+          }
+        } else if (!entry.target.dataset.revealOnce || entry.target.dataset.revealOnce !== 'true') {
+          // Si no es reveal-once, ocultar de nuevo cuando sale de vista
+          entry.target.classList.remove('revealed');
+        }
+      });
+    };
+    
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(revealElement, observerOptions);
+    
+    animatedElements.forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+<style>
+  /* Estilos base para los elementos con animación */
+  .reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Variaciones de animaciones */
+  .reveal-from-left {
+    transform: translateX(-50px);
+  }
+  
+  .reveal-from-left.revealed {
+    transform: translateX(0);
+  }
+  
+  .reveal-from-right {
+    transform: translateX(50px);
+  }
+  
+  .reveal-from-right.revealed {
+    transform: translateX(0);
+  }
+  
+  .reveal-scale {
+    transform: scale(0.8);
+  }
+  
+  .reveal-scale.revealed {
+    transform: scale(1);
+  }
+  
+  .reveal-rotate {
+    transform: rotate(-5deg) scale(0.9);
+  }
+  
+  .reveal-rotate.revealed {
+    transform: rotate(0) scale(1);
+  }
+</style>
