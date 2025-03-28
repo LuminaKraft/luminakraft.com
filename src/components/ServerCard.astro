@@ -65,11 +65,12 @@ const serverDescKey = descriptionKey;
     <!-- Logo del servidor superpuesto -->
     {logo && (
       <div class="absolute inset-0 flex items-center justify-center p-4">
-        <div class="max-w-[80%] max-h-[80%] flex items-center justify-center bg-black/30 backdrop-blur-sm rounded-lg p-3">
+        <div class="blur-overlay absolute inset-0 bg-black/20 backdrop-blur-sm opacity-100 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:backdrop-blur-xl group-hover:bg-black/50"></div>
+        <div class="logo-container relative z-10 flex items-center justify-center p-3 transition-all duration-700 ease-in-out">
           <img 
             src={logo} 
             alt={`Logo de ${name}`} 
-            class="max-w-full max-h-full object-contain"
+            class="max-w-full max-h-full object-contain transition-transform duration-700 ease-in-out scale-100 group-hover:scale-115"
             loading="lazy"
           />
         </div>
@@ -124,5 +125,23 @@ const serverDescKey = descriptionKey;
     .server-card {
         transition: all 0.3s ease;
         min-height: 26rem;
+    }
+    
+    .logo-container {
+        position: relative;
+        max-width: 80%;
+        max-height: 80%;
+        transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    
+    .server-card:hover .logo-container {
+        max-width: 90%;
+        max-height: 90%;
+        transform: scale(1.2);
+        z-index: 20;
+    }
+    
+    .blur-overlay {
+        border-radius: 8px;
     }
 </style> 

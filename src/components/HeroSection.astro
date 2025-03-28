@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '../utils/i18n';
 import RotatingWords from './RotatingWords.astro';
+import ParallaxStars from './ParallaxStars.astro';
 
 interface Props {
   locale?: 'es' | 'en';
@@ -14,53 +15,85 @@ const t = (key: string) => getTranslation(key, locale);
 // Palabras para la animación
 const rotatingWords = [
   'word-adventure',
+  'word-experience',
   'word-universe',
   'word-journey',
   'word-world',
   'word-destiny',
   'word-realm',
-  'word-legacy'
+  'word-legacy',
+  'word-magic',
+  'word-story',
+  'word-quest',
+  'word-fantasy',
+  'word-legend',
+  'word-saga',
+  'word-tale',
+  'word-epic',
+  'word-mission',
+  'word-chronicle',
+  'word-odyssey',
+  'word-mythology',
+  'word-fable'
 ];
 
 ---
 
-<section id="inicio" class="hero min-h-screen flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
-  <div class="absolute inset-0 z-0">
+<section id="inicio" class="hero min-h-screen flex flex-col justify-center items-center px-4 py-20 overflow-hidden relative">
+  <ParallaxStars />
+  
+  <div class="absolute inset-0 z-0 bg-gradient"></div>
+  
+  <div class="absolute inset-0 z-1">
     <div class="particles-container">
-      <div class="particle float-particle float-duration-15 absolute"></div>
-      <div class="particle float-particle float-duration-25 float-delay-500 absolute"></div>
-      <div class="particle float-particle float-duration-20 float-delay-1000 absolute"></div>
-      <div class="particle float-particle float-duration-18 float-delay-1500 absolute"></div>
-      <div class="particle float-particle float-duration-22 float-delay-2000 absolute"></div>
-      <div class="particle float-particle float-duration-19 float-delay-2500 absolute"></div>
-      <div class="particle float-particle float-duration-23 float-delay-3000 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-15 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-25 float-delay-500 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-20 float-delay-1000 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-18 float-delay-1500 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-22 float-delay-2000 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-19 float-delay-2500 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-23 float-delay-3000 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-17 float-delay-3500 absolute"></div>
+      <div class="particle glow-particle float-particle float-duration-21 float-delay-4000 absolute"></div>
     </div>
   </div>
   
-  <div class="hero-content text-center z-10 fade-in-up delay-300">
-    <h1 class="text-shadow mb-8">
-      <RotatingWords words={rotatingWords} locale={locale} />
-    </h1>
-    
-    <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto fade-in delay-500">
-      {t('hero-desc')}
-    </p>
-    
-    <a 
-      href="#servidores" 
-      class="hero-cta inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary/90 text-white font-bold text-lg shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1 floating-animation"
-    >
-      <span class="cta-text">{t('explore-servers')}</span>
-      <span class="cta-icon spin-pulse">
-        <i class="fas fa-compass"></i>
-      </span>
-    </a>
+  <div class="hero-content text-center z-10 transition-all hover-scale">
+    <div class="backdrop-blur-sm bg-secondary/20 p-8 md:p-12 rounded-2xl border border-primary/10 shadow-glow transition-all duration-500 hover:shadow-strong-glow hover:bg-secondary/30 hover:border-primary/30">
+      <h1 class="text-shadow mb-8 reveal-element">
+        <RotatingWords words={rotatingWords} locale={locale} />
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto reveal-element" data-reveal-delay="300">
+        {t('hero-desc')}
+      </p>
+      
+      <div class="flex justify-center">
+        <a 
+          href="#servidores" 
+          class="hero-cta inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary/90 text-white font-bold text-lg shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-2 reveal-element hover-pulse"
+          data-reveal-delay="600"
+        >
+          <span class="cta-text">{t('explore-servers')}</span>
+          <span class="cta-icon transition-transform duration-300">
+            <i class="fas fa-compass"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 scroll-indicator">
+    <div class="mouse-icon">
+      <div class="mouse-wheel"></div>
+    </div>
+    <div class="scroll-text text-white/70 text-sm mt-2">Scroll</div>
   </div>
 </section>
 
 <style>
   .hero {
-    background: linear-gradient(135deg, rgba(1, 26, 56, 0.7) 0%, rgba(1, 26, 56, 0.8) 100%), url('/imgs/background.webp');
+    background: linear-gradient(135deg, rgba(1, 16, 36, 0.9) 0%, rgba(1, 26, 56, 0.85) 100%), url('/imgs/background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -68,150 +101,27 @@ const rotatingWords = [
   }
   
   .text-shadow {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
   }
   
-  /* Animaciones personalizadas para reemplazar las de midudev */
-  @keyframes spinPulse {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(90deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    75% {
-      transform: rotate(270deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(0, 162, 255, 0.3);
   }
   
-  .spin-pulse {
-    animation: spinPulse 3s ease-in-out infinite;
+  .shadow-strong-glow {
+    box-shadow: 0 0 30px rgba(0, 162, 255, 0.6);
   }
   
-  @keyframes floatButton {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  .hover-scale {
+    transition: transform 0.5s ease;
   }
   
-  .floating-animation {
-    animation: floatButton 3s ease-in-out infinite;
+  .hover-scale:hover {
+    transform: scale(1.03);
   }
   
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
-  }
-  
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  
-  .delay-500 {
-    animation-delay: 500ms;
-  }
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0) translateX(0);
-    }
-    25% {
-      transform: translateY(-15px) translateX(5px);
-    }
-    50% {
-      transform: translateY(0) translateX(10px);
-    }
-    75% {
-      transform: translateY(15px) translateX(5px);
-    }
-  }
-  
-  .float-particle {
-    animation: float ease-in-out infinite;
-  }
-  
-  .float-duration-15 {
-    animation-duration: 15s;
-  }
-  
-  .float-duration-18 {
-    animation-duration: 18s;
-  }
-  
-  .float-duration-19 {
-    animation-duration: 19s;
-  }
-  
-  .float-duration-20 {
-    animation-duration: 20s;
-  }
-  
-  .float-duration-22 {
-    animation-duration: 22s;
-  }
-  
-  .float-duration-23 {
-    animation-duration: 23s;
-  }
-  
-  .float-duration-25 {
-    animation-duration: 25s;
-  }
-  
-  .float-delay-500 {
-    animation-delay: 500ms;
-  }
-  
-  .float-delay-1000 {
-    animation-delay: 1000ms;
-  }
-  
-  .float-delay-1500 {
-    animation-delay: 1500ms;
-  }
-  
-  .float-delay-2000 {
-    animation-delay: 2000ms;
-  }
-  
-  .float-delay-2500 {
-    animation-delay: 2500ms;
-  }
-  
-  .float-delay-3000 {
-    animation-delay: 3000ms;
+  .hover-pulse:hover .cta-icon {
+    /* Eliminamos completamente esta regla para que no interfiera */
   }
   
   .particles-container {
@@ -225,41 +135,177 @@ const rotatingWords = [
     height: 6px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
   
-  .particle:nth-child(1) {
-    top: 10%;
-    left: 20%;
+  .glow-particle {
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.8);
+    background-color: rgba(0, 162, 255, 0.4);
   }
   
-  .particle:nth-child(2) {
-    top: 30%;
-    left: 80%;
+  .particle:nth-child(1) { top: 10%; left: 20%; }
+  .particle:nth-child(2) { top: 30%; left: 80%; }
+  .particle:nth-child(3) { top: 50%; left: 15%; }
+  .particle:nth-child(4) { top: 70%; left: 60%; }
+  .particle:nth-child(5) { top: 20%; left: 40%; }
+  .particle:nth-child(6) { top: 60%; left: 30%; }
+  .particle:nth-child(7) { top: 80%; left: 70%; }
+  .particle:nth-child(8) { top: 40%; left: 85%; }
+  .particle:nth-child(9) { top: 65%; left: 10%; }
+  
+  .bg-gradient {
+    background: radial-gradient(circle at top right, rgba(0, 162, 255, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(0, 92, 230, 0.1), transparent 60%);
   }
   
-  .particle:nth-child(3) {
-    top: 50%;
-    left: 15%;
+  /* Indicador de scroll */
+  .mouse-icon {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+    margin: 0 auto;
   }
   
-  .particle:nth-child(4) {
-    top: 70%;
-    left: 60%;
+  .mouse-wheel {
+    width: 4px;
+    height: 8px;
+    background-color: white;
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s ease-in-out infinite;
   }
   
-  .particle:nth-child(5) {
-    top: 20%;
-    left: 40%;
+  @keyframes scrollWheel {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(15px);
+    }
   }
   
-  .particle:nth-child(6) {
-    top: 60%;
-    left: 30%;
+  /* Animaciones usando transiciones para compatibilidad con Firefox/Zen */
+  .float-particle {
+    transition: transform 10s ease-in-out;
   }
   
-  .particle:nth-child(7) {
-    top: 80%;
-    left: 70%;
+  /* Duración de las transiciones */
+  .float-duration-15 { transition-duration: 15s; }
+  .float-duration-17 { transition-duration: 17s; }
+  .float-duration-18 { transition-duration: 18s; }
+  .float-duration-19 { transition-duration: 19s; }
+  .float-duration-20 { transition-duration: 20s; }
+  .float-duration-21 { transition-duration: 21s; }
+  .float-duration-22 { transition-duration: 22s; }
+  .float-duration-23 { transition-duration: 23s; }
+  .float-duration-25 { transition-duration: 25s; }
+  
+  /* Delays */
+  .float-delay-500 { transition-delay: 500ms; }
+  .float-delay-1000 { transition-delay: 1000ms; }
+  .float-delay-1500 { transition-delay: 1500ms; }
+  .float-delay-2000 { transition-delay: 2000ms; }
+  .float-delay-2500 { transition-delay: 2500ms; }
+  .float-delay-3000 { transition-delay: 3000ms; }
+  .float-delay-3500 { transition-delay: 3500ms; }
+  .float-delay-4000 { transition-delay: 4000ms; }
+  
+  .reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hero-cta {
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    animation: floatButton 3s ease-in-out infinite;
+  }
+  
+  .hero-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 162, 255, 0.4);
+  }
+  
+  @keyframes floatButton {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .cta-icon {
+    display: inline-flex;
+    animation: rotateCompass 5s linear infinite;
+  }
+  
+  @keyframes rotateCompass {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .hero-cta:hover .cta-icon {
+    /* Aseguramos mantener la misma animación */
+    animation: rotateCompass 5s linear infinite;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animar elementos al cargar la página
+    const revealElements = document.querySelectorAll('.reveal-element');
+    
+    revealElements.forEach((el) => {
+      const delayValue = el.getAttribute('data-reveal-delay') || '0';
+      const delay = parseInt(delayValue);
+      setTimeout(() => {
+        el.classList.add('revealed');
+      }, delay);
+    });
+    
+    // Animar partículas flotantes con JavaScript para mayor compatibilidad
+    const animateParticles = () => {
+      const particles = document.querySelectorAll('.float-particle');
+      
+      particles.forEach((particle: HTMLElement) => {
+        const randomX = Math.floor(Math.random() * 20) - 10; // Valores entre -10 y 10
+        const randomY = Math.floor(Math.random() * 20) - 10; // Valores entre -10 y 10
+        
+        // Usando transiciones CSS en lugar de animaciones keyframe
+        particle.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        
+        // Reset después de un tiempo aleatorio
+        const duration = parseInt(getComputedStyle(particle).transitionDuration) * 1000;
+        setTimeout(() => {
+          // Cambiar posición para la próxima transición
+          const newX = Math.floor(Math.random() * 20) - 10;
+          const newY = Math.floor(Math.random() * 20) - 10;
+          particle.style.transform = `translate(${newX}px, ${newY}px)`;
+        }, duration);
+      });
+    };
+    
+    // Iniciar la animación
+    animateParticles();
+    
+    // Repetir la animación periódicamente
+    setInterval(animateParticles, 15000);
+    
+    // Efecto parallax para el fondo
+    const heroSection = document.querySelector('.hero') as HTMLElement;
+    if (heroSection && window.innerWidth > 768) {
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      });
+    }
+  });
+</script>
