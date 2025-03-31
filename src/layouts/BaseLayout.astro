@@ -7,25 +7,10 @@ interface Props {
   locale?: 'es' | 'en';
 }
 
-// Función para analizar las cookies del lado del servidor
-function getServerCookie(cookieString, name) {
-  if (!cookieString) return null;
-  const cookies = cookieString.split(';');
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.trim().split('=');
-    if (cookieName === name) {
-      return cookieValue;
-    }
-  }
-  return null;
-}
-
-// Obtener el idioma de la cookie
-const cookieHeader = Astro.request.headers.get('cookie');
-const languageCookie = getServerCookie(cookieHeader, 'selectedLanguage');
-
-// Intentar obtener el idioma del usuario
-const userLocale: 'es' | 'en' = (languageCookie === 'en') ? 'en' : 'es';
+// Usar el locale proporcionado como prop (userLocale) 
+// En producción con compilación estática, no podemos acceder a las cookies del servidor
+// La selección del idioma ocurrirá en el cliente con JavaScript
+const userLocale = Astro.props.locale || 'es';
 
 // Este código solo se ejecuta en el servidor durante la construcción de la página
 const { 

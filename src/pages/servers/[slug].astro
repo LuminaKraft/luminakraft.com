@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getTranslation } from "../../utils/i18n";
-import servers from "../../data/servers.json";
+import serversData from "../../data/servers.json";
 import type { GetStaticPaths } from "astro";
 
 // Definimos el tipo para locale explícitamente
@@ -24,59 +24,37 @@ export type Server = {
   leaderboardPath?: string;
 };
 
-// Asegurarnos de que servers sea tratado como un array de Server
-const typedServers = servers as unknown as Server[];
+// Para precompilar las rutas estáticas en modo "static"
+export const prerender = true;
 
-// Función para analizar las cookies del lado del servidor
-function getServerCookie(cookieString: string | null, name: string): string | null {
-  if (!cookieString) return null;
-  const cookies = cookieString.split(';');
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.trim().split('=');
-    if (cookieName === name) {
-      return cookieValue;
-    }
-  }
-  return null;
-}
-
-// Generar rutas dinámicas para ambos idiomas
+// Generar rutas estáticas para cada servidor
 export const getStaticPaths = (() => {
-  // Generar rutas para cada servidor, tanto en español como en inglés
-  return typedServers.flatMap((server: Server) => [
-    {
-      params: { slug: server.slug },
-      props: { server, locale: 'es' as Locale }
-    },
-    {
-      params: { slug: server.slug },
-      props: { server, locale: 'en' as Locale }
-    }
-  ]);
+  // Para compilación estática, definimos los servidores directamente
+  const servers = serversData as unknown as Server[];
+  
+  // Solo generamos rutas para español como idioma por defecto
+  return servers.map((server: Server) => ({
+    params: { slug: server.slug },
+    props: { server, locale: 'es' as Locale }
+  }));
 }) satisfies GetStaticPaths;
 
 // Obtener slug de la URL
 const slugFromURL = Astro.params.slug;
 
-// Obtener propiedades y cookies
+// Obtener propiedades
 const { server, locale: propLocale } = Astro.props as { server: Server, locale: Locale };
 
-// Intentar encontrar el servidor manualmente si no está en props
-const serverFromSlug: Server = server || typedServers.find(s => s.slug === slugFromURL) as Server;
-
-// Si aún no tenemos el servidor, redireccionar a la página principal
-if (!serverFromSlug) {
+// Si no tenemos el servidor, redireccionar a la página principal
+if (!server) {
   return Astro.redirect('/');
 }
 
-// Obtener las cookies del encabezado de la solicitud
-const cookieHeader = Astro.request.headers.get('cookie');
+// Usar el servidor proporcionado en props (ya filtrado por slug)
+const serverFromSlug: Server = server;
 
-// Intentar obtener el idioma de la cookie
-const languageCookie = getServerCookie(cookieHeader, 'selectedLanguage');
-
-// Determinar el idioma final (priorizar cookie)
-const locale: Locale = (languageCookie === 'en') ? 'en' : (propLocale || 'es');
+// En compilación estática, utilizamos el idioma predeterminado
+const locale: Locale = propLocale || 'es';
 
 // Traducir según el idioma
 const t = (key: string) => getTranslation(key, locale);

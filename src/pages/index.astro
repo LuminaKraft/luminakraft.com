@@ -18,17 +18,16 @@ function getServerCookie(cookieString, name) {
   return null;
 }
 
-// Obtener las cookies del encabezado de la solicitud
-const cookieHeader = Astro.request.headers.get('cookie');
+// Definir el idioma predeterminado (no utilizamos headers en modo estático)
+let locale: 'es' | 'en' = 'es';
 
-// Intentar obtener el idioma de la cookie
-const languageCookie = getServerCookie(cookieHeader, 'selectedLanguage');
-
-// Definir el idioma basado en la cookie (en o es)
-const locale = languageCookie === 'en' ? 'en' : 'es';
+// En producción con compilación estática, podemos usar funciones del navegador como localStorage 
+// para obtener el idioma preferido del usuario, pero esto ocurrirá en el cliente
+// Para la compilación utilizamos el locale predeterminado
 
 // Traducir según el idioma
 const t = (key: string) => getTranslation(key, locale);
+
 ---
 
 <BaseLayout locale={locale}>
