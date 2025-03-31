@@ -2,11 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ServerCard from "../components/ServerCard.astro";
-import { getTranslation } from "../utils/i18n";
+import { getTranslation, getUserLocale } from "../utils/i18n";
 import servers from "../data/servers.json";
 
-// Definir el idioma
-const locale = 'es';
+// Función para analizar las cookies del lado del servidor
+function getServerCookie(cookieString, name) {
+  if (!cookieString) return null;
+  const cookies = cookieString.split(';');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
+}
+
+// Obtener las cookies del encabezado de la solicitud
+const cookieHeader = Astro.request.headers.get('cookie');
+
+// Intentar obtener el idioma de la cookie
+const languageCookie = getServerCookie(cookieHeader, 'selectedLanguage');
+
+// Definir el idioma basado en la cookie (en o es)
+const locale = languageCookie === 'en' ? 'en' : 'es';
 
 // Traducir según el idioma
 const t = (key: string) => getTranslation(key, locale);
