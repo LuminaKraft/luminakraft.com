@@ -174,9 +174,9 @@ const t = (key: string) => getTranslation(key, locale);
   <!-- Colaboradores Section -->
   <section id="colaboradores" class="py-20 px-4 relative overflow-hidden">
     <div class="container mx-auto max-w-5xl">
-      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('our-collaborators')}</h2>
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up" data-i18n="our-collaborators">{t('our-collaborators')}</h2>
       
-      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200">{t('collaborators-intro')}</p>
+      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200" data-i18n="collaborators-intro">{t('collaborators-intro')}</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-up animate-delay-300">
         <!-- Colaborador 1 -->
@@ -191,7 +191,7 @@ const t = (key: string) => getTranslation(key, locale);
           />
           <div>
             <div class="text-xl font-bold text-primary mb-1">Los Picaos</div>
-            <div class="text-white/70 mb-4">{t('colab-lospicaos')}</div>
+            <div class="text-white/70 mb-4" data-i18n="colab-lospicaos">{t('colab-lospicaos')}</div>
             <div class="flex space-x-3">
               <a 
                 href="https://discord.gg/wB3n78uGY8"
@@ -218,7 +218,7 @@ const t = (key: string) => getTranslation(key, locale);
           />
           <div>
             <div class="text-xl font-bold text-primary mb-1">PT: The Full Course</div>
-            <div class="text-white/70 mb-4">{t('colab-ptfullcourse')}</div>
+            <div class="text-white/70 mb-4" data-i18n="colab-ptfullcourse">{t('colab-ptfullcourse')}</div>
             <div class="flex space-x-3">
               <a 
                 href="https://discord.gg/pt-the-full-course-1080714738369036359"
