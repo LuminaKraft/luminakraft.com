@@ -293,11 +293,11 @@ const serverFeatures = {
 
       <!-- Características del servidor -->
       {serverFeatures.length > 0 && (
-        <div class="mb-12 reveal-element" data-reveal-delay="200">
+        <div class="mb-12 reveal-element" data-reveal-delay="100">
           <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="features-title">{t('features-title')}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {serverFeatures.map((feature, index) => (
-              <div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay={200 + 100 * index}>
+              <div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay={100 + 50 * index}>
                 <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto">
                   <i class={`fas ${feature.icon} text-3xl text-primary`}></i>
                 </div>
@@ -311,7 +311,7 @@ const serverFeatures = {
 
       <!-- Tráiler del servidor si existe -->
       {youtubeEmbed && (
-        <div class="mb-12 reveal-element" data-reveal-delay="300">
+        <div class="mb-12 reveal-element" data-reveal-delay="150">
           <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="trailers-title">{t('trailers-title')} {serverFromSlug.name}</h2>
           <div class="relative overflow-hidden pt-[56.25%] rounded-lg border border-primary/20 transition-all hover:border-primary/40 hover:shadow-lg">
             <iframe 
@@ -326,7 +326,7 @@ const serverFeatures = {
       )}
 
       <!-- Imágenes del servidor -->
-      <div class="mb-12 reveal-element" data-reveal-delay="400">
+      <div class="mb-12 reveal-element" data-reveal-delay="200">
         <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="screenshots-title">{t('screenshots-title')}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           {serverFromSlug.images.map((image, index) => (
@@ -345,7 +345,7 @@ const serverFeatures = {
         </div>
       </div>
 
-      <div class="text-center mb-16 reveal-element" data-reveal-delay="500">
+      <div class="text-center mb-16 reveal-element" data-reveal-delay="250">
         {serverFromSlug.isActive ? (
           <a 
             href="#join-server" 
@@ -517,7 +517,7 @@ const serverFeatures = {
       
       <!-- Leaderboard para servidor -->
       {serverFromSlug.leaderboardPath && (
-        <div class="mt-12 mb-12 reveal-element" data-reveal-delay="600">
+        <div class="mt-12 mb-12 reveal-element" data-reveal-delay="300">
           <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="leaderboard-title">{t('leaderboard-title')}</h2>
           <p class="text-white/80 mb-8" data-i18n="leaderboard-description">{t('leaderboard-description')}</p>
           
@@ -615,10 +615,14 @@ const serverFeatures = {
         const elementVisible = 150;
         
         if (scrollY > elementTop - windowHeight + elementVisible) {
-          const delay = el.getAttribute('data-reveal-delay') || 0;
+          // Reduce the delay time by using a smaller value
+          const delayStr = el.getAttribute('data-reveal-delay') || '0';
+          const originalDelay = parseInt(delayStr);
+          
+          // Apply the animation with reduced delay
           setTimeout(() => {
             el.classList.add('revealed');
-          }, delay);
+          }, originalDelay);
         }
       });
     };
@@ -835,7 +839,7 @@ const serverFeatures = {
                   <i class="fas fa-skull"></i> ${killsJugadores}
                 </div>
               </div>
-              <div class="player-details max-h-0 overflow-hidden opacity-0 transition-all duration-300 mt-0">
+              <div class="player-details max-h-0 overflow-hidden opacity-0 transition-all duration-200 mt-0">
                 <div class="border-t border-primary/20 my-3"></div>
                 <div class="grid grid-cols-2 gap-2 text-sm">
                   <div title="${translations.deaths}" data-i18n-tooltip="leaderboard-deaths"><i class="fas fa-skull-crossbones text-red-400"></i> ${muertes}</div>
@@ -895,7 +899,7 @@ const serverFeatures = {
   .reveal-element {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   
   .reveal-element.revealed {
@@ -918,7 +922,7 @@ const serverFeatures = {
     height: 200%;
     background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
     transform: rotate(25deg);
-    animation: shine 3s infinite;
+    animation: shine 2s infinite;
     pointer-events: none;
   }
   
