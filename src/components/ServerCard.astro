@@ -47,7 +47,7 @@ const serverDescKey = descriptionKey;
   <!-- Etiqueta de cerrado -->
   {!isActive && (
     <div class="absolute top-4 right-4 bg-gray-600/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
-      <span>{getTranslation('server-closed', locale)}</span>
+      <span data-i18n="server-closed">{getTranslation('server-closed', locale)}</span>
     </div>
   )}
   
@@ -82,7 +82,7 @@ const serverDescKey = descriptionKey;
   <h3 class="text-2xl font-bold mt-4 text-primary">{name}</h3>
   
   <!-- Descripción del servidor -->
-  <p class="text-white/80 my-3 min-h-[60px]">{getTranslation(serverDescKey, locale)}</p>
+  <p class="text-white/80 my-3 min-h-[60px]" data-i18n={serverDescKey}>{getTranslation(serverDescKey, locale)}</p>
   
   <!-- Colaboradores -->
   <div class="flex items-center space-x-2 mb-4">
@@ -113,7 +113,9 @@ const serverDescKey = descriptionKey;
           : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-[1.02] transform duration-300'
       }`}
     >
-      <span class="relative z-10">{isActive ? getTranslation('join-now', locale) : getTranslation('view-server', locale)}</span>
+      <span class="relative z-10" data-i18n={isActive ? "join-now" : "view-server"}>
+        {isActive ? getTranslation('join-now', locale) : getTranslation('view-server', locale)}
+      </span>
       {isActive && (
         <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
       )}

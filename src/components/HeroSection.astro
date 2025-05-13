@@ -64,7 +64,7 @@ const rotatingWords = [
         <RotatingWords words={rotatingWords} locale={locale} />
       </h1>
       
-      <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto reveal-element" data-reveal-delay="300">
+      <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto reveal-element" data-reveal-delay="300" data-i18n="hero-desc">
         {t('hero-desc')}
       </p>
       
@@ -74,7 +74,7 @@ const rotatingWords = [
           class="hero-cta inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary/90 text-white font-bold text-lg shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-2 reveal-element hover-pulse"
           data-reveal-delay="600"
         >
-          <span class="cta-text">{t('explore-servers')}</span>
+          <span class="cta-text" data-i18n="explore-servers">{t('explore-servers')}</span>
           <span class="cta-icon transition-transform duration-300">
             <i class="fas fa-compass"></i>
           </span>

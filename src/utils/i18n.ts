@@ -10,53 +10,66 @@ export const translations: Record<Locale, Translations> = {
   en: enJson
 };
 
-// Función para obtener el idioma del usuario desde las cookies o detectar el idioma del navegador
+// Declare the global window interface to add our translation cache
+declare global {
+  interface Window {
+    translationsCache?: Record<Locale, Translations>;
+    updateTooltipsForLocale?: (locale: Locale) => void;
+  }
+}
+
+// Inicializar caché de traducciones cuando estamos en el navegador
+if (typeof window !== 'undefined') {
+  window.translationsCache = translations;
+}
+
+// Función para obtener el idioma del usuario desde cookies o detectar el idioma del navegador
 export function getUserLocale(): Locale {
   if (typeof window !== 'undefined') {
-    // Intentar obtener el idioma de la cookie
-    const cookies = document.cookie.split(';');
-    
-    for (const cookie of cookies) {
-      const trimmedCookie = cookie.trim();
-      if (trimmedCookie.startsWith('selectedLanguage=')) {
-        const savedLocale = trimmedCookie.split('=')[1].trim();
-        if (savedLocale === 'en' || savedLocale === 'es') {
-          return savedLocale as Locale;
+    try {
+      // Intentar obtener el idioma de cookies (prioridad)
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'selectedLanguage' && (value === 'en' || value === 'es')) {
+          return value as Locale;
         }
       }
-    }
-    
-    // Si no hay cookie, detectar el idioma del navegador
-    const browserLang = navigator.language || (navigator as any).userLanguage;
-    if (browserLang) {
-      const lang = browserLang.substring(0, 2).toLowerCase();
-      if (lang === 'en' || lang === 'es') {
-        return lang as Locale;
+      
+      // Si no hay cookie, detectar el idioma del navegador
+      const browserLang = navigator.language || (navigator as any).userLanguage;
+      if (browserLang) {
+        // Detectar si es español de cualquier país donde el español es el idioma principal
+        const isSpanish = browserLang.toLowerCase().startsWith('es');
+        const locale = isSpanish ? 'es' : 'en';
+        
+        // Guardar la preferencia detectada en una cookie
+        document.cookie = `selectedLanguage=${locale}; max-age=31536000; path=/; SameSite=Strict`;
+        return locale as Locale;
       }
+    } catch (e) {
+      console.warn('Error accessing browser cookies or language:', e);
     }
   }
   
   return 'es'; // Idioma predeterminado si no se puede detectar
 }
 
-// Función para guardar el idioma del usuario en una cookie
+// Función para guardar el idioma del usuario en cookies
 export function saveUserLocale(locale: Locale): void {
   if (typeof window !== 'undefined') {
-    // Guardar cookie con expiración de 1 año
-    const expirationDate = new Date();
-    expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-    const cookieString = `selectedLanguage=${locale}; expires=${expirationDate.toUTCString()}; path=/; SameSite=Lax`;
-    document.cookie = cookieString;
+    // Guardar en cookie con duración de 1 año
+    document.cookie = `selectedLanguage=${locale}; max-age=31536000; path=/; SameSite=Strict`;
+    
+    // Disparar evento personalizado para notificar a los componentes
+    const event = new CustomEvent('languageChanged', { 
+      detail: { locale } 
+    });
+    document.dispatchEvent(event);
   }
 }
 
-// Función para depuración - buscar cookies del lado del cliente
-export function logClientCookies() {
-  if (typeof window !== 'undefined') {
-    console.log('All client cookies:', document.cookie);
-  }
-}
-
+// Función de traducción
 export function getTranslation(key: string, locale: Locale = 'es'): string {
   // Asegurarnos de que el locale nunca sea undefined o null
   const safeLocale = locale === 'en' ? 'en' : 'es';
@@ -80,4 +93,46 @@ export function getAllTranslations(locale: Locale): Translations {
   // Asegurarnos de que el locale nunca sea undefined o null
   const safeLocale = locale === 'en' ? 'en' : 'es';
   return translations[safeLocale];
+}
+
+// Función para actualizar dinámicamente los textos en la página
+export function updateTextsForLocale(locale: Locale): void {
+  if (typeof window === 'undefined') return;
+  
+  // Actualizar todos los elementos con atributo data-i18n
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (key) {
+      element.textContent = getTranslation(key, locale);
+    }
+  });
+  
+  // Actualizar tooltips
+  updateTooltipsForLocale(locale);
+  
+  // Disparar evento personalizado para componentes que necesitan actualización especial
+  const event = new CustomEvent('languageChanged', { 
+    detail: { locale } 
+  });
+  document.dispatchEvent(event);
+}
+
+// Función para actualizar tooltips basados en atributos data-i18n-tooltip
+export function updateTooltipsForLocale(locale: Locale): void {
+  if (typeof window === 'undefined') return;
+  
+  // Actualizar todos los elementos con atributo data-i18n-tooltip
+  const elements = document.querySelectorAll('[data-i18n-tooltip]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n-tooltip');
+    if (key) {
+      element.setAttribute('title', getTranslation(key, locale));
+    }
+  });
+}
+
+// Make updateTooltipsForLocale available on window
+if (typeof window !== 'undefined') {
+  window.updateTooltipsForLocale = updateTooltipsForLocale;
 }

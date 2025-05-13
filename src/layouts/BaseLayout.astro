@@ -1,5 +1,5 @@
 ---
-import { getTranslation, getUserLocale, saveUserLocale } from '../utils/i18n';
+import { getTranslation, getUserLocale, saveUserLocale, updateTextsForLocale } from '../utils/i18n';
 
 interface Props {
   title?: string;
@@ -70,7 +70,7 @@ const t = (key) => getTranslation(key, finalLocale);
     <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.webp" />
     
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerPolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="bg-secondary text-white font-kanit overflow-x-hidden min-h-screen flex flex-col">
     <header class="fixed top-0 left-0 w-full z-50 bg-secondary/70 backdrop-blur-sm transition-all duration-300 py-3">
@@ -88,13 +88,13 @@ const t = (key) => getTranslation(key, finalLocale);
             </div>
           </div>
           <div class="hidden md:flex space-x-6 nav-links">
-            <a href="/#inicio" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('inicio')}</a>
-            <a href="/#servidores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('servidores')}</a>
-            <a href="/#servicios" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('servicios')}</a>
-            <a href="/#colaboradores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('colaboradores')}</a>
-            <a href="/#nosotros" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('nosotros')}</a>
-            <a href="/#donaciones" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('donaciones')}</a>
-            <a href="/#contacto" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">{t('contacto')}</a>
+            <a href="/#inicio" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="inicio">{t('inicio')}</a>
+            <a href="/#servidores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="servidores">{t('servidores')}</a>
+            <a href="/#servicios" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="servicios">{t('servicios')}</a>
+            <a href="/#colaboradores" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="colaboradores">{t('colaboradores')}</a>
+            <a href="/#nosotros" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="nosotros">{t('nosotros')}</a>
+            <a href="/#donaciones" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="donaciones">{t('donaciones')}</a>
+            <a href="/#contacto" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="contacto">{t('contacto')}</a>
             <a href="https://wiki.luminakraft.com" target="_blank" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
           </div>
           <button class="md:hidden mobile-menu-button text-2xl text-white" id="mobileMenuBtn" aria-label="Abrir menú">☰</button>
@@ -105,17 +105,17 @@ const t = (key) => getTranslation(key, finalLocale);
     <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center" id="mobileMenu">
       <span class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer">&times;</span>
       <div class="flex flex-col space-y-6 text-center">
-        <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors">{t('inicio')}</a>
-        <a href="/#servidores" class="text-xl text-white hover:text-primary transition-colors">{t('servidores')}</a>
-        <a href="/#servicios" class="text-xl text-white hover:text-primary transition-colors">{t('servicios')}</a>
-        <a href="/#colaboradores" class="text-xl text-white hover:text-primary transition-colors">{t('colaboradores')}</a>
-        <a href="/#nosotros" class="text-xl text-white hover:text-primary transition-colors">{t('nosotros')}</a>
-        <a href="/#donaciones" class="text-xl text-white hover:text-primary transition-colors">{t('donaciones')}</a>
-        <a href="/#contacto" class="text-xl text-white hover:text-primary transition-colors">{t('contacto')}</a>
+        <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors" data-i18n="inicio">{t('inicio')}</a>
+        <a href="/#servidores" class="text-xl text-white hover:text-primary transition-colors" data-i18n="servidores">{t('servidores')}</a>
+        <a href="/#servicios" class="text-xl text-white hover:text-primary transition-colors" data-i18n="servicios">{t('servicios')}</a>
+        <a href="/#colaboradores" class="text-xl text-white hover:text-primary transition-colors" data-i18n="colaboradores">{t('colaboradores')}</a>
+        <a href="/#nosotros" class="text-xl text-white hover:text-primary transition-colors" data-i18n="nosotros">{t('nosotros')}</a>
+        <a href="/#donaciones" class="text-xl text-white hover:text-primary transition-colors" data-i18n="donaciones">{t('donaciones')}</a>
+        <a href="/#contacto" class="text-xl text-white hover:text-primary transition-colors" data-i18n="contacto">{t('contacto')}</a>
         <a href="https://wiki.luminakraft.com" target="_blank" class="text-xl text-white hover:text-primary transition-colors">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
       </div>
       <div class="mt-8">
-        <label for="mobile-language-selector" class="text-white mr-2">{t('select-language')}</label>
+        <label for="mobile-language-selector" class="text-white mr-2" data-i18n="select-language">{t('select-language')}</label>
         <select id="mobile-language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1">
           <option value="es" selected={finalLocale === 'es'}>Español</option>
           <option value="en" selected={finalLocale === 'en'}>English</option>
@@ -131,15 +131,15 @@ const t = (key) => getTranslation(key, finalLocale);
       <div class="container mx-auto px-4">
         <div class="footer-content flex flex-col md:flex-row md:justify-between gap-8 max-w-5xl mx-auto">
           <div class="footer-section text-center">
-            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('quick-links')}</h3>
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block" data-i18n="quick-links">{t('quick-links')}</h3>
             <ul class="space-y-2">
-              <li><a href="/#inicio" class="text-white hover:text-primary transition-colors">{t('inicio')}</a></li>
-              <li><a href="/#servidores" class="text-white hover:text-primary transition-colors">{t('servidores')}</a></li>
-              <li><a href="/#servicios" class="text-white hover:text-primary transition-colors">{t('servicios')}</a></li>
-              <li><a href="/#colaboradores" class="text-white hover:text-primary transition-colors">{t('colaboradores')}</a></li>
-              <li><a href="/#nosotros" class="text-white hover:text-primary transition-colors">{t('nosotros')}</a></li>
-              <li><a href="/#donaciones" class="text-white hover:text-primary transition-colors">{t('donaciones')}</a></li>
-              <li><a href="/#contacto" class="text-white hover:text-primary transition-colors">{t('contacto')}</a></li>
+              <li><a href="/#inicio" class="text-white hover:text-primary transition-colors" data-i18n="inicio">{t('inicio')}</a></li>
+              <li><a href="/#servidores" class="text-white hover:text-primary transition-colors" data-i18n="servidores">{t('servidores')}</a></li>
+              <li><a href="/#servicios" class="text-white hover:text-primary transition-colors" data-i18n="servicios">{t('servicios')}</a></li>
+              <li><a href="/#colaboradores" class="text-white hover:text-primary transition-colors" data-i18n="colaboradores">{t('colaboradores')}</a></li>
+              <li><a href="/#nosotros" class="text-white hover:text-primary transition-colors" data-i18n="nosotros">{t('nosotros')}</a></li>
+              <li><a href="/#donaciones" class="text-white hover:text-primary transition-colors" data-i18n="donaciones">{t('donaciones')}</a></li>
+              <li><a href="/#contacto" class="text-white hover:text-primary transition-colors" data-i18n="contacto">{t('contacto')}</a></li>
               <li>
                 <a href="https://wiki.luminakraft.com" target="_blank" class="text-white hover:text-primary transition-colors">
                   Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i>
@@ -148,7 +148,7 @@ const t = (key) => getTranslation(key, finalLocale);
             </ul>
           </div>
           <div class="footer-section text-center">
-            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('social-media')}</h3>
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block" data-i18n="social-media">{t('social-media')}</h3>
             <div class="flex justify-center space-x-4">
               <a href="https://x.com/luminakraft" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="X (Twitter)">
                 <i class="fab fa-x-twitter"></i>
@@ -168,148 +168,175 @@ const t = (key) => getTranslation(key, finalLocale);
             </div>
           </div>
           <div class="footer-section text-center">
-            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block">{t('legal')}</h3>
+            <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block" data-i18n="legal">{t('legal')}</h3>
             <ul class="space-y-2">
-              <li><a href="/privacy" class="text-white hover:text-primary transition-colors">{t('privacy-policy')}</a></li>
-              <li><a href="/terms" class="text-white hover:text-primary transition-colors">{t('terms-of-service')}</a></li>
+              <li><a href="/privacy" class="text-white hover:text-primary transition-colors" data-i18n="privacy-policy">{t('privacy-policy')}</a></li>
+              <li><a href="/terms" class="text-white hover:text-primary transition-colors" data-i18n="terms-of-service">{t('terms-of-service')}</a></li>
             </ul>
           </div>
         </div>
         <div class="mt-12 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} LuminaKraft Studios. {t('all-rights-reserved')}</p>
+          <p>&copy; {new Date().getFullYear()} LuminaKraft Studios. <span data-i18n="all-rights-reserved">{t('all-rights-reserved')}</span></p>
         </div>
       </div>
     </footer>
 
-    <script define:vars={{ finalLocale }}>
+    <script>
+      import { getTranslation, saveUserLocale, updateTextsForLocale } from '../utils/i18n';
+      
       document.addEventListener('DOMContentLoaded', function() {
         setupMobileMenu();
         setupLanguageSelectors();
-        updatePageUrl();
         setupHeaderScroll();
-
-        function updatePageUrl() {
-          // Obtener la URL actual
-          let currentUrl = window.location.href;
-          
-          // Si la URL contiene /en/, actualizarla para eliminar ese prefijo
-          if (currentUrl.includes('/en/')) {
-            const newUrl = currentUrl.replace('/en/', '/');
-            window.history.replaceState({}, document.title, newUrl);
-          }
-        }
-
-        function setupHeaderScroll() {
-          const header = document.querySelector('header');
-          if (!header) return;
-          
-          window.onscroll = function() {
-            if (window.scrollY > 50) {
-              header?.classList.add('py-2', 'bg-secondary/95');
-              header?.classList.remove('py-3', 'bg-secondary/70');
-            } else {
-              header?.classList.remove('py-2', 'bg-secondary/95');
-              header?.classList.add('py-3', 'bg-secondary/70');
-            }
-          };
-        }
-
-        // Configuración de los selectores de idioma y manejo de cookies
-        function setupLanguageSelectors() {
-          // El valor finalLocale viene del servidor y se pasa a través de define:vars
-          
-          // Función para obtener el valor de una cookie específica
-          function getCookie(name) {
-            const cookies = document.cookie.split(';');
-            for (let cookie of cookies) {
-              cookie = cookie.trim();
-              if (cookie.startsWith(name + '=')) {
-                return cookie.substring(name.length + 1);
-              }
-            }
-            return null;
-          }
-          
-          // Obtener la cookie de idioma si existe
-          const languageCookie = getCookie('selectedLanguage');
-          
-          // Función para cambiar el idioma
-          function changeLanguage(lang) {
-            
-            // Guardar la cookie con expiración de 1 año
-            const expirationDate = new Date();
-            expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-            document.cookie = `selectedLanguage=${lang}; expires=${expirationDate.toUTCString()}; path=/; SameSite=Lax`;
-            
-            // Recargar la página para aplicar el nuevo idioma
-            window.location.reload();
-          }
-          
-          // Configurar el selector de idioma de la versión de escritorio
-          const desktopSelector = document.querySelector('#language-selector');
-          if (desktopSelector) {
-            // Establecer el valor seleccionado basado en la cookie o el valor del servidor
-            if (desktopSelector instanceof HTMLSelectElement) {
-              desktopSelector.value = languageCookie || finalLocale;
-            }
-            
-            desktopSelector.addEventListener('change', function(e) {
-              const target = e.target;
-              if (target instanceof HTMLSelectElement) {
-                changeLanguage(target.value);
-              }
-            });
-          }
-          
-          // Configurar el selector de idioma de la versión móvil
-          const mobileSelector = document.querySelector('#mobile-language-selector');
-          if (mobileSelector) {
-            // Establecer el valor seleccionado basado en la cookie o el valor del servidor
-            if (mobileSelector instanceof HTMLSelectElement) {
-              mobileSelector.value = languageCookie || finalLocale;
-            }
-            
-            mobileSelector.addEventListener('change', function(e) {
-              const target = e.target;
-              if (target instanceof HTMLSelectElement) {
-                changeLanguage(target.value);
-              }
-            });
-          }
-        }
         
-        // Configuración del menú móvil
+        // Mobile menu functionality
         function setupMobileMenu() {
           const mobileMenuBtn = document.getElementById('mobileMenuBtn');
           const mobileMenu = document.getElementById('mobileMenu');
-          
-          if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-              mobileMenu.classList.toggle('translate-x-full');
-              document.body.classList.toggle('overflow-hidden');
-            });
-          }
-          
           const closeMenu = document.querySelector('.close-menu');
-          if (closeMenu && mobileMenu) {
+          const menuLinks = document.querySelectorAll('.mobile-menu a');
+          
+          if (mobileMenuBtn && mobileMenu && closeMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+              mobileMenu.classList.remove('translate-x-full');
+              document.body.style.overflow = 'hidden';
+            });
+            
             closeMenu.addEventListener('click', function() {
               mobileMenu.classList.add('translate-x-full');
-              document.body.classList.remove('overflow-hidden');
+              document.body.style.overflow = '';
             });
-          }
-          
-          // Cerrar el menú cuando se hace clic en cualquier enlace dentro del menú
-          const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
-          if (mobileMenuLinks && mobileMenuLinks.length > 0) {
-            mobileMenuLinks.forEach(link => {
-              link.addEventListener('click', () => {
+            
+            menuLinks.forEach(link => {
+              link.addEventListener('click', function() {
                 mobileMenu.classList.add('translate-x-full');
-                document.body.classList.remove('overflow-hidden');
+                document.body.style.overflow = '';
               });
             });
           }
         }
+        
+        // Language selector setup with client-side translation
+        function setupLanguageSelectors() {
+          const languageSelector = document.getElementById('language-selector') as HTMLSelectElement | null;
+          const mobileLangSelector = document.getElementById('mobile-language-selector') as HTMLSelectElement | null;
+          
+          // Initialize selectors with stored language preference
+          try {
+            // Check for language in cookies
+            const cookies = document.cookie.split(';');
+            let storedLocale: 'en' | 'es' | null = null;
+            
+            for (const cookie of cookies) {
+              const [name, value] = cookie.trim().split('=');
+              if (name === 'selectedLanguage' && (value === 'en' || value === 'es')) {
+                storedLocale = value as 'en' | 'es';
+                break;
+              }
+            }
+            
+            if (storedLocale) {
+              // Update selectors to match stored preference
+              if (languageSelector) languageSelector.value = storedLocale;
+              if (mobileLangSelector) mobileLangSelector.value = storedLocale;
+              
+              // Also update page content
+              updateTextsForLocale(storedLocale as 'en' | 'es');
+            }
+          } catch (e) {
+            console.warn('Error accessing cookies:', e);
+          }
+          
+          if (languageSelector) {
+            languageSelector.addEventListener('change', function(e) {
+              const target = e.target as HTMLSelectElement;
+              if (target && target.value) {
+                changeLanguage(target.value as 'es' | 'en');
+              }
+            });
+          }
+          
+          if (mobileLangSelector) {
+            mobileLangSelector.addEventListener('change', function(e) {
+              const target = e.target as HTMLSelectElement;
+              if (target && target.value) {
+                changeLanguage(target.value as 'es' | 'en');
+              }
+            });
+          }
+          
+          // Handle language change without page reload
+          function changeLanguage(locale: 'es' | 'en') {
+            // Save the language preference
+            saveUserLocale(locale);
+            
+            // Update all translatable elements on the page
+            updateTextsForLocale(locale);
+            
+            // Update language selectors to reflect the change
+            if (languageSelector) languageSelector.value = locale;
+            if (mobileLangSelector) mobileLangSelector.value = locale;
+          }
+        }
+        
+        // Sticky header on scroll
+        function setupHeaderScroll() {
+          const header = document.querySelector('header');
+          if (!header) return;
+          
+          window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+              header.classList.add('py-2', 'shadow-lg', 'bg-secondary/90');
+              header.classList.remove('py-3', 'bg-secondary/70');
+            } else {
+              header.classList.remove('py-2', 'shadow-lg', 'bg-secondary/90');
+              header.classList.add('py-3', 'bg-secondary/70');
+            }
+          });
+        }
       });
+    </script>
+    
+    <!-- Additional Scripts -->
+    <slot name="scripts" />
+
+    <script>
+      // This script runs as soon as possible to set the language based on preferences
+      // before the page fully loads to minimize language flickering
+      (function() {
+        try {
+          // 1. Check for existing cookie first
+          const cookies = document.cookie.split(';');
+          let foundLanguage: 'en' | 'es' | null = null;
+          
+          for (const cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'selectedLanguage' && (value === 'en' || value === 'es')) {
+              foundLanguage = value as 'en' | 'es';
+              break;
+            }
+          }
+          
+          // 2. If no cookie exists, detect browser language
+          if (!foundLanguage) {
+            const browserLang = navigator.language || (navigator as any).userLanguage;
+            // Spanish language detection (es-ES, es-MX, es-AR, etc.)
+            const isSpanish = browserLang.toLowerCase().startsWith('es');
+            foundLanguage = isSpanish ? 'es' : 'en';
+            
+            // Save this detected preference in cookie
+            document.cookie = `selectedLanguage=${foundLanguage}; max-age=31536000; path=/; SameSite=Strict`;
+          }
+          
+          // Set html lang attribute
+          if (foundLanguage) {
+            document.documentElement.lang = foundLanguage;
+          }
+          
+        } catch (e) {
+          console.warn('Error in early language detection:', e);
+        }
+      })();
     </script>
   </body>
 </html>

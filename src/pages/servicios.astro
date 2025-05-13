@@ -1,20 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getTranslation } from '../utils/i18n';
+import { getTranslation, getUserLocale } from '../utils/i18n';
 
-const locale = 'es'; // Valor predeterminado
+// Use the user's preferred language instead of hardcoding
+const locale = getUserLocale(); 
 const t = (key) => getTranslation(key, locale);
+
+// All translations are already in the JSON files, so we don't need to define them here
 ---
 
-<BaseLayout title="Servicios de LuminaKraft Studios | Soluciones profesionales de Minecraft" description="Descubre nuestros servicios profesionales de desarrollo y hosting para servidores de Minecraft. Soluciones personalizadas para empresas y creadores de contenido." locale={locale}>
+<BaseLayout title={t('services-title')} description={t('services-subtitle')} locale={locale}>
   
   <!-- Hero Section -->
   <section class="pt-32 pb-16 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-secondary/20 to-secondary/80 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary"></div>
+    
     <div class="container mx-auto px-4 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Servicios <span class="text-primary">Profesionales</span></h1>
-        <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">Soluciones personalizadas para servidores de Minecraft diseñadas para empresas, creadores de contenido y comunidades</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          <span data-i18n="services-title">{t('services-title')}</span> <span class="text-primary" data-i18n="services-professionally">Profesionales</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-12" data-i18n="services-subtitle">{t('services-subtitle')}</p>
       </div>
     </div>
   </section>
@@ -24,7 +30,7 @@ const t = (key) => getTranslation(key, locale);
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12 text-primary">
-          <span class="relative inline-block">
+          <span class="relative inline-block" data-i18n="services-solutions">
             Nuestras Soluciones Profesionales
             <span class="absolute -bottom-2 left-0 w-full h-1 bg-primary/60 rounded-full"></span>
           </span>
@@ -36,27 +42,29 @@ const t = (key) => getTranslation(key, locale);
             <div class="p-8 flex flex-col justify-center">
               <div class="flex items-center mb-4">
                 <span class="text-primary text-4xl mr-4"><i class="fas fa-server"></i></span>
-                <h3 class="text-2xl font-bold text-white">{t('service-1')}</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="service-1">{t('service-1')}</h3>
               </div>
-              <p class="text-white/90 mb-6">Diseñamos servidores personalizados que se adaptan a tus objetivos específicos y a la experiencia que deseas ofrecer a tu comunidad. Desde servidores temáticos hasta redes completas con múltiples modos de juego, creamos soluciones únicas.</p>
+              <p class="text-white/90 mb-6" data-i18n="service-1-desc">
+                Diseñamos servidores personalizados que se adaptan a tus objetivos específicos y a la experiencia que deseas ofrecer a tu comunidad. Desde servidores temáticos hasta redes completas con múltiples modos de juego, creamos soluciones únicas.
+              </p>
               
-              <h4 class="text-xl font-semibold text-primary mb-4">Incluye:</h4>
+              <h4 class="text-xl font-semibold text-primary mb-4" data-i18n="service-1-includes">Incluye:</h4>
               <ul class="space-y-3 mb-8">
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Configuración completa del servidor ajustada a tus especificaciones</span>
+                  <span class="text-white/90" data-i18n="service-1-item-1">Configuración completa del servidor ajustada a tus especificaciones</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Instalación y configuración de plugins esenciales</span>
+                  <span class="text-white/90" data-i18n="service-1-item-2">Instalación y configuración de plugins esenciales</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Optimización para garantizar rendimiento y estabilidad</span>
+                  <span class="text-white/90" data-i18n="service-1-item-3">Optimización para garantizar rendimiento y estabilidad</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Configuración de sistemas de permisos y grupos</span>
+                  <span class="text-white/90" data-i18n="service-1-item-4">Configuración de sistemas de permisos y grupos</span>
                 </li>
               </ul>
             </div>
@@ -73,27 +81,29 @@ const t = (key) => getTranslation(key, locale);
             <div class="p-8 flex flex-col justify-center order-1 md:order-2">
               <div class="flex items-center mb-4">
                 <span class="text-primary text-4xl mr-4"><i class="fas fa-tools"></i></span>
-                <h3 class="text-2xl font-bold text-white">{t('service-2')}</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="service-2">{t('service-2')}</h3>
               </div>
-              <p class="text-white/90 mb-6">Nos encargamos de todos los aspectos técnicos para que tú puedas centrarte en gestionar tu comunidad. Mantenemos tu servidor actualizado, seguro y optimizado en todo momento.</p>
+              <p class="text-white/90 mb-6" data-i18n="service-2-desc">
+                Nos encargamos de todos los aspectos técnicos para que tú puedas centrarte en gestionar tu comunidad. Mantenemos tu servidor actualizado, seguro y optimizado en todo momento.
+              </p>
               
-              <h4 class="text-xl font-semibold text-primary mb-4">Incluye:</h4>
+              <h4 class="text-xl font-semibold text-primary mb-4" data-i18n="service-2-includes">Incluye:</h4>
               <ul class="space-y-3 mb-8">
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Actualizaciones regulares de software y plugins</span>
+                  <span class="text-white/90" data-i18n="service-2-item-1">Actualizaciones regulares de software y plugins</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Copias de seguridad programadas</span>
+                  <span class="text-white/90" data-i18n="service-2-item-2">Copias de seguridad programadas</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Monitorización de rendimiento y seguridad</span>
+                  <span class="text-white/90" data-i18n="service-2-item-3">Monitorización de rendimiento y seguridad</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Resolución rápida de problemas</span>
+                  <span class="text-white/90" data-i18n="service-2-item-4">Resolución rápida de problemas</span>
                 </li>
               </ul>
             </div>
@@ -106,27 +116,29 @@ const t = (key) => getTranslation(key, locale);
             <div class="p-8 flex flex-col justify-center">
               <div class="flex items-center mb-4">
                 <span class="text-primary text-4xl mr-4"><i class="fas fa-cubes"></i></span>
-                <h3 class="text-2xl font-bold text-white">{t('service-3')}</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="service-3">{t('service-3')}</h3>
               </div>
-              <p class="text-white/90 mb-6">Creamos modpacks equilibrados y optimizados con mecánicas innovadoras que ofrecen experiencias únicas para tus jugadores. Cada modpack se desarrolla pensando en rendimiento y diversión.</p>
+              <p class="text-white/90 mb-6" data-i18n="service-3-desc">
+                Creamos modpacks equilibrados y optimizados con mecánicas innovadoras que ofrecen experiencias únicas para tus jugadores. Cada modpack se desarrolla pensando en rendimiento y diversión.
+              </p>
               
-              <h4 class="text-xl font-semibold text-primary mb-4">Incluye:</h4>
+              <h4 class="text-xl font-semibold text-primary mb-4" data-i18n="service-3-includes">Incluye:</h4>
               <ul class="space-y-3 mb-8">
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Selección cuidadosa de mods compatibles</span>
+                  <span class="text-white/90" data-i18n="service-3-item-1">Selección cuidadosa de mods compatibles</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Configuración personalizada para una experiencia balanceada</span>
+                  <span class="text-white/90" data-i18n="service-3-item-2">Configuración personalizada para una experiencia balanceada</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Optimización para minimizar el impacto en rendimiento</span>
+                  <span class="text-white/90" data-i18n="service-3-item-3">Optimización para minimizar el impacto en rendimiento</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Instalador personalizado para facilitar la distribución</span>
+                  <span class="text-white/90" data-i18n="service-3-item-4">Instalador personalizado para facilitar la distribución</span>
                 </li>
               </ul>
             </div>
@@ -143,27 +155,29 @@ const t = (key) => getTranslation(key, locale);
             <div class="p-8 flex flex-col justify-center order-1 md:order-2">
               <div class="flex items-center mb-4">
                 <span class="text-primary text-4xl mr-4"><i class="fas fa-download"></i></span>
-                <h3 class="text-2xl font-bold text-white">Instalador personalizado para modpacks</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="service-4-title">Instalador personalizado para modpacks</h3>
               </div>
-              <p class="text-white/90 mb-6">Nuestro instalador privado con interfaz gráfica intuitiva descarga automáticamente el modpack, crea el perfil del servidor en el juego y permite conectarse con solo pulsar un botón, facilitando enormemente la experiencia de usuario.</p>
+              <p class="text-white/90 mb-6" data-i18n="service-4-desc">
+                Nuestro instalador privado con interfaz gráfica intuitiva descarga automáticamente el modpack, crea el perfil del servidor en el juego y permite conectarse con solo pulsar un botón, facilitando enormemente la experiencia de usuario.
+              </p>
               
-              <h4 class="text-xl font-semibold text-primary mb-4">Incluye:</h4>
+              <h4 class="text-xl font-semibold text-primary mb-4" data-i18n="service-4-includes">Incluye:</h4>
               <ul class="space-y-3 mb-8">
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Interfaz gráfica personalizada con la temática del servidor</span>
+                  <span class="text-white/90" data-i18n="service-4-item-1">Interfaz gráfica personalizada con la temática del servidor</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Descarga automática de modpacks y dependencias</span>
+                  <span class="text-white/90" data-i18n="service-4-item-2">Descarga automática de modpacks y dependencias</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Creación del perfil Forge/Fabric con memoria optimizada</span>
+                  <span class="text-white/90" data-i18n="service-4-item-3">Creación del perfil Forge/Fabric con memoria optimizada</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Conexión one-click al servidor sin configuración manual</span>
+                  <span class="text-white/90" data-i18n="service-4-item-4">Conexión one-click al servidor sin configuración manual</span>
                 </li>
               </ul>
             </div>
@@ -176,27 +190,29 @@ const t = (key) => getTranslation(key, locale);
             <div class="p-8 flex flex-col justify-center">
               <div class="flex items-center mb-4">
                 <span class="text-primary text-4xl mr-4"><i class="fas fa-cloud"></i></span>
-                <h3 class="text-2xl font-bold text-white">{t('service-5')}</h3>
+                <h3 class="text-2xl font-bold text-white" data-i18n="service-5">{t('service-5')}</h3>
               </div>
-              <p class="text-white/90 mb-6">Proporcionamos soluciones de hosting optimizadas específicamente para servidores Minecraft, con hardware de alto rendimiento, protección contra DDoS y soporte técnico especializado.</p>
+              <p class="text-white/90 mb-6" data-i18n="service-5-desc">
+                Proporcionamos soluciones de hosting optimizadas específicamente para servidores Minecraft, con hardware de alto rendimiento, protección contra DDoS y soporte técnico especializado.
+              </p>
               
-              <h4 class="text-xl font-semibold text-primary mb-4">Incluye:</h4>
+              <h4 class="text-xl font-semibold text-primary mb-4" data-i18n="service-5-includes">Incluye:</h4>
               <ul class="space-y-3 mb-8">
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Servidores con CPUs de alta frecuencia para mejor TPS</span>
+                  <span class="text-white/90" data-i18n="service-5-item-1">Servidores con CPUs de alta frecuencia para mejor TPS</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Protección anti-DDoS avanzada</span>
+                  <span class="text-white/90" data-i18n="service-5-item-2">Protección anti-DDoS avanzada</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Panel de control fácil de usar</span>
+                  <span class="text-white/90" data-i18n="service-5-item-3">Panel de control fácil de usar</span>
                 </li>
                 <li class="flex items-start">
                   <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-                  <span class="text-white/90">Soporte técnico 24/7</span>
+                  <span class="text-white/90" data-i18n="service-5-item-4">Soporte técnico 24/7</span>
                 </li>
               </ul>
             </div>
@@ -212,30 +228,30 @@ const t = (key) => getTranslation(key, locale);
   <section class="py-20 bg-gradient-to-b from-secondary/50 to-secondary">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">¿Listo para llevar tu servidor al siguiente nivel?</h2>
-        <p class="text-xl text-white/90 mb-8">Contáctanos hoy mismo para discutir tu proyecto y cómo podemos ayudarte a crear una experiencia Minecraft excepcional.</p>
+        <h2 class="text-3xl font-bold text-white mb-6" data-i18n="cta-ready">{t('cta-ready')}</h2>
+        <p class="text-xl text-white/90 mb-8" data-i18n="cta-contact">{t('cta-contact')}</p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-          <a href="/#contacto" class="px-8 py-4 rounded-lg bg-primary text-white font-bold shadow-glow hover:shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300">
-            Solicitar Presupuesto
+          <a href="/#contacto" class="px-8 py-4 rounded-lg bg-primary text-white font-bold shadow-glow hover:shadow-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300" data-i18n="request-quote">
+            {t('request-quote')}
           </a>
           <a href="https://discord.com/invite/UJZRrcUFMj" target="_blank" class="px-8 py-4 rounded-lg bg-white/10 backdrop-blur-sm text-white font-bold border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
-            <i class="fab fa-discord mr-2"></i> Hablar por Discord
+            <i class="fab fa-discord mr-2"></i> <span data-i18n="discord-chat">{t('discord-chat')}</span>
           </a>
         </div>
         
         <div class="flex justify-center space-x-8">
           <div class="text-center">
             <div class="text-4xl font-bold text-primary mb-2">100+</div>
-            <div class="text-white/80">Proyectos Completados</div>
+            <div class="text-white/80" data-i18n="projects-completed">{t('projects-completed')}</div>
           </div>
           <div class="text-center">
             <div class="text-4xl font-bold text-primary mb-2">99%</div>
-            <div class="text-white/80">Clientes Satisfechos</div>
+            <div class="text-white/80" data-i18n="satisfied-clients">{t('satisfied-clients')}</div>
           </div>
           <div class="text-center">
             <div class="text-4xl font-bold text-primary mb-2">24/7</div>
-            <div class="text-white/80">Soporte Técnico</div>
+            <div class="text-white/80" data-i18n="technical-support">{t('technical-support')}</div>
           </div>
         </div>
       </div>
@@ -247,8 +263,8 @@ const t = (key) => getTranslation(key, locale);
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12 text-primary">
-          <span class="relative inline-block">
-            Preguntas Frecuentes
+          <span class="relative inline-block" data-i18n="faq-title">
+            {t('faq-title')}
             <span class="absolute -bottom-2 left-0 w-full h-1 bg-primary/60 rounded-full"></span>
           </span>
         </h2>
@@ -256,42 +272,42 @@ const t = (key) => getTranslation(key, locale);
         <div class="space-y-6">
           <div class="faq-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 cursor-pointer">
             <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-white mb-0">¿Cuánto tiempo tarda el desarrollo de un servidor personalizado?</h3>
+              <h3 class="text-xl font-bold text-white mb-0" data-i18n="faq-development-time">{t('faq-development-time')}</h3>
               <span class="faq-icon text-primary text-xl transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
             </div>
-            <p class="text-white/80 mt-4 faq-content">El tiempo de desarrollo varía según la complejidad del proyecto. Un servidor básico puede estar listo en 1-2 semanas, mientras que proyectos más complejos pueden llevar entre 1-3 meses. Trabajamos contigo para establecer un cronograma realista.</p>
+            <p class="text-white/80 mt-4 faq-content" data-i18n="faq-development-time-answer">{t('faq-development-time-answer')}</p>
           </div>
           
           <div class="faq-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 cursor-pointer">
             <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-white mb-0">¿Qué tipos de servidores pueden desarrollar?</h3>
+              <h3 class="text-xl font-bold text-white mb-0" data-i18n="faq-server-types">{t('faq-server-types')}</h3>
               <span class="faq-icon text-primary text-xl transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
             </div>
-            <p class="text-white/80 mt-4 faq-content">Desarrollamos todo tipo de servidores: supervivencia, facciones, minijuegos, roleplay, SkyBlock, economía, PvP, y servidores temáticos personalizados. Si puedes imaginarlo, podemos construirlo.</p>
+            <p class="text-white/80 mt-4 faq-content" data-i18n="faq-server-types-answer">{t('faq-server-types-answer')}</p>
           </div>
           
           <div class="faq-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 cursor-pointer">
             <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-white mb-0">¿Ofrecen mantenimiento después del lanzamiento?</h3>
+              <h3 class="text-xl font-bold text-white mb-0" data-i18n="faq-maintenance">{t('faq-maintenance')}</h3>
               <span class="faq-icon text-primary text-xl transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
             </div>
-            <p class="text-white/80 mt-4 faq-content">Sí, ofrecemos planes de mantenimiento continuo para garantizar que tu servidor siga funcionando de manera óptima. Incluyen actualizaciones, backups, monitoreo y soporte técnico.</p>
+            <p class="text-white/80 mt-4 faq-content" data-i18n="faq-maintenance-answer">{t('faq-maintenance-answer')}</p>
           </div>
           
           <div class="faq-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 cursor-pointer">
             <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-white mb-0">¿Cómo funciona el proceso de desarrollo?</h3>
+              <h3 class="text-xl font-bold text-white mb-0" data-i18n="faq-development-process">{t('faq-development-process')}</h3>
               <span class="faq-icon text-primary text-xl transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
             </div>
-            <p class="text-white/80 mt-4 faq-content">Nuestro proceso incluye: 1) Consulta inicial para entender tus necesidades, 2) Propuesta y presupuesto, 3) Desarrollo y pruebas, 4) Lanzamiento y capacitación, 5) Soporte continuo. Te mantenemos informado durante todo el proceso.</p>
+            <p class="text-white/80 mt-4 faq-content" data-i18n="faq-development-process-answer">{t('faq-development-process-answer')}</p>
           </div>
           
           <div class="faq-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 cursor-pointer">
             <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-white mb-0">¿Qué métodos de pago aceptan?</h3>
+              <h3 class="text-xl font-bold text-white mb-0" data-i18n="faq-payment-methods">{t('faq-payment-methods')}</h3>
               <span class="faq-icon text-primary text-xl transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
             </div>
-            <p class="text-white/80 mt-4 faq-content">Aceptamos PayPal, transferencias bancarias y criptomonedas. Generalmente trabajamos con un modelo de 50% anticipado y 50% a la entrega para proyectos grandes.</p>
+            <p class="text-white/80 mt-4 faq-content" data-i18n="faq-payment-methods-answer">{t('faq-payment-methods-answer')}</p>
           </div>
         </div>
       </div>
@@ -300,7 +316,16 @@ const t = (key) => getTranslation(key, locale);
 
   <script>
     // Script para las FAQ
+    import { updateTextsForLocale, getUserLocale } from "../utils/i18n";
+    
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize with user's preferred language
+      const userLocale = getUserLocale();
+      if (userLocale) {
+        updateTextsForLocale(userLocale);
+      }
+      
+      // FAQ functionality
       const faqItems = document.querySelectorAll('.faq-item');
       
       faqItems.forEach(item => {
@@ -381,3 +406,16 @@ const t = (key) => getTranslation(key, locale);
     transition: transform 0.3s ease;
   }
 </style>
+
+<script>
+  // Add client-side script for service page specific functionality
+  import { updateTextsForLocale, getUserLocale } from "../utils/i18n";
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize with user's preferred language
+    const userLocale = getUserLocale();
+    if (userLocale) {
+      updateTextsForLocale(userLocale);
+    }
+  });
+</script>

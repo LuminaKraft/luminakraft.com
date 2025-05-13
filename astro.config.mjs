@@ -11,5 +11,6 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  }
+  },
+  devToolbar: { enabled: false }
 });

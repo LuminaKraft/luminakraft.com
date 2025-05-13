@@ -34,7 +34,7 @@ const t = (key: string) => getTranslation(key, locale);
 ---
 
 <div class="title-container flex flex-col justify-center items-center text-center">
-  <div class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+  <div class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2" data-i18n="hero-title-start">
     {t('hero-title-start')}
   </div>
   <div id="rotatingWordsContainer" class="relative h-16 md:h-20 lg:h-24 overflow-hidden w-full flex justify-center items-center">
@@ -43,6 +43,7 @@ const t = (key: string) => getTranslation(key, locale);
         class={`absolute flex items-center justify-center text-4xl md:text-5xl lg:text-6xl font-bold text-primary opacity-0 transition-opacity duration-500 ${index === 0 ? 'active opacity-100' : ''}`}
         data-word={t(wordKey)}
         data-index={index}
+        data-i18n-key={wordKey}
       >
         {t(wordKey)}
       </span>
@@ -136,5 +137,36 @@ const t = (key: string) => getTranslation(key, locale);
   // También inicializar si astro:page-load se dispara (para navegación SPA)
   document.addEventListener('astro:page-load', function() {
     setupRotatingWords();
+  });
+
+  // Función para actualizar las palabras cuando cambia el idioma
+  function updateRotatingWords(locale) {
+    const container = document.getElementById('rotatingWordsContainer');
+    if (!container) return;
+    
+    const wordElements = container.querySelectorAll('span');
+    
+    wordElements.forEach(wordElement => {
+      const key = wordElement.getAttribute('data-i18n-key');
+      if (key) {
+        // Buscar la traducción directamente en el objeto de traducciones
+        const translations = window.translationsCache?.[locale] || {};
+        const translation = translations[key];
+        
+        if (translation) {
+          wordElement.textContent = translation;
+          wordElement.setAttribute('data-word', translation);
+        }
+      }
+    });
+  }
+
+  // Escuchar eventos de cambio de idioma
+  document.addEventListener('languageChanged', function(e: Event) {
+    const customEvent = e as CustomEvent<{locale: string}>;
+    const locale = customEvent.detail?.locale;
+    if (locale) {
+      updateRotatingWords(locale);
+    }
   });
 </script>

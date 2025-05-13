@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ServerCard from "../components/ServerCard.astro";
-import { getTranslation, getUserLocale } from "../utils/i18n";
+import { getTranslation, getUserLocale, updateTextsForLocale } from "../utils/i18n";
 import servers from "../data/servers.json";
 
 // Función para analizar las cookies del lado del servidor
@@ -18,8 +18,8 @@ function getServerCookie(cookieString, name) {
   return null;
 }
 
-// Definir el idioma predeterminado (no utilizamos headers en modo estático)
-let locale: 'es' | 'en' = 'es';
+// Get the user's preferred language instead of hardcoding
+const locale = getUserLocale();
 
 // En producción con compilación estática, podemos usar funciones del navegador como localStorage 
 // para obtener el idioma preferido del usuario, pero esto ocurrirá en el cliente
@@ -37,7 +37,7 @@ const t = (key: string) => getTranslation(key, locale);
   <!-- Servidores Section -->
   <section id="servidores" class="py-20 px-4 relative overflow-hidden">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-primary animate-fade-up">{t('featured-servers')}</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-primary animate-fade-up" data-i18n="featured-servers">{t('featured-servers')}</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {servers.map((server, index) => (
@@ -88,10 +88,10 @@ const t = (key: string) => getTranslation(key, locale);
             </div>
             
             <h3 class="text-2xl font-bold mt-4 text-primary text-center">???</h3>
-            <p class="text-white/80 my-3 min-h-[60px] text-center">{t('coming-soon-desc')}</p>
+            <p class="text-white/80 my-3 min-h-[60px] text-center" data-i18n="coming-soon-desc">{t('coming-soon-desc')}</p>
             <div class="mt-auto">
               <a href="#" class="block w-full bg-gradient-to-r from-primary/50 to-primary/50 text-white py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden opacity-70 cursor-not-allowed hover:opacity-80">
-                <span class="relative z-10">{t('stay-tuned')}</span>
+                <span class="relative z-10" data-i18n="stay-tuned">{t('stay-tuned')}</span>
               </a>
             </div>
           </div>
@@ -104,67 +104,67 @@ const t = (key: string) => getTranslation(key, locale);
   <section id="servicios" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
     <div class="container mx-auto max-w-6xl">
       <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">
-        <span class="relative inline-block">
+        <span class="relative inline-block" data-i18n="our-services">
           {t('our-services')}
           <span class="absolute -bottom-2 left-0 w-full h-1 bg-primary/60 rounded-full"></span>
         </span>
       </h2>
       
-      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200">{t('services-intro')}</p>
+      <p class="text-xl text-center text-white/90 mb-12 animate-fade-up animate-delay-200" data-i18n="services-intro">{t('services-intro')}</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-server"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">{t('service-1')}</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-1">{t('service-1')}</h3>
           </div>
-          <p class="text-white/80">Diseñamos servidores únicos adaptados a tus necesidades, con características personalizadas y configuración optimizada para la mejor experiencia.</p>
+          <p class="text-white/80" data-i18n="service-1-desc">{t('service-1-desc')}</p>
         </div>
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-tools"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">{t('service-2')}</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-2">{t('service-2')}</h3>
           </div>
-          <p class="text-white/80">Nos encargamos de mantener tu servidor funcionando sin problemas, con actualizaciones regulares, backups y soporte técnico disponible.</p>
+          <p class="text-white/80" data-i18n="service-2-desc">{t('service-2-desc')}</p>
         </div>
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-cubes"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">{t('service-3')}</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-3">{t('service-3')}</h3>
           </div>
-          <p class="text-white/80">Creamos modpacks temáticos y personalizados que ofrecen experiencias inmersivas y únicas para tu comunidad de jugadores.</p>
+          <p class="text-white/80" data-i18n="service-3-desc">{t('service-3-desc')}</p>
         </div>
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-download"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">Instalador personalizado para modpacks</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-4-title">{t('service-4-title')}</h3>
           </div>
-          <p class="text-white/80">Desarrollamos un instalador con interfaz gráfica intuitiva que descarga automáticamente el modpack, crea el perfil del servidor y permite jugar con solo pulsar un botón.</p>
+          <p class="text-white/80" data-i18n="service-4-desc">{t('service-4-desc')}</p>
         </div>
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-cloud"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">{t('service-5')}</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-5">{t('service-5')}</h3>
           </div>
-          <p class="text-white/80">Ofrecemos soluciones de hosting optimizadas para Minecraft con hardware de alto rendimiento y protección contra DDoS.</p>
+          <p class="text-white/80" data-i18n="service-5-desc">{t('service-5-desc')}</p>
         </div>
         
         <div class="service-item bg-primary/20 rounded-xl p-6 hover:bg-primary/30 transition-all duration-300 border-l-4 border-primary animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
             <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-headset"></i></span>
-            <h3 class="text-xl font-bold text-white ml-4">Atención personalizada</h3>
+            <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-6-title">{t('service-6-title')}</h3>
           </div>
-          <p class="text-white/80">Trabajamos estrechamente contigo para entender tus necesidades y ofrecerte soluciones adaptadas a tu proyecto específico.</p>
+          <p class="text-white/80" data-i18n="service-6-desc">{t('service-6-desc')}</p>
         </div>
       </div>
       
       <div class="flex justify-center animate-fade-up animate-delay-500">
         <a href="/servicios" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1 relative overflow-hidden group">
-          <span class="relative z-10">{t('learn-more')}</span>
+          <span class="relative z-10" data-i18n="learn-more">{t('learn-more')}</span>
           <span class="absolute inset-0 bg-gradient-to-r from-primary to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
         </a>
       </div>
@@ -242,11 +242,11 @@ const t = (key: string) => getTranslation(key, locale);
   <!-- Ejemplo del resto de secciones para completar -->
   <section id="nosotros" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
     <div class="container mx-auto max-w-4xl">
-      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('about-us')}</h2>
-      <p class="text-lg mb-6 animate-fade-up animate-delay-200">{t('about-1')}</p>
-      <p class="text-lg mb-10 animate-fade-up animate-delay-300">{t('about-2')}</p>
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up" data-i18n="about-us">{t('about-us')}</h2>
+      <p class="text-lg mb-6 animate-fade-up animate-delay-200" data-i18n="about-1">{t('about-1')}</p>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-300" data-i18n="about-2">{t('about-2')}</p>
       
-      <h3 class="text-3xl font-bold text-center text-primary mt-16 mb-10 animate-fade-up">{t('team-title')}</h3>
+      <h3 class="text-3xl font-bold text-center text-primary mt-16 mb-10 animate-fade-up" data-i18n="team-title">{t('team-title')}</h3>
       
       <!-- Equipo Fundador -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-up animate-delay-300">
@@ -262,13 +262,13 @@ const t = (key: string) => getTranslation(key, locale);
               loading="lazy"
             />
             <h4 class="text-xl font-bold">
-              {t('ceo-name')} <span class="text-sm opacity-70">({t('ceo-alias')})</span>
+              <span data-i18n="ceo-name">{t('ceo-name')}</span> <span class="text-sm opacity-70">(<span data-i18n="ceo-alias">{t('ceo-alias')}</span>)</span>
             </h4>
-            <p class="text-primary font-bold mt-1">{t('ceo-role')}</p>
-            <p class="text-sm text-white/60 mt-2">{t('ceo-skills')}</p>
+            <p class="text-primary font-bold mt-1" data-i18n="ceo-role">{t('ceo-role')}</p>
+            <p class="text-sm text-white/60 mt-2" data-i18n="ceo-skills">{t('ceo-skills')}</p>
           </div>
           
-          <p class="text-white/80 mb-6 text-center sm:text-justify">
+          <p class="text-white/80 mb-6 text-center sm:text-justify" data-i18n="ceo-description">
             {t('ceo-description')}
           </p>
           
@@ -294,13 +294,13 @@ const t = (key: string) => getTranslation(key, locale);
               loading="lazy"
             />
             <h4 class="text-xl font-bold">
-              {t('cofounder-name')} <span class="text-sm opacity-70">({t('cofounder-alias')})</span>
+              <span data-i18n="cofounder-name">{t('cofounder-name')}</span> <span class="text-sm opacity-70">(<span data-i18n="cofounder-alias">{t('cofounder-alias')}</span>)</span>
             </h4>
-            <p class="text-primary font-bold mt-1">{t('cofounder-role')}</p>
-            <p class="text-sm text-white/60 mt-2">{t('cofounder-skills')}</p>
+            <p class="text-primary font-bold mt-1" data-i18n="cofounder-role">{t('cofounder-role')}</p>
+            <p class="text-sm text-white/60 mt-2" data-i18n="cofounder-skills">{t('cofounder-skills')}</p>
           </div>
           
-          <p class="text-white/80 text-center sm:text-justify">
+          <p class="text-white/80 text-center sm:text-justify" data-i18n="cofounder-description">
             {t('cofounder-description')}
           </p>
         </div>
@@ -308,8 +308,8 @@ const t = (key: string) => getTranslation(key, locale);
       
       <!-- Workers Section -->
       <div class="mt-16 p-6 rounded-xl bg-primary/10 border-l-4 border-primary animate-fade-up animate-delay-500">
-        <h4 class="text-xl font-bold text-primary mb-3">{t('workers-title')}</h4>
-        <p class="text-white/80 mb-6">{t('workers-description')}</p>
+        <h4 class="text-xl font-bold text-primary mb-3" data-i18n="workers-title">{t('workers-title')}</h4>
+        <p class="text-white/80 mb-6" data-i18n="workers-description">{t('workers-description')}</p>
         
         <div id="workers-container" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4 justify-items-center">
           <!-- Los workers se cargarán mediante JS -->
@@ -320,19 +320,19 @@ const t = (key: string) => getTranslation(key, locale);
 
   <section id="donaciones" class="py-20 px-4 relative overflow-hidden">
     <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('donate-section')}</h2>
-      <p class="text-lg mb-10 animate-fade-up animate-delay-200">{t('donate-intro')}</p>
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up" data-i18n="donate-section">{t('donate-section')}</h2>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-200" data-i18n="donate-intro">{t('donate-intro')}</p>
       <div id="donate-button-container" class="flex justify-center items-center animate-fade-up animate-delay-300"></div>
     </div>
   </section>
 
   <section id="contacto" class="py-20 px-4 relative overflow-hidden bg-secondary/30">
     <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up">{t('contact-us')}</h2>
-      <p class="text-lg mb-10 animate-fade-up animate-delay-200">{t('contact-intro')}</p>
+      <h2 class="text-4xl font-bold text-center mb-6 text-primary animate-fade-up" data-i18n="contact-us">{t('contact-us')}</h2>
+      <p class="text-lg mb-10 animate-fade-up animate-delay-200" data-i18n="contact-intro">{t('contact-intro')}</p>
       <div class="animate-fade-up animate-delay-300">
         <p id="email-placeholder" class="mb-6 text-xl">info@luminakraft.com</p>
-        <a href="mailto:info@luminakraft.com" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1">
+        <a href="mailto:info@luminakraft.com" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1" data-i18n="send-message">
           {t('send-message')}
         </a>
       </div>
@@ -367,8 +367,17 @@ const t = (key: string) => getTranslation(key, locale);
 </style>
 
 <script>
-  // Script para PayPal
+  // Import i18n utilities for client-side translation
+  import { updateTextsForLocale, getUserLocale } from "../utils/i18n";
+  
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize translation based on user preferences
+    const userLocale = getUserLocale();
+    if (userLocale) {
+      updateTextsForLocale(userLocale);
+    }
+    
+    // Script para PayPal
     const donateContainer = document.getElementById('donate-button-container');
     
     if (donateContainer) {
