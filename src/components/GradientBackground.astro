@@ -35,7 +35,7 @@ const { className = "" } = Astro.props;
       rgba(16, 24, 40, 0.1) 70%,
       rgba(0, 0, 0, 0) 100%
     );
-    transition: transform 8s ease-in-out, opacity 5s ease-in-out;
+    transition: transform 5s ease-in-out, opacity 3s ease-in-out;
   }
 </style>
 
@@ -62,7 +62,7 @@ const { className = "" } = Astro.props;
     // Animar los gradientes inicialmente
     animateGradients();
     
-    // Repetir la animación cada 10 segundos
-    setInterval(animateGradients, 10000);
+    // Repetir la animación cada 6 segundos
+    setInterval(animateGradients, 6000);
   });
 </script>

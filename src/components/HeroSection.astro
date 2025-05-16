@@ -177,7 +177,7 @@ const rotatingWords = [
     top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    animation: scrollWheel 2s ease-in-out infinite;
+    animation: scrollWheel 1s ease-in-out infinite;
   }
   
   @keyframes scrollWheel {
@@ -193,34 +193,34 @@ const rotatingWords = [
   
   /* Animaciones usando transiciones para compatibilidad con Firefox/Zen */
   .float-particle {
-    transition: transform 10s ease-in-out;
+    transition: transform 6s ease-in-out;
   }
   
   /* Duración de las transiciones */
-  .float-duration-15 { transition-duration: 15s; }
-  .float-duration-17 { transition-duration: 17s; }
-  .float-duration-18 { transition-duration: 18s; }
-  .float-duration-19 { transition-duration: 19s; }
-  .float-duration-20 { transition-duration: 20s; }
-  .float-duration-21 { transition-duration: 21s; }
-  .float-duration-22 { transition-duration: 22s; }
-  .float-duration-23 { transition-duration: 23s; }
-  .float-duration-25 { transition-duration: 25s; }
+  .float-duration-15 { transition-duration: 8s; }
+  .float-duration-17 { transition-duration: 9s; }
+  .float-duration-18 { transition-duration: 9s; }
+  .float-duration-19 { transition-duration: 10s; }
+  .float-duration-20 { transition-duration: 10s; }
+  .float-duration-21 { transition-duration: 11s; }
+  .float-duration-22 { transition-duration: 11s; }
+  .float-duration-23 { transition-duration: 12s; }
+  .float-duration-25 { transition-duration: 12s; }
   
   /* Delays */
-  .float-delay-500 { transition-delay: 500ms; }
-  .float-delay-1000 { transition-delay: 1000ms; }
-  .float-delay-1500 { transition-delay: 1500ms; }
-  .float-delay-2000 { transition-delay: 2000ms; }
-  .float-delay-2500 { transition-delay: 2500ms; }
-  .float-delay-3000 { transition-delay: 3000ms; }
-  .float-delay-3500 { transition-delay: 3500ms; }
-  .float-delay-4000 { transition-delay: 4000ms; }
+  .float-delay-500 { transition-delay: 300ms; }
+  .float-delay-1000 { transition-delay: 500ms; }
+  .float-delay-1500 { transition-delay: 700ms; }
+  .float-delay-2000 { transition-delay: 1000ms; }
+  .float-delay-2500 { transition-delay: 1200ms; }
+  .float-delay-3000 { transition-delay: 1500ms; }
+  .float-delay-3500 { transition-delay: 1700ms; }
+  .float-delay-4000 { transition-delay: 2000ms; }
   
   .reveal-element {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   
   .revealed {
@@ -229,8 +229,8 @@ const rotatingWords = [
   }
   
   .hero-cta {
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
-    animation: floatButton 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+    animation: floatButton 2s ease-in-out infinite;
   }
   
   .hero-cta:hover {
@@ -245,7 +245,7 @@ const rotatingWords = [
   
   .cta-icon {
     display: inline-flex;
-    animation: rotateCompass 5s linear infinite;
+    animation: rotateCompass 3s linear infinite;
   }
   
   @keyframes rotateCompass {
@@ -255,7 +255,7 @@ const rotatingWords = [
   
   .hero-cta:hover .cta-icon {
     /* Aseguramos mantener la misma animación */
-    animation: rotateCompass 5s linear infinite;
+    animation: rotateCompass 3s linear infinite;
   }
 </style>
 

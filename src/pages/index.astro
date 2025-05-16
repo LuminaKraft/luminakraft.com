@@ -72,7 +72,7 @@ const t = (key: string) => getTranslation(key, locale);
                       width: ${1 + Math.random() * 2}px; 
                       height: ${1 + Math.random() * 2}px;
                       opacity: ${0.2 + Math.random() * 0.8};
-                      animation: twinkle ${1 + Math.random() * 5}s infinite ${Math.random() * 5}s;
+                      animation: twinkle ${0.5 + Math.random() * 2}s infinite ${Math.random() * 2}s;
                     `}
                   ></div>
                 ))}
@@ -115,7 +115,7 @@ const t = (key: string) => getTranslation(key, locale);
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-server"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-server"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-1">{t('service-1')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-1-desc">{t('service-1-desc')}</p>
@@ -123,7 +123,7 @@ const t = (key: string) => getTranslation(key, locale);
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-tools"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-tools"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-2">{t('service-2')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-2-desc">{t('service-2-desc')}</p>
@@ -131,7 +131,7 @@ const t = (key: string) => getTranslation(key, locale);
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-cubes"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-cubes"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-3">{t('service-3')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-3-desc">{t('service-3-desc')}</p>
@@ -139,7 +139,7 @@ const t = (key: string) => getTranslation(key, locale);
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-download"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-download"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-4-title">{t('service-4-title')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-4-desc">{t('service-4-desc')}</p>
@@ -147,7 +147,7 @@ const t = (key: string) => getTranslation(key, locale);
         
         <div class="service-item bg-secondary/40 rounded-xl p-6 hover:bg-secondary/60 transition-all duration-300 border-l-4 border-primary/70 animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-cloud"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-cloud"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-5">{t('service-5')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-5-desc">{t('service-5-desc')}</p>
@@ -155,7 +155,7 @@ const t = (key: string) => getTranslation(key, locale);
         
         <div class="service-item bg-primary/20 rounded-xl p-6 hover:bg-primary/30 transition-all duration-300 border-l-4 border-primary animate-fade-up animate-delay-400 shadow-md hover:shadow-primary/20 hover:-translate-y-1 group">
           <div class="flex items-center mb-4">
-            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-headset"></i></span>
+            <span class="text-primary text-3xl group-hover:scale-110 transition-transform duration-200"><i class="fas fa-headset"></i></span>
             <h3 class="text-xl font-bold text-white ml-4" data-i18n="service-6-title">{t('service-6-title')}</h3>
           </div>
           <p class="text-white/80" data-i18n="service-6-desc">{t('service-6-desc')}</p>
@@ -163,9 +163,9 @@ const t = (key: string) => getTranslation(key, locale);
       </div>
       
       <div class="flex justify-center animate-fade-up animate-delay-500">
-        <a href="/servicios" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1 relative overflow-hidden group">
+        <a href="/servicios" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-200 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1 relative overflow-hidden group">
           <span class="relative z-10" data-i18n="learn-more">{t('learn-more')}</span>
-          <span class="absolute inset-0 bg-gradient-to-r from-primary to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span class="absolute inset-0 bg-gradient-to-r from-primary to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
         </a>
       </div>
     </div>
@@ -256,7 +256,7 @@ const t = (key: string) => getTranslation(key, locale);
             <img 
               src="https://mc-heads.net/avatar/Kristiansitou/120" 
               alt={t('ceo-name')}
-              class="w-28 h-28 rounded-full border-4 border-primary/70 mb-4 hover:scale-105 transition-all"
+              class="w-28 h-28 rounded-full border-4 border-primary/70 mb-4 hover:scale-105 transition-all duration-200"
               width="120"
               height="120"
               loading="lazy"
@@ -332,7 +332,7 @@ const t = (key: string) => getTranslation(key, locale);
       <p class="text-lg mb-10 animate-fade-up animate-delay-200" data-i18n="contact-intro">{t('contact-intro')}</p>
       <div class="animate-fade-up animate-delay-300">
         <p id="email-placeholder" class="mb-6 text-xl">info@luminakraft.com</p>
-        <a href="mailto:info@luminakraft.com" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-300 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1" data-i18n="send-message">
+        <a href="mailto:info@luminakraft.com" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-200 hover:shadow-lg hover:bg-primary hover:border-primary hover:-translate-y-1" data-i18n="send-message">
           {t('send-message')}
         </a>
       </div>
@@ -352,7 +352,7 @@ const t = (key: string) => getTranslation(key, locale);
   
   .question-mark {
     text-shadow: 0 0 15px rgba(74, 144, 226, 0.8), 0 0 30px rgba(74, 144, 226, 0.6);
-    animation: pulse 3s infinite ease-in-out;
+    animation: pulse 2s infinite ease-in-out;
   }
   
   @keyframes pulse {
@@ -420,7 +420,7 @@ const t = (key: string) => getTranslation(key, locale);
             workerEl.className = 'flex flex-col items-center justify-between w-full';
             
             workerEl.innerHTML = `
-              <div class="worker-avatar-container border-2 border-primary/50 rounded-lg overflow-hidden w-16 h-16 md:w-20 md:h-20 hover:scale-110 transition-transform mx-auto">
+              <div class="worker-avatar-container border-2 border-primary/50 rounded-lg overflow-hidden w-16 h-16 md:w-20 md:h-20 hover:scale-110 transition-transform duration-200 mx-auto">
                 <img 
                   src="https://mc-heads.net/avatar/${worker.username}/64" 
                   alt="${worker.username}" 
