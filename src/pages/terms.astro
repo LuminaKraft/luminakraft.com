@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTranslation, getUserLocale } from '../utils/i18n';
+
+// Use the user's preferred language instead of hardcoding
+const locale = getUserLocale(); 
+const t = (key) => getTranslation(key, locale);
+
+// Get the last updated date for the terms of service
+const lastUpdated = "2025-05-27";
+---
+
+<BaseLayout title={t('terms-of-service')} description={t('terms-of-service-desc')} locale={locale}>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          <span data-i18n="terms-of-service">{t('terms-of-service')}</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-4">
+          <span data-i18n="terms-last-updated">{t('terms-last-updated')}</span> <span class="date">{lastUpdated}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms of Service Content -->
+  <section class="py-16 bg-secondary/30">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-secondary/40 rounded-2xl p-8 shadow-lg">
+        
+        <!-- Introduction -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-intro-title">
+            {t('terms-intro-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-intro-1">
+            {t('terms-intro-1')}
+          </p>
+          <p class="text-white/90" data-i18n="terms-intro-2">
+            {t('terms-intro-2')}
+          </p>
+        </div>
+
+        <!-- Account Responsibilities -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-account-title">
+            {t('terms-account-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-account-intro">
+            {t('terms-account-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li data-i18n="terms-account-1">
+              {t('terms-account-1')}
+            </li>
+            <li data-i18n="terms-account-2">
+              {t('terms-account-2')}
+            </li>
+            <li data-i18n="terms-account-3">
+              {t('terms-account-3')}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Code of Conduct -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-conduct-title">
+            {t('terms-conduct-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-conduct-intro">
+            {t('terms-conduct-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li data-i18n="terms-conduct-1">
+              {t('terms-conduct-1')}
+            </li>
+            <li data-i18n="terms-conduct-2">
+              {t('terms-conduct-2')}
+            </li>
+            <li data-i18n="terms-conduct-3">
+              {t('terms-conduct-3')}
+            </li>
+            <li data-i18n="terms-conduct-4">
+              {t('terms-conduct-4')}
+            </li>
+            <li data-i18n="terms-conduct-5">
+              {t('terms-conduct-5')}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Content and Ownership -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-content-title">
+            {t('terms-content-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-content-1">
+            {t('terms-content-1')}
+          </p>
+          <p class="text-white/90" data-i18n="terms-content-2">
+            {t('terms-content-2')}
+          </p>
+        </div>
+
+        <!-- Termination -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-termination-title">
+            {t('terms-termination-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="terms-termination-desc">
+            {t('terms-termination-desc')}
+          </p>
+        </div>
+
+        <!-- Disclaimers -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-disclaimers-title">
+            {t('terms-disclaimers-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-disclaimers-1">
+            {t('terms-disclaimers-1')}
+          </p>
+          <p class="text-white/90" data-i18n="terms-disclaimers-2">
+            {t('terms-disclaimers-2')}
+          </p>
+        </div>
+
+        <!-- Limitation of Liability -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-liability-title">
+            {t('terms-liability-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="terms-liability-desc">
+            {t('terms-liability-desc')}
+          </p>
+        </div>
+
+        <!-- Governing Law -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-law-title">
+            {t('terms-law-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="terms-law-desc">
+            {t('terms-law-desc')}
+          </p>
+        </div>
+
+        <!-- Changes to Terms -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-changes-title">
+            {t('terms-changes-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="terms-changes-desc">
+            {t('terms-changes-desc')}
+          </p>
+        </div>
+
+        <!-- Donations and Purchases -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-donations-title">
+            {t('terms-donations-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="terms-donations-1">
+            {t('terms-donations-1')}
+          </p>
+          <p class="text-white/90" data-i18n="terms-donations-2">
+            {t('terms-donations-2')}
+          </p>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="terms-contact-title">
+            {t('terms-contact-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="terms-contact-intro">
+            {t('terms-contact-intro')}
+          </p>
+          <div class="mt-4 p-4 bg-secondary/60 rounded-lg inline-block">
+            <p class="text-primary font-medium" data-i18n="terms-contact-email">{t('terms-contact-email')}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Add any page-specific styles here */
+  section ul li {
+    margin-bottom: 0.5rem;
+  }
+</style>

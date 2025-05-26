@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTranslation, getUserLocale } from '../utils/i18n';
+
+// Use the user's preferred language instead of hardcoding
+const locale = getUserLocale(); 
+const t = (key) => getTranslation(key, locale);
+
+// Get the last updated date for the privacy policy
+const lastUpdated = "2025-05-27";
+---
+
+<BaseLayout title={t('privacy-policy')} description={t('privacy-policy-desc')} locale={locale}>
+  
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          <span data-i18n="privacy-policy">{t('privacy-policy')}</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-4">
+          <span data-i18n="privacy-last-updated">{t('privacy-last-updated')}</span> <span class="date">{lastUpdated}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Content -->
+  <section class="py-16 bg-secondary/30">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-secondary/40 rounded-2xl p-8 shadow-lg">
+        
+        <!-- Introduction -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-intro-title">
+            {t('privacy-intro-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="privacy-intro-1">
+            {t('privacy-intro-1')}
+          </p>
+          <p class="text-white/90" data-i18n="privacy-intro-2">
+            {t('privacy-intro-2')}
+          </p>
+        </div>
+
+        <!-- Information We Collect -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-collect-title">
+            {t('privacy-collect-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="privacy-collect-intro">
+            {t('privacy-collect-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li>
+              <strong data-i18n="privacy-collect-account">{t('privacy-collect-account')}</strong> 
+              <span data-i18n="privacy-collect-account-desc">{t('privacy-collect-account-desc')}</span>
+            </li>
+            <li>
+              <strong data-i18n="privacy-collect-usage">{t('privacy-collect-usage')}</strong> 
+              <span data-i18n="privacy-collect-usage-desc">{t('privacy-collect-usage-desc')}</span>
+            </li>
+            <li>
+              <strong data-i18n="privacy-collect-technical">{t('privacy-collect-technical')}</strong> 
+              <span data-i18n="privacy-collect-technical-desc">{t('privacy-collect-technical-desc')}</span>
+            </li>
+            <li>
+              <strong data-i18n="privacy-collect-communication">{t('privacy-collect-communication')}</strong> 
+              <span data-i18n="privacy-collect-communication-desc">{t('privacy-collect-communication-desc')}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- How We Use Your Information -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-use-title">
+            {t('privacy-use-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="privacy-use-intro">
+            {t('privacy-use-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li data-i18n="privacy-use-1">
+              {t('privacy-use-1')}
+            </li>
+            <li data-i18n="privacy-use-2">
+              {t('privacy-use-2')}
+            </li>
+            <li data-i18n="privacy-use-3">
+              {t('privacy-use-3')}
+            </li>
+            <li data-i18n="privacy-use-4">
+              {t('privacy-use-4')}
+            </li>
+            <li data-i18n="privacy-use-5">
+              {t('privacy-use-5')}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Data Sharing and Disclosure -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-sharing-title">
+            {t('privacy-sharing-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="privacy-sharing-intro">
+            {t('privacy-sharing-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li data-i18n="privacy-sharing-1">
+              {t('privacy-sharing-1')}
+            </li>
+            <li data-i18n="privacy-sharing-2">
+              {t('privacy-sharing-2')}
+            </li>
+            <li data-i18n="privacy-sharing-3">
+              {t('privacy-sharing-3')}
+            </li>
+            <li data-i18n="privacy-sharing-4">
+              {t('privacy-sharing-4')}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Data Security -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-security-title">
+            {t('privacy-security-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="privacy-security-desc">
+            {t('privacy-security-desc')}
+          </p>
+        </div>
+
+        <!-- Your Rights -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-rights-title">
+            {t('privacy-rights-title')}
+          </h2>
+          <p class="text-white/90 mb-4" data-i18n="privacy-rights-intro">
+            {t('privacy-rights-intro')}
+          </p>
+          <ul class="list-disc pl-6 text-white/90 space-y-2">
+            <li data-i18n="privacy-rights-1">
+              {t('privacy-rights-1')}
+            </li>
+            <li data-i18n="privacy-rights-2">
+              {t('privacy-rights-2')}
+            </li>
+            <li data-i18n="privacy-rights-3">
+              {t('privacy-rights-3')}
+            </li>
+            <li data-i18n="privacy-rights-4">
+              {t('privacy-rights-4')}
+            </li>
+          </ul>
+          <p class="text-white/90 mt-4" data-i18n="privacy-rights-outro">
+            {t('privacy-rights-outro')}
+          </p>
+        </div>
+
+        <!-- Children's Privacy -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-children-title">
+            {t('privacy-children-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="privacy-children-desc">
+            {t('privacy-children-desc')}
+          </p>
+        </div>
+
+        <!-- Cookies and Similar Technologies -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-cookies-title">
+            {t('privacy-cookies-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="privacy-cookies-desc">
+            {t('privacy-cookies-desc')}
+          </p>
+        </div>
+
+        <!-- Changes to This Privacy Policy -->
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-changes-title">
+            {t('privacy-changes-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="privacy-changes-desc">
+            {t('privacy-changes-desc')}
+          </p>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+          <h2 class="text-2xl font-bold text-primary mb-4" data-i18n="privacy-contact-title">
+            {t('privacy-contact-title')}
+          </h2>
+          <p class="text-white/90" data-i18n="privacy-contact-intro">
+            {t('privacy-contact-intro')}
+          </p>
+          <div class="mt-4 p-4 bg-secondary/60 rounded-lg inline-block">
+            <p class="text-primary font-medium" data-i18n="privacy-contact-email">{t('privacy-contact-email')}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Add any page-specific styles here */
+  section ul li {
+    margin-bottom: 0.5rem;
+  }
+</style>
