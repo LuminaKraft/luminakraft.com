@@ -1,5 +1,33 @@
 [
   {
+    "id": "luminakraft_world",
+    "name": "LuminaKraft World",
+    "slug": "luminakraft_world",
+    "isNew": false,
+    "isActive": false,
+    "images": [
+      "/imgs/servers/luminakraft_world/screenshot1.webp",
+      "/imgs/servers/luminakraft_world/screenshot2.webp",
+      "/imgs/servers/luminakraft_world/screenshot3.webp"
+    ],
+    "logo": "/imgs/servers/luminakraft_world/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      }
+    ],
+    "versions": ["1.9.x - 1.21.x"],
+    "modloader": "Paper",
+    "gamemode": "Supervivencia",
+    "descriptionKey": "luminakraft_world-desc",
+    "leaderboardPath": "/data/servers/luminakraft_world/leaderboard.json",
+    "ip": "play.luminakraft.com",
+    "tiktokEmbed": "7489933381099179286",
+    "youtubeEmbed": "",
+    "featureIcons": ["fa-file-alt", "fa-cubes", "fa-puzzle-piece", "fa-users"]
+  },
+  {
     "id": "onepieceworld",
     "name": "One Piece World",
     "slug": "onepieceworld",
@@ -21,7 +49,9 @@
     "modloader": "Forge",
     "gamemode": "RPG",
     "descriptionKey": "onepieceworld-desc",
-    "leaderboardPath": "/data/servers/onepieceworld/leaderboard.json"
+    "leaderboardPath": "/data/servers/onepieceworld/leaderboard.json",
+    "youtubeEmbed": "https://www.youtube.com/embed/OadtwVyeRKI",
+    "featureIcons": ["fa-apple-whole", "fa-fist-raised", "fa-ship", "fa-users"]
   },
   {
     "id": "ancientkraft",
@@ -49,7 +79,9 @@
     "modloader": "Forge",
     "gamemode": "RPG / Aventura",
     "descriptionKey": "ancientkraft-desc",
-    "leaderboardPath": null
+    "leaderboardPath": null,
+    "youtubeEmbed": "https://www.youtube.com/embed/SsBTE69AE8I",
+    "featureIcons": ["fa-magic", "fa-fist-raised", "fa-map-marked-alt", "fa-users"]
   },
   {
     "id": "pt-the_full_course",
@@ -77,6 +109,9 @@
     "modloader": "Vanilla",
     "gamemode": "Supervivencia",
     "descriptionKey": "pt-the_full_course-desc",
-    "leaderboardPath": null
+    "leaderboardPath": null,
+    "ip": "pt.luminakraft.com",
+    "youtubeEmbed": "",
+    "featureIcons": ["fa-compass", "fa-users", "fa-puzzle-piece", "fa-calendar-alt"]
   }
-] 
+]

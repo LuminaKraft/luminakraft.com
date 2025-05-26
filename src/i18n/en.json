@@ -33,6 +33,7 @@
     "hero-desc": "Experience unique and immersive Minecraft worlds with LuminaKraft Studios",
     "explore-servers": "Explore Our Servers",
     "featured-servers": "Our Featured Servers",
+    "luminakraft_world-desc": "Custom world, unique dungeons, scaling mobs, skills, economy, land claiming, PvP control, live map.",
     "onepieceworld-desc": "Live the great adventure of One Piece: find Devil Fruits and master the seas.",
     "ancientkraft-desc": "RPG-style Adventure modpack with custom magic system, custom combat, and more",
     "pt-the_full_course-desc": "Flagship survival server with custom plugins and events",
@@ -44,12 +45,21 @@
     "stay-tuned": "Stay Tuned",
     
     "features-title": "Main Features",
-    "trailers-title": "Trailer for",
+    "trailers-title": "Trailer",
     "screenshots-title": "Screenshots",
     "how-to-join-title": "How to join",
     "server-closed-notice": "This server has ended",
     "server-currently-closed": "Server currently closed",
     "inside-game": "in the game",
+
+    "server-feature-luminakraft_world-1-title": "Optimized Survival with Paper",
+    "server-feature-luminakraft_world-1-desc": "Enjoy a lag-free and stable survival experience thanks to the power of Paper server software.",
+    "server-feature-luminakraft_world-2-title": "Wide Version Compatibility",
+    "server-feature-luminakraft_world-2-desc": "Play on your preferred version, as LuminaKraft World supports clients from 1.9.x all the way up to 1.21.x.",
+    "server-feature-luminakraft_world-3-title": "Enhanced Gameplay with Plugins",
+    "server-feature-luminakraft_world-3-desc": "Discover a variety of custom plugins that add exciting features and improve the overall survival experience.",
+    "server-feature-luminakraft_world-4-title": "Thriving Community",
+    "server-feature-luminakraft_world-4-desc": "Become part of a friendly and active community of players who share your passion for survival and adventure.",
     
     "server-feature-onepieceworld-1-title": "Devil Fruits",
     "server-feature-onepieceworld-1-desc": "Consume powerful fruits that will grant you special abilities, but beware of the sea!",
@@ -103,7 +113,7 @@
     "download-installer": "Download Installer",
     
     "auto-connect-title": "Auto-connect",
-    "auto-connect-desc": "The modpack will automatically connect to the server when you click the \"Set Sail to",
+    "auto-connect-desc": "The modpack will automatically connect to server just by clicking a button!",
     
     "join-discord": "Join our Discord",
     

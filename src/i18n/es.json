@@ -33,6 +33,7 @@
     "hero-desc": "Experimenta mundos únicos e inmersivos de Minecraft con LuminaKraft Studios",
     "explore-servers": "Explora Nuestros Servidores",
     "featured-servers": "Nuestros Servidores Destacados",
+    "luminakraft_world-desc": "Mundo custom, dungeons únicas, mobs escalables, habilidades, economía, reclamo de tierras, control PvP, mapa en vivo.",
     "onepieceworld-desc": "Vive la gran aventura de One Piece: encuentra Frutas del Diablo y domina los mares.",
     "ancientkraft-desc": "Modpack de Aventura estilo RPG con sistema de magia personalizado, combate personalizado, y más",
     "pt-full-course-desc": "Servidor de supervivencia insignia con plugins personalizados y eventos",
@@ -44,12 +45,21 @@
     "stay-tuned": "Próximamente",
     
     "features-title": "Características Principales",
-    "trailers-title": "Tráiler de",
+    "trailers-title": "Tráiler",
     "screenshots-title": "Capturas de pantalla",
     "how-to-join-title": "¿Cómo unirse a",
     "server-closed-notice": "Este servidor ha finalizado",
     "server-currently-closed": "Servidor actualmente cerrado",
     "inside-game": "dentro del juego",
+
+    "server-feature-luminakraft_world-1-title": "Supervivencia Optimizada con Paper",
+    "server-feature-luminakraft_world-1-desc": "Disfruta de una experiencia de supervivencia estable y sin lag gracias a la potencia del software de servidor Paper.",
+    "server-feature-luminakraft_world-2-title": "Amplia Compatibilidad de Versiones",
+    "server-feature-luminakraft_world-2-desc": "Juega en tu versión preferida, ya que LuminaKraft World es compatible con clientes desde la 1.9.x hasta la 1.21.x.",
+    "server-feature-luminakraft_world-3-title": "Jugabilidad Mejorada con Plugins",
+    "server-feature-luminakraft_world-3-desc": "Descubre una variedad de plugins personalizados que añaden características emocionantes y mejoran la experiencia de supervivencia general.",
+    "server-feature-luminakraft_world-4-title": "Comunidad Próspera",
+    "server-feature-luminakraft_world-4-desc": "Forma parte de una comunidad de jugadores amigable y activa que comparte tu pasión por la supervivencia y la aventura.",
     
     "server-feature-onepieceworld-1-title": "Frutas del Diablo",
     "server-feature-onepieceworld-1-desc": "Consume poderosas frutas que te otorgarán habilidades especiales, ¡pero cuidado con el mar!",
@@ -103,7 +113,7 @@
     "download-installer": "Descargar Instalador",
     
     "auto-connect-title": "Conexión automática",
-    "auto-connect-desc": "El modpack se conectará automáticamente al servidor cuando hagas clic en el botón \"Zarpar hacia",
+    "auto-connect-desc": "¡El modpack se conectará automáticamente al servidor pulsando un botón!",
     
     "join-discord": "Únete a nuestro Discord",
     

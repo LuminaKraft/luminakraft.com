@@ -79,34 +79,7 @@ if (serverFromSlug.id === "onepieceworld") {
   secondaryColor = "#2a2a2a";
 }
 
-// Definir video de YouTube si existe
-const youtubeEmbed = {
-  "onepieceworld": "https://www.youtube.com/embed/OadtwVyeRKI",
-  "ancientkraft": "https://www.youtube.com/embed/SsBTE69AE8I",
-  "pt-the_full_course": ""
-}[serverFromSlug.id] || "";
-
-// Características específicas por servidor
-const serverFeatures = {
-  "onepieceworld": [
-    { icon: "fa-apple-whole", title: "Frutas del Diablo", description: "Consume poderosas frutas que te otorgarán habilidades especiales, ¡pero cuidado con el mar!" },
-    { icon: "fa-fist-raised", title: "Combate con Haki y Estilos de Lucha", description: "Domina Haki, artes marciales y estilos de combate inspirados en personajes como Sanji o Zoro." },
-    { icon: "fa-ship", title: "Explora el Grand Line", description: "Navega por islas legendarias, descubre tesoros y enfréntate a peligrosos piratas y marines." },
-    { icon: "fa-users", title: "Aventuras Multijugador", description: "Únete a una tripulación, enfréntate a otros jugadores, o forma alianzas para dominar los mares." }
-  ],
-  "ancientkraft": [
-    { icon: "fa-magic", title: "Sistema de Magia Personalizado", description: "Domina hechizos únicos y aprovecha el poder de los elementos" },
-    { icon: "fa-fist-raised", title: "Combate Mejorado", description: "Experimenta batallas emocionantes con mecánicas y habilidades mejoradas" },
-    { icon: "fa-map-marked-alt", title: "Vasto Mundo para Explorar", description: "Descubre ruinas antiguas, tesoros ocultos y mazmorras desafiantes" },
-    { icon: "fa-users", title: "Aventuras Multijugador", description: "Forma equipo con amigos o únete a una facción para conquistar el mundo juntos" }
-  ],
-  "pt-the_full_course": [
-    { icon: "fa-compass", title: "Exploración", description: "Descubre un mundo lleno de secretos y sorpresas por descubrir" },
-    { icon: "fa-users", title: "Comunidad", description: "Únete a una comunidad amigable y colaborativa de jugadores" },
-    { icon: "fa-puzzle-piece", title: "Plugins personalizados", description: "Disfruta de plugins exclusivos que mejoran la experiencia de juego" },
-    { icon: "fa-calendar-alt", title: "Eventos regulares", description: "Participa en eventos especiales y competiciones organizadas por el staff" }
-  ]
-}[serverFromSlug.id] || [];
+// Ahora los trailers y características específicas se leen directamente desde servers.json
 
 ---
 
@@ -291,18 +264,18 @@ const serverFeatures = {
         </div>
       </div>
 
-      <!-- Características del servidor -->
-      {serverFeatures.length > 0 && (
+      <!-- Características principales -->
+      {serverFromSlug.featureIcons && serverFromSlug.featureIcons.length > 0 && (
         <div class="mb-12 reveal-element" data-reveal-delay="100">
           <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="features-title">{t('features-title')}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {serverFeatures.map((feature, index) => (
+            {serverFromSlug.featureIcons.map((icon, index) => (
               <div class="feature-card bg-black/30 backdrop-blur-sm p-6 rounded-lg text-center border border-primary/10 hover:border-primary/30 hover:shadow-lg" data-reveal-delay={100 + 50 * index}>
                 <div class="feature-icon w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <i class={`fas ${feature.icon} text-3xl text-primary`}></i>
+                  <i class={`fas ${icon} text-3xl text-primary`}></i>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-2" data-i18n={`server-feature-${serverFromSlug.id}-${serverFeatures.indexOf(feature) + 1}-title`}>{t(`server-feature-${serverFromSlug.id}-${serverFeatures.indexOf(feature) + 1}-title`)}</h3>
-                <p class="text-white/80" data-i18n={`server-feature-${serverFromSlug.id}-${serverFeatures.indexOf(feature) + 1}-desc`}>{t(`server-feature-${serverFromSlug.id}-${serverFeatures.indexOf(feature) + 1}-desc`)}</p>
+                <h3 class="text-xl font-bold text-primary mb-2" data-i18n={`server-feature-${serverFromSlug.id}-${index + 1}-title`}>{t(`server-feature-${serverFromSlug.id}-${index + 1}-title`)}</h3>
+                <p class="text-white/80" data-i18n={`server-feature-${serverFromSlug.id}-${index + 1}-desc`}>{t(`server-feature-${serverFromSlug.id}-${index + 1}-desc`)}</p>
               </div>
             ))}
           </div>
@@ -310,13 +283,21 @@ const serverFeatures = {
       )}
 
       <!-- Tráiler del servidor si existe -->
-      {youtubeEmbed && (
+      {serverFromSlug.tiktokEmbed ? (
         <div class="mb-12 reveal-element" data-reveal-delay="150">
-          <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="trailers-title">{t('trailers-title')} {serverFromSlug.name}</h2>
+          <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="trailers-title">{t('trailers-title')}</h2>
+          <div class="rounded-lg border border-primary/20 transition-all hover:border-primary/40 hover:shadow-lg p-4">
+            <blockquote class="tiktok-embed" cite={`https://www.tiktok.com/@luminakraft/video/${serverFromSlug.tiktokEmbed}`} data-video-id={serverFromSlug.tiktokEmbed} style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@luminakraft" href="https://www.tiktok.com/@luminakraft?refer=embed">@luminakraft</a> ¡Únete a la experiencia única de LuminaKraft! Con generación custom, sistema de habilidades y economía en juego, reclama tierras, configura cofres y cultivos, y disfruta de niveles y dificultad creciente. <a title="luminakraft" target="_blank" href="https://www.tiktok.com/tag/luminakraft?refer=embed">#luminakraft</a> <a title="minecraftserver" target="_blank" href="https://www.tiktok.com/tag/minecraftserver?refer=embed">#minecraftserver</a> <a title="serverminecraft" target="_blank" href="https://www.tiktok.com/tag/serverminecraft?refer=embed">#serverminecraft</a> <a title="minecraft" target="_blank" href="https://www.tiktok.com/tag/minecraft?refer=embed">#minecraft</a> <a title="terralith" target="_blank" href="https://www.tiktok.com/tag/terralith?refer=embed">#terralith</a> <a title="tectonic" target="_blank" href="https://www.tiktok.com/tag/tectonic?refer=embed">#tectonic</a> <a title="habilidadesespeciales" target="_blank" href="https://www.tiktok.com/tag/habilidadesespeciales?refer=embed">#habilidadesespeciales</a> <a title="economia" target="_blank" href="https://www.tiktok.com/tag/economia?refer=embed">#economia</a> <a title="terrenos" target="_blank" href="https://www.tiktok.com/tag/terrenos?refer=embed">#terrenos</a> <a title="regiones" target="_blank" href="https://www.tiktok.com/tag/regiones?refer=embed">#regiones</a> <a title="dificil" target="_blank" href="https://www.tiktok.com/tag/dificil?refer=embed">#dificil</a> <a title="niveles" target="_blank" href="https://www.tiktok.com/tag/niveles?refer=embed">#niveles</a> <a title="progresion" target="_blank" href="https://www.tiktok.com/tag/progresion?refer=embed">#progresion</a> <a title="rpg" target="_blank" href="https://www.tiktok.com/tag/rpg?refer=embed">#rpg</a> <a target="_blank" title="♬ Anxiety - Doechii" href="https://www.tiktok.com/music/Anxiety-7474209817062574850?refer=embed">♬ Anxiety - Doechii</a> </section> </blockquote>
+            <script is:inline src="https://www.tiktok.com/embed.js"></script>
+          </div>
+        </div>
+      ) : serverFromSlug.youtubeEmbed && (
+        <div class="mb-12 reveal-element" data-reveal-delay="150">
+          <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="trailers-title">{t('trailers-title')}</h2>
           <div class="relative overflow-hidden pt-[56.25%] rounded-lg border border-primary/20 transition-all hover:border-primary/40 hover:shadow-lg">
             <iframe 
               class="absolute top-0 left-0 w-full h-full border-0"
-              src={youtubeEmbed}
+              src={serverFromSlug.youtubeEmbed}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen
               loading="lazy"
@@ -369,11 +350,11 @@ const serverFeatures = {
 
       <!-- Instrucciones para unirse -->
       <div id="join-server" class="bg-black/30 backdrop-blur-md rounded-xl p-8 border border-primary/20 animate-fade-up animate-delay-400">
-        <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="how-to-join-title">{t('how-to-join-title')} {serverFromSlug.name}?</h2>
+        <h2 class="text-2xl font-bold text-primary mb-6" data-i18n="how-to-join-title">{t('how-to-join-title')}</h2>
         
         <!-- Pasos para unirse -->
         <div class="flex flex-wrap justify-around mb-8">
-          {serverFromSlug.modloader !== "Vanilla" ? (
+          {(serverFromSlug.modloader !== "Vanilla" && serverFromSlug.modloader !== "Paper") ? (
             <>
               <div class="step text-center max-w-[250px] mb-8">
                 <div class="step-number mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary mb-3">
@@ -396,7 +377,7 @@ const serverFeatures = {
                   <span class="text-2xl font-bold">3</span>
                 </div>
                 <h3 class="font-bold text-primary text-lg mb-2" data-i18n="step3-title-modpack">{t('step3-title-modpack')}</h3>
-                <p class="text-white/80" data-i18n="step3-desc-modpack">{t('step3-desc-modpack')} {serverFromSlug.name}!"</p>
+                <p class="text-white/80" data-i18n="step3-desc-modpack">{t('step3-desc-modpack')}!</p>
               </div>
             </>
           ) : (
@@ -429,7 +410,7 @@ const serverFeatures = {
         </div>
         
         <!-- Instrucciones según el tipo de servidor -->
-        {serverFromSlug.modloader === "Vanilla" ? (
+        {(serverFromSlug.modloader === "Vanilla" || serverFromSlug.modloader === "Paper") ? (
           <div class="space-y-6">
             <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 bg-black/40 backdrop-blur-sm rounded-lg">
               <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary">
@@ -449,10 +430,10 @@ const serverFeatures = {
                 <h3 class="text-lg font-bold text-primary mb-1" data-i18n="server-address-title">{t('server-address-title')}</h3>
                 <p data-i18n="server-address-desc">{t('server-address-desc')}</p>
                 <div class="flex items-center gap-2 mt-2">
-                  <code class="px-3 py-1 bg-primary/20 rounded border border-primary/30 font-mono text-primary/90">{serverFromSlug.id}.luminakraft.com</code>
+                  <code class="px-3 py-1 bg-primary/20 rounded border border-primary/30 font-mono text-primary/90">{(serverFromSlug.modloader === "Vanilla" || serverFromSlug.modloader === "Paper") && serverFromSlug.ip ? serverFromSlug.ip : `${serverFromSlug.id}.luminakraft.com`}</code>
                   <button 
                     class="copy-btn w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary/40 transition-all"
-                    data-copy-text={`${serverFromSlug.id}.luminakraft.com`}
+                    data-copy-text={(serverFromSlug.modloader === "Vanilla" || serverFromSlug.modloader === "Paper") && serverFromSlug.ip ? serverFromSlug.ip : `${serverFromSlug.id}.luminakraft.com`}
                   >
                     <i class="fas fa-copy"></i>
                   </button>
@@ -496,7 +477,7 @@ const serverFeatures = {
               </div>
               <div>
                 <h3 class="text-lg font-bold text-primary mb-1" data-i18n="auto-connect-title">{t('auto-connect-title')}</h3>
-                <p data-i18n="auto-connect-desc">{t('auto-connect-desc')} {serverFromSlug.name}!"</p>
+                <p data-i18n="auto-connect-desc">{t('auto-connect-desc')}!</p>
               </div>
             </div>
           </div>
