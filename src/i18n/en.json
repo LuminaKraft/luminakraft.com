@@ -35,6 +35,7 @@
     "featured-servers": "Our Featured Servers",
     "luminakraft_world-desc": "Custom world, unique dungeons, scaling mobs, skills, economy, land claiming, PvP control, live map.",
     "onepieceworld-desc": "Live the great adventure of One Piece: find Devil Fruits and master the seas.",
+    "onepieceworlds2-desc": "Master advanced Haki, discover rare Devil Fruits, and conquer the New World in this enhanced One Piece experience.",
     "ancientkraft-desc": "RPG-style Adventure modpack with custom magic system, custom combat, and more",
     "pt-the_full_course-desc": "Flagship survival server with custom plugins and events",
     "pt-full-course-desc": "Flagship survival server with custom plugins and events",
@@ -43,6 +44,8 @@
     "view-server": "View Server",
     "server-closed": "Server Closed",
     "stay-tuned": "Stay Tuned",
+    "new": "New",
+    "coming-soon": "Coming soon",
     
     "features-title": "Main Features",
     "trailers-title": "Trailer",
@@ -69,6 +72,15 @@
     "server-feature-onepieceworld-3-desc": "Navigate through legendary islands, discover treasures and face dangerous pirates and marines.",
     "server-feature-onepieceworld-4-title": "Multiplayer Adventures",
     "server-feature-onepieceworld-4-desc": "Join a crew, face other players, or form alliances to dominate the seas.",
+    
+    "server-feature-onepieceworlds2-1-title": "Advanced Devil Fruits",
+    "server-feature-onepieceworlds2-1-desc": "Discover rare and powerful Devil Fruits with unique combinations and evolution mechanics.",
+    "server-feature-onepieceworlds2-2-title": "Advanced Haki System",
+    "server-feature-onepieceworlds2-2-desc": "Master all three types of Haki with a deep progression system and special techniques.",
+    "server-feature-onepieceworlds2-3-title": "New World Exploration",
+    "server-feature-onepieceworlds2-3-desc": "Venture into the dangerous New World, where stronger enemies and greater treasures await.",
+    "server-feature-onepieceworlds2-4-title": "Enhanced Multiplayer",
+    "server-feature-onepieceworlds2-4-desc": "Create your own pirate crew, establish territories, and engage in epic naval battles.",
     
     "server-feature-ancientkraft-1-title": "Custom Magic System",
     "server-feature-ancientkraft-1-desc": "Master unique spells and harness the power of the elements",

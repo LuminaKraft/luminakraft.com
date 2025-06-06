@@ -1,10 +1,40 @@
 [
   {
+    "id": "onepieceworlds2",
+    "name": "One Piece World S2",
+    "slug": "onepieceworlds2",
+    "isNew": false,
+    "isActive": false,
+    "isComingSoon": true,
+    "images": [
+      "/imgs/servers/onepieceworlds2/screenshot1.webp",
+      "/imgs/servers/onepieceworlds2/screenshot2.webp",
+      "/imgs/servers/onepieceworlds2/screenshot3.webp",
+      "/imgs/servers/onepieceworlds2/screenshot4.webp",
+      "/imgs/servers/onepieceworlds2/screenshot5.webp"
+    ],
+    "logo": "/imgs/servers/onepieceworlds2/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      }
+    ],
+    "versions": ["1.20.1"],
+    "modloader": "Forge",
+    "gamemode": "RPG",
+    "descriptionKey": "onepieceworlds2-desc",
+    "leaderboardPath": null,
+    "youtubeEmbed": "",
+    "featureIcons": ["fa-apple-whole", "fa-fist-raised", "fa-ship", "fa-users"]
+  },
+  {
     "id": "luminakraft_world",
     "name": "LuminaKraft World",
     "slug": "luminakraft_world",
     "isNew": false,
     "isActive": false,
+    "isComingSoon": false,
     "images": [
       "/imgs/servers/luminakraft_world/screenshot1.webp",
       "/imgs/servers/luminakraft_world/screenshot2.webp",
@@ -33,10 +63,14 @@
     "slug": "onepieceworld",
     "isNew": false,
     "isActive": false,
+    "isComingSoon": false,
     "images": [
       "/imgs/servers/onepieceworld/screenshot1.webp",
       "/imgs/servers/onepieceworld/screenshot2.webp",
-      "/imgs/servers/onepieceworld/screenshot3.webp"
+      "/imgs/servers/onepieceworld/screenshot3.webp",
+      "/imgs/servers/onepieceworld/screenshot4.webp",
+      "/imgs/servers/onepieceworld/screenshot5.webp",
+      "/imgs/servers/onepieceworld/screenshot6.webp"
     ],
     "logo": "/imgs/servers/onepieceworld/logo.webp",
     "collaborators": [
@@ -59,10 +93,19 @@
     "slug": "ancientkraft",
     "isNew": false,
     "isActive": false,
+    "isComingSoon": false,
     "images": [
       "/imgs/servers/ancientkraft/screenshot1.webp",
       "/imgs/servers/ancientkraft/screenshot2.webp",
-      "/imgs/servers/ancientkraft/screenshot3.webp"
+      "/imgs/servers/ancientkraft/screenshot3.webp",
+      "/imgs/servers/ancientkraft/screenshot4.webp",
+      "/imgs/servers/ancientkraft/screenshot5.webp",
+      "/imgs/servers/ancientkraft/screenshot6.webp",
+      "/imgs/servers/ancientkraft/screenshot7.webp",
+      "/imgs/servers/ancientkraft/screenshot8.webp",
+      "/imgs/servers/ancientkraft/screenshot9.webp",
+      "/imgs/servers/ancientkraft/screenshot10.webp",
+      "/imgs/servers/ancientkraft/screenshot11.webp"
     ],
     "logo": "/imgs/servers/ancientkraft/logo.webp",
     "collaborators": [
@@ -89,10 +132,13 @@
     "slug": "pt-the_full_course",
     "isNew": false,
     "isActive": false,
+    "isComingSoon": false,
     "images": [
       "/imgs/servers/pt-the_full_course/screenshot1.webp",
       "/imgs/servers/pt-the_full_course/screenshot2.webp",
-      "/imgs/servers/pt-the_full_course/screenshot3.webp"
+      "/imgs/servers/pt-the_full_course/screenshot3.webp",
+      "/imgs/servers/pt-the_full_course/screenshot4.webp",
+      "/imgs/servers/pt-the_full_course/screenshot5.webp"
     ],
     "logo": "/imgs/servers/pt-the_full_course/logo.webp",
     "collaborators": [

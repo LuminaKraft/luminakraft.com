@@ -12,6 +12,7 @@ interface Props {
   slug: string;
   isNew: boolean;
   isActive: boolean;
+  isComingSoon: boolean;
   image: string;
   logo?: string;
   collaborators: Collaborator[];
@@ -25,6 +26,7 @@ const {
   slug, 
   isNew, 
   isActive,
+  isComingSoon,
   image, 
   logo, 
   collaborators, 
@@ -36,20 +38,25 @@ const {
 const serverDescKey = descriptionKey;
 ---
 
-<div class={`server-card relative overflow-hidden rounded-xl bg-secondary/60 backdrop-blur p-5 border border-primary/30 transition-all hover:border-primary/70 hover:shadow-glow group animate-fade-up h-full flex flex-col ${isNew ? 'border-primary/70 shadow-glow' : ''}`}>
-  <!-- Etiqueta de nuevo -->
-  {isNew && (
-    <div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10 animate-pulse">
-      <span>NEW</span>
-    </div>
-  )}
-  
-  <!-- Etiqueta de cerrado -->
-  {!isActive && (
-    <div class="absolute top-4 right-4 bg-gray-600/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
-      <span data-i18n="server-closed">{getTranslation('server-closed', locale)}</span>
-    </div>
-  )}
+<div class={`server-card relative overflow-hidden rounded-xl bg-secondary/60 backdrop-blur p-5 border border-primary/30 transition-all hover:border-primary/70 hover:shadow-glow group animate-fade-up h-full flex flex-col ${(isNew || isComingSoon) ? 'border-primary/70 shadow-glow' : ''}`}>
+  <!-- Etiquetas de estado -->
+  <div class="absolute top-4 right-4 z-10">
+    {isNew && (
+      <div class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+        <span data-i18n="new">{getTranslation('new', locale)}</span>
+      </div>
+    )}
+    {isComingSoon && (
+      <div class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+        <span data-i18n="coming-soon">{getTranslation('coming-soon', locale)}</span>
+      </div>
+    )}
+    {!isActive && !isComingSoon && (
+      <div class="bg-gray-600/90 text-white px-3 py-1 rounded-full text-sm font-bold">
+        <span data-i18n="server-closed">{getTranslation('server-closed', locale)}</span>
+      </div>
+    )}
+  </div>
   
   <!-- Imagen de fondo del servidor -->
   <div class="server-image-container w-full h-48 overflow-hidden rounded-lg relative">
@@ -103,20 +110,25 @@ const serverDescKey = descriptionKey;
     ))}
   </div>
   
-  <!-- Botón para unirse o ver servidor cerrado -->
+  <!-- Botón para unirse o ver servidor -->
   <div class="mt-auto">
     <a 
       href={`/servers/${slug}`}
       class={`block w-full py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden ${
         isActive 
           ? 'bg-gradient-to-r from-primary/80 to-primary text-white hover:shadow-glow hover:scale-[1.02] transform duration-300' 
+          : isComingSoon
+          ? 'bg-primary/80 text-white hover:shadow-glow hover:scale-[1.02] transform duration-300'
           : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-[1.02] transform duration-300'
       }`}
     >
       <span class="relative z-10" data-i18n={isActive ? "join-now" : "view-server"}>
-        {isActive ? getTranslation('join-now', locale) : getTranslation('view-server', locale)}
+        {isActive 
+          ? getTranslation('join-now', locale) 
+          : getTranslation('view-server', locale)
+        }
       </span>
-      {isActive && (
+      {(isActive || isComingSoon) && (
         <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
       )}
     </a>

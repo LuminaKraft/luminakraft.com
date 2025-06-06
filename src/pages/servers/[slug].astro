@@ -14,6 +14,7 @@ export type Server = {
   slug: string;
   isNew: boolean;
   isActive: boolean;
+  isComingSoon: boolean;
   images: string[];
   logo: string;
   collaborators: { name: string; logo: string }[];
@@ -68,7 +69,7 @@ let primaryColor = "#4a90e2"; // Color predeterminado
 let secondaryColor = "#1a2735"; // Color secundario predeterminado
 
 // Colores específicos por servidor
-if (serverFromSlug.id === "onepieceworld") {
+if (serverFromSlug.id === "onepieceworld" || serverFromSlug.id === "onepieceworlds2") {
   primaryColor = "#ffb400";
   secondaryColor = "#1a2735";
 } else if (serverFromSlug.id === "ancientkraft") {
@@ -219,7 +220,7 @@ if (serverFromSlug.id === "onepieceworld") {
   </style>
 
   <!-- Aviso de servidor cerrado si aplica -->
-  {!serverFromSlug.isActive && (
+  {!serverFromSlug.isActive && !serverFromSlug.isComingSoon && (
     <div class="fixed top-[60px] left-0 right-0 z-50 bg-red-500/80 text-white py-1 px-4 text-center font-medium text-sm flex items-center justify-center gap-2">
       <i class="fas fa-circle-exclamation"></i>
       <span data-i18n="server-closed">{t('server-closed')}</span>
@@ -242,8 +243,13 @@ if (serverFromSlug.id === "onepieceworld") {
           <div class="flex items-center justify-center flex-wrap gap-3 mb-2">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{serverFromSlug.name}</h1>
             {serverFromSlug.isNew && (
-              <span class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold shine-effect">
-                NEW
+              <span data-i18n="new" class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold shine-effect">
+                {t('new')}
+              </span>
+            )}
+            {serverFromSlug.isComingSoon && (
+              <span data-i18n="coming-soon" class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-bold shine-effect">
+                {t('coming-soon')}
               </span>
             )}
           </div>
@@ -338,6 +344,13 @@ if (serverFromSlug.id === "onepieceworld") {
               <span data-i18n="join-now">{t('join-now')}</span>
             </span>
           </a>
+        ) : serverFromSlug.isComingSoon ? (
+          <div class="inline-block px-8 py-4 rounded-full bg-primary/90 text-white font-bold text-lg border border-primary/50 relative overflow-hidden">
+            <span class="flex items-center justify-center gap-2">
+              <i class="fas fa-clock"></i>
+              <span data-i18n="coming-soon">{t('coming-soon')}</span>
+            </span>
+          </div>
         ) : (
           <div class="inline-block px-8 py-4 rounded-full bg-gray-700/90 text-white font-bold text-lg border border-gray-600/50 relative overflow-hidden opacity-80">
             <span class="flex items-center justify-center gap-2">
@@ -459,6 +472,14 @@ if (serverFromSlug.id === "onepieceworld") {
                     <i class="fas fa-download mr-2"></i>
                     <span data-i18n="download-installer">{t('download-installer')}</span>
                   </a>
+                ) : serverFromSlug.isComingSoon ? (
+                  <button 
+                    class="inline-block px-6 py-2 rounded-lg bg-primary/90 text-white font-bold border border-primary/50 cursor-not-allowed opacity-80"
+                    disabled
+                  >
+                    <i class="fas fa-clock mr-2"></i>
+                    <span data-i18n="coming-soon">{t('coming-soon')}</span>
+                  </button>
                 ) : (
                   <button 
                     class="inline-block px-6 py-2 rounded-lg bg-gray-700/90 text-white/70 font-bold border border-gray-600/50 cursor-not-allowed opacity-80"

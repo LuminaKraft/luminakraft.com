@@ -35,6 +35,7 @@
     "featured-servers": "Nuestros Servidores Destacados",
     "luminakraft_world-desc": "Mundo custom, dungeons únicas, mobs escalables, habilidades, economía, reclamo de tierras, control PvP, mapa en vivo.",
     "onepieceworld-desc": "Vive la gran aventura de One Piece: encuentra Frutas del Diablo y domina los mares.",
+    "onepieceworlds2-desc": "Domina el Haki avanzado, descubre Frutas del Diablo raras y conquista el Nuevo Mundo en esta experiencia mejorada de One Piece.",
     "ancientkraft-desc": "Modpack de Aventura estilo RPG con sistema de magia personalizado, combate personalizado, y más",
     "pt-full-course-desc": "Servidor de supervivencia insignia con plugins personalizados y eventos",
     "pt-the_full_course-desc": "Servidor de supervivencia insignia con plugins personalizados y eventos",
@@ -43,6 +44,8 @@
     "view-server": "Ver Servidor",
     "server-closed": "Servidor Cerrado",
     "stay-tuned": "Próximamente",
+    "new": "Nuevo",
+    "coming-soon": "Próximamente",
     
     "features-title": "Características Principales",
     "trailers-title": "Tráiler",
@@ -69,6 +72,15 @@
     "server-feature-onepieceworld-3-desc": "Navega por islas legendarias, descubre tesoros y enfréntate a peligrosos piratas y marines.",
     "server-feature-onepieceworld-4-title": "Aventuras Multijugador",
     "server-feature-onepieceworld-4-desc": "Únete a una tripulación, enfréntate a otros jugadores, o forma alianzas para dominar los mares.",
+    
+    "server-feature-onepieceworlds2-1-title": "Frutas del Diablo Avanzadas",
+    "server-feature-onepieceworlds2-1-desc": "Descubre Frutas del Diablo raras y poderosas con combinaciones únicas y mecánicas de evolución.",
+    "server-feature-onepieceworlds2-2-title": "Sistema Avanzado de Haki",
+    "server-feature-onepieceworlds2-2-desc": "Domina los tres tipos de Haki con un sistema profundo de progresión y técnicas especiales.",
+    "server-feature-onepieceworlds2-3-title": "Exploración del Nuevo Mundo",
+    "server-feature-onepieceworlds2-3-desc": "Aventúrate en el peligroso Nuevo Mundo, donde te esperan enemigos más fuertes y tesoros mayores.",
+    "server-feature-onepieceworlds2-4-title": "Multijugador Mejorado",
+    "server-feature-onepieceworlds2-4-desc": "Crea tu propia tripulación pirata, establece territorios y participa en épicas batallas navales.",
     
     "server-feature-ancientkraft-1-title": "Sistema de Magia Personalizado",
     "server-feature-ancientkraft-1-desc": "Domina hechizos únicos y aprovecha el poder de los elementos",
