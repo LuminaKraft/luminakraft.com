@@ -1,5 +1,35 @@
 [
   {
+    "id": "ancientkraft_rechapter",
+    "name": "AncientKraft Rechapter",
+    "slug": "ancientkraft_rechapter",
+    "isNew": false,
+    "isActive": false,
+    "isComingSoon": true,
+    "images": [
+      "/imgs/servers/ancientkraft_rechapter/screenshot1.webp",
+      "/imgs/servers/ancientkraft_rechapter/screenshot2.webp",
+      "/imgs/servers/ancientkraft_rechapter/screenshot3.webp",
+      "/imgs/servers/ancientkraft_rechapter/screenshot4.webp",
+      "/imgs/servers/ancientkraft_rechapter/screenshot5.webp",
+      "/imgs/servers/ancientkraft_rechapter/screenshot6.webp"
+    ],
+    "logo": "/imgs/servers/ancientkraft_rechapter/logo.webp",
+    "collaborators": [
+      {
+        "name": "LuminaKraft Studios",
+        "logo": "/imgs/favicon.webp"
+      }
+    ],
+    "versions": ["1.20.1"],
+    "modloader": "Forge",
+    "gamemode": "RPG / Aventura",
+    "descriptionKey": "ancientkraft_rechapter-desc",
+    "leaderboardPath": null,
+    "youtubeEmbed": "",
+    "featureIcons": ["fa-magic", "fa-fist-raised", "fa-map-marked-alt", "fa-users"]
+  },
+  {
     "id": "onepieceworlds2",
     "name": "One Piece World S2",
     "slug": "onepieceworlds2",
