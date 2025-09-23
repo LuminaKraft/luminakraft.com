@@ -1,4 +1,4 @@
-# 🌟 LuminaKraft Website
+# LuminaKraft Website
 
 <div align="center">
   
