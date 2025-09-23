@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  ![LuminaKraft]([https://i.imgur.com/aJ7L3iM.png](https://www.luminakraft.com/imgs/favicon.webp))
+  ![LuminaKraft](https://www.luminakraft.com/imgs/favicon.webp)
   
   [![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
