@@ -141,6 +141,80 @@ const port = url.searchParams.get('port');
             height: 20px;
         }
 
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: white;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            padding: 12px;
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.4);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
         .terms {
             font-size: 0.8rem;
             opacity: 0.7;
@@ -224,6 +298,32 @@ const port = url.searchParams.get('port');
         <h1>Create LuminaKraft Account</h1>
         <p class="subtitle">Sign up to access exclusive features</p>
 
+        <div id="error-message" class="error-message"></div>
+
+        <form id="email-form" class="email-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="6" placeholder="••••••••">
+            </div>
+            <div class="input-group">
+                <label for="password-confirm">Confirm Password</label>
+                <input type="password" id="password-confirm" name="password-confirm" required minlength="6" placeholder="••••••••">
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn">Create Account</button>
+        </form>
+
+        <div class="terms">
+            By signing up, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+        </div>
+
+        <div class="divider">
+            <span>or continue with</span>
+        </div>
+
         <div class="oauth-providers">
             <button class="oauth-btn discord" data-provider="discord">
                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
@@ -257,14 +357,6 @@ const port = url.searchParams.get('port');
             </button>
         </div>
 
-        <div class="terms">
-            By signing up, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
-        </div>
-
-        <div class="divider">
-            <span>or</span>
-        </div>
-
         <div class="footer-link">
             Already have an account? <a href={`/auth/sign-in?launcher=${isLauncher}&port=${port || ''}`}>Sign in</a>
         </div>
@@ -295,6 +387,85 @@ const port = url.searchParams.get('port');
 
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
         const loadingEl = document.getElementById('loading');
+        const errorMessageEl = document.getElementById('error-message');
+        const emailForm = document.getElementById('email-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Helper function to show error
+        function showError(message) {
+            errorMessageEl.textContent = message;
+            errorMessageEl.style.display = 'block';
+        }
+
+        // Helper function to hide error
+        function hideError() {
+            errorMessageEl.style.display = 'none';
+        }
+
+        // Handle email/password sign up
+        emailForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('password-confirm').value;
+
+            // Validate passwords match
+            if (password !== passwordConfirm) {
+                showError('Passwords do not match');
+                return;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating account...';
+
+            try {
+                const { data, error } = await supabase.auth.signUp({
+                    email,
+                    password
+                });
+
+                if (error) {
+                    throw error;
+                }
+
+                console.log('Email sign up successful');
+
+                // If launcher mode, send tokens to launcher
+                if (isLauncher && port && data.session) {
+                    const redirectUrl = new URL('/auth-callback', window.location.origin);
+                    redirectUrl.searchParams.set('launcher', 'true');
+                    redirectUrl.searchParams.set('port', port);
+
+                    // Add tokens to URL hash (same format as OAuth callback)
+                    redirectUrl.hash = `access_token=${data.session.access_token}&refresh_token=${data.session.refresh_token}`;
+
+                    window.location.href = redirectUrl.toString();
+                } else {
+                    // Web mode - show success message if email confirmation required
+                    if (!data.session) {
+                        showError('Please check your email to confirm your account.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Create Account';
+                    } else {
+                        // Auto-login if email confirmation not required
+                        window.location.href = '/';
+                    }
+                }
+            } catch (error) {
+                console.error('Sign up error:', error);
+                showError(error.message || 'Failed to create account. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Account';
+            }
+        });
 
         // Add click handlers to all OAuth buttons
         document.querySelectorAll('.oauth-btn').forEach(btn => {
