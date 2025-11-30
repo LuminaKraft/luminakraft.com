@@ -448,7 +448,8 @@ const port = url.searchParams.get('port');
                     const { data, error } = await supabase.auth.signInWithOAuth({
                         provider: provider,
                         options: {
-                            redirectTo: redirectUrl.toString()
+                            redirectTo: redirectUrl.toString(),
+                            scopes: provider === 'discord' ? 'identify email guilds guilds.members.read' : undefined
                         }
                     });
 

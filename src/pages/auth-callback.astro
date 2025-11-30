@@ -177,6 +177,8 @@
             const hashParams = new URLSearchParams(hash.substring(1));
             const accessToken = hashParams.get('access_token');
             const refreshToken = hashParams.get('refresh_token');
+            const providerToken = hashParams.get('provider_token');
+            const providerRefreshToken = hashParams.get('provider_refresh_token');
 
             if (!accessToken || !refreshToken) {
                 console.error('No tokens found in URL');
@@ -207,7 +209,9 @@
                     },
                     body: JSON.stringify({
                         access_token: accessToken,
-                        refresh_token: refreshToken
+                        refresh_token: refreshToken,
+                        provider_token: providerToken,
+                        provider_refresh_token: providerRefreshToken
                     })
                 });
 
