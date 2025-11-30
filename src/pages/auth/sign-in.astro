@@ -259,8 +259,22 @@ const port = url.searchParams.get('port');
         </div>
     </div>
 
-    <script define:vars={{ supabaseUrl, supabaseAnonKey, isLauncher, port }}>
-        import { createClient } from '@supabase/supabase-js';
+    <div id="auth-config"
+         data-supabase-url={supabaseUrl}
+         data-supabase-key={supabaseAnonKey}
+         data-is-launcher={isLauncher}
+         data-port={port}
+         style="display: none;">
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+        const config = document.getElementById('auth-config');
+        const supabaseUrl = config.dataset.supabaseUrl;
+        const supabaseAnonKey = config.dataset.supabaseKey;
+        const isLauncher = config.dataset.isLauncher === 'true';
+        const port = config.dataset.port;
 
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
         const loadingEl = document.getElementById('loading');
