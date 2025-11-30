@@ -280,8 +280,6 @@ const port = url.searchParams.get('port');
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
         const loadingEl = document.getElementById('loading');
 
-        console.log('[sign-in] Config:', { isLauncher, port, supabaseUrl });
-
         // Add click handlers to all OAuth buttons
         document.querySelectorAll('.oauth-btn').forEach(btn => {
             btn.addEventListener('click', async () => {
@@ -298,9 +296,6 @@ const port = url.searchParams.get('port');
                     if (port) {
                         redirectUrl.searchParams.set('port', port);
                     }
-
-                    console.log('[sign-in] Redirect URL:', redirectUrl.toString());
-                    console.log('[sign-in] Values:', { isLauncher, port });
 
                     // Start OAuth flow
                     const { data, error } = await supabase.auth.signInWithOAuth({
