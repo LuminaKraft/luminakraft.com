@@ -1,5 +1,5 @@
 ---
-// Auth callback page for OAuth (supports both Discord deep link and new HTTP POST flow)
+// Auth callback page for OAuth - sends tokens to launcher via HTTP POST
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -188,63 +188,49 @@
 
             console.log('Tokens extracted successfully');
 
-            if (isLauncher && port) {
-                // NEW: HTTP POST to localhost for launcher
-                statusText.textContent = 'Enviando credenciales al launcher...';
+            if (!isLauncher || !port) {
+                console.error('Missing launcher or port parameter');
+                statusEl.className = 'status error';
+                statusText.textContent = '⚠️ Parámetros de autenticación incorrectos';
+                homeButton.style.display = 'inline-block';
+                return;
+            }
 
-                try {
-                    const response = await fetch(`http://localhost:${port}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            access_token: accessToken,
-                            refresh_token: refreshToken
-                        })
-                    });
+            // Send tokens to launcher via HTTP POST
+            statusText.textContent = 'Enviando credenciales al launcher...';
 
-                    if (response.ok) {
-                        console.log('✅ Tokens sent successfully to launcher');
-                        statusEl.className = 'status success';
-                        statusText.textContent = '✅ Autenticación exitosa';
-                        document.getElementById('subtitle').textContent = 'Ya puedes cerrar esta ventana.';
-                        homeButton.style.display = 'inline-block';
+            try {
+                const response = await fetch(`http://localhost:${port}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_token: accessToken,
+                        refresh_token: refreshToken
+                    })
+                });
 
-                        // Allow closing after 3 seconds
-                        setTimeout(() => {
-                            statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
-                        }, 3000);
-                    } else {
-                        throw new Error(`HTTP ${response.status}`);
-                    }
-                } catch (error) {
-                    console.error('Failed to send tokens to launcher:', error);
-                    statusEl.className = 'status error';
-                    statusText.textContent = '❌ Error al comunicarse con el launcher';
-                    document.getElementById('subtitle').textContent = 'Por favor, intenta de nuevo.';
+                if (response.ok) {
+                    console.log('✅ Tokens sent successfully to launcher');
+                    statusEl.className = 'status success';
+                    statusText.textContent = '✅ Autenticación exitosa';
+                    document.getElementById('subtitle').textContent = 'Ya puedes cerrar esta ventana.';
                     homeButton.style.display = 'inline-block';
-                }
-            } else {
-                // LEGACY: Deep link for backward compatibility (Discord)
-                const deepLinkUrl = `luminakraft://auth/callback${hash}`;
-                console.log('Using deep link:', deepLinkUrl);
-                statusText.textContent = 'Abriendo el launcher...';
 
-                try {
-                    window.location.href = deepLinkUrl;
-
+                    // Allow closing after 3 seconds
                     setTimeout(() => {
-                        statusEl.className = 'status success';
-                        statusText.textContent = '✓ Launcher abierto correctamente';
-                        homeButton.style.display = 'inline-block';
+                        statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
                     }, 3000);
-                } catch (error) {
-                    console.error('Error opening deep link:', error);
-                    statusEl.className = 'status warning';
-                    statusText.innerHTML = '⚠️ No se pudo abrir el launcher automáticamente.<br>Por favor, ábrelo manualmente.';
-                    homeButton.style.display = 'inline-block';
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
                 }
+            } catch (error) {
+                console.error('Failed to send tokens to launcher:', error);
+                statusEl.className = 'status error';
+                statusText.textContent = '❌ Error al comunicarse con el launcher';
+                document.getElementById('subtitle').textContent = 'Por favor, intenta de nuevo.';
+                homeButton.style.display = 'inline-block';
             }
         }
 
