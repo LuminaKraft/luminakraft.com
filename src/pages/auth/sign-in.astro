@@ -262,8 +262,8 @@ const port = url.searchParams.get('port');
     <div id="auth-config"
          data-supabase-url={supabaseUrl}
          data-supabase-key={supabaseAnonKey}
-         data-is-launcher={isLauncher}
-         data-port={port}
+         data-is-launcher={isLauncher ? 'true' : 'false'}
+         data-port={port || ''}
          style="display: none;">
     </div>
 
@@ -291,7 +291,7 @@ const port = url.searchParams.get('port');
                 try {
                     // Build redirect URL
                     const redirectUrl = new URL('/auth-callback', window.location.origin);
-                    redirectUrl.searchParams.set('launcher', isLauncher);
+                    redirectUrl.searchParams.set('launcher', isLauncher ? 'true' : 'false');
                     if (port) {
                         redirectUrl.searchParams.set('port', port);
                     }
