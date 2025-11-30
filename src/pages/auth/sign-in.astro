@@ -262,8 +262,6 @@ const port = url.searchParams.get('port');
     <div id="auth-config"
          data-supabase-url={supabaseUrl}
          data-supabase-key={supabaseAnonKey}
-         data-is-launcher={isLauncher ? 'true' : 'false'}
-         data-port={port || ''}
          style="display: none;">
     </div>
 
@@ -273,8 +271,11 @@ const port = url.searchParams.get('port');
         const config = document.getElementById('auth-config');
         const supabaseUrl = config.dataset.supabaseUrl;
         const supabaseAnonKey = config.dataset.supabaseKey;
-        const isLauncher = config.dataset.isLauncher === 'true';
-        const port = config.dataset.port;
+
+        // Read launcher and port from URL query parameters (client-side)
+        const urlParams = new URLSearchParams(window.location.search);
+        const isLauncher = urlParams.get('launcher') === 'true';
+        const port = urlParams.get('port');
 
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
         const loadingEl = document.getElementById('loading');
