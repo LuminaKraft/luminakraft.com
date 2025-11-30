@@ -218,10 +218,19 @@
                     document.getElementById('subtitle').textContent = 'Ya puedes cerrar esta ventana.';
                     homeButton.style.display = 'inline-block';
 
-                    // Allow closing after 3 seconds
+                    // Attempt to close the window automatically (works in some browsers)
                     setTimeout(() => {
-                        statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
-                    }, 3000);
+                        try {
+                            window.close();
+                            // If close failed (still here after 500ms), show manual message
+                            setTimeout(() => {
+                                statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
+                            }, 500);
+                        } catch (e) {
+                            console.log('Auto-close not supported, showing manual close message');
+                            statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
+                        }
+                    }, 1500);
                 } else {
                     throw new Error(`HTTP ${response.status}`);
                 }
