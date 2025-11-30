@@ -445,11 +445,18 @@ const port = url.searchParams.get('port');
                     }
 
                     // Start OAuth flow
+                    let scopes = undefined;
+                    if (provider === 'discord') {
+                        scopes = 'identify email guilds guilds.members.read';
+                    } else if (provider === 'azure') {
+                        scopes = 'openid profile email offline_access';
+                    }
+
                     const { data, error } = await supabase.auth.signInWithOAuth({
                         provider: provider,
                         options: {
                             redirectTo: redirectUrl.toString(),
-                            scopes: provider === 'discord' ? 'identify email guilds guilds.members.read' : undefined
+                            scopes: scopes
                         }
                     });
 
