@@ -2,7 +2,7 @@
 // Auth callback page for OAuth - sends tokens to launcher via HTTP POST
 import { getTranslation, getUserLocale, updateTextsForLocale } from "../utils/i18n";
 
-const locale = getUserLocale();
+const locale = Astro.cookies.get('selectedLanguage')?.value as 'es' | 'en' || 'es';
 const t = (key: string) => getTranslation(key, locale);
 ---
 
@@ -19,7 +19,15 @@ const t = (key: string) => getTranslation(key, locale);
 </head>
 <body class="bg-secondary text-white font-kanit min-h-screen flex items-center justify-center p-4">
     
-    <div class="w-full max-w-sm bg-[#0b2545] border border-white/10 rounded-xl shadow-2xl p-8 text-center">
+    <div class="w-full max-w-sm bg-[#0b2545] border border-white/10 rounded-xl shadow-2xl p-8 text-center relative">
+        <!-- Language Switcher -->
+        <div class="absolute top-4 right-4 z-10">
+            <button id="lang-toggle" class="flex items-center gap-2 px-3 py-1.5 bg-secondary/80 border border-white/10 rounded-full text-xs font-medium text-white/70 hover:text-white hover:bg-secondary transition-all">
+                <i class="fas fa-globe"></i>
+                <span id="current-lang">{locale.toUpperCase()}</span>
+            </button>
+        </div>
+
         <div class="mb-6 flex justify-center">
             <div id="icon-container" class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center animate-pulse">
                 <i id="status-icon" class="fas fa-circle-notch fa-spin text-2xl text-primary"></i>
@@ -39,15 +47,29 @@ const t = (key: string) => getTranslation(key, locale);
     </div>
 
     <script>
-        import { updateTextsForLocale, getUserLocale, getTranslation } from "../utils/i18n";
+        import { updateTextsForLocale, getUserLocale, getTranslation, saveUserLocale } from "../utils/i18n";
 
         // Initialize i18n
         const userLocale = getUserLocale();
         if (userLocale) {
             updateTextsForLocale(userLocale);
+            const currentLangSpan = document.getElementById('current-lang');
+            if (currentLangSpan) currentLangSpan.textContent = userLocale.toUpperCase();
         }
 
         const t = (key) => getTranslation(key, userLocale);
+
+        // Language Toggle
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                const currentLocale = getUserLocale();
+                const newLocale = currentLocale === 'es' ? 'en' : 'es';
+                saveUserLocale(newLocale);
+                updateTextsForLocale(newLocale);
+                document.getElementById('current-lang').textContent = newLocale.toUpperCase();
+            });
+        }
 
         const hash = window.location.hash;
         const query = new URLSearchParams(window.location.search);

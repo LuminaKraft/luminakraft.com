@@ -7,7 +7,7 @@ import { getTranslation, getUserLocale, updateTextsForLocale } from "../../utils
 const url = new URL(Astro.request.url);
 const isLauncher = url.searchParams.get('launcher') === 'true';
 const port = url.searchParams.get('port');
-const locale = getUserLocale();
+const locale = Astro.cookies.get('selectedLanguage')?.value as 'es' | 'en' || 'es';
 const t = (key: string) => getTranslation(key, locale);
 ---
 
@@ -39,10 +39,18 @@ const t = (key: string) => getTranslation(key, locale);
     <div class="w-full max-w-md bg-secondary/60 backdrop-blur-md border border-primary/30 rounded-2xl shadow-glow p-8 animate-fade-up my-8">
         <div class="text-center mb-8">
             <a href="/" class="inline-block mb-4 hover:scale-105 transition-transform">
-                <img src="/imgs/logo.png" alt="LuminaKraft Logo" class="h-16 mx-auto drop-shadow-glow" />
+                <img src="/imgs/favicon.webp" alt="LuminaKraft Logo" class="h-16 mx-auto drop-shadow-glow" />
             </a>
             <h1 class="text-3xl font-bold text-white mb-2" data-i18n="auth-welcome-back">{t('auth-welcome-back')}</h1>
             <p class="text-white/60" data-i18n="auth-signin-subtitle">{t('auth-signin-subtitle')}</p>
+        </div>
+
+        <!-- Language Switcher -->
+        <div class="absolute top-4 right-4 z-10">
+            <button id="lang-toggle" class="flex items-center gap-2 px-3 py-1.5 bg-secondary/80 border border-white/10 rounded-full text-xs font-medium text-white/70 hover:text-white hover:bg-secondary transition-all">
+                <i class="fas fa-globe"></i>
+                <span id="current-lang">{locale.toUpperCase()}</span>
+            </button>
         </div>
 
         <!-- OAuth Providers -->
@@ -123,15 +131,29 @@ const t = (key: string) => getTranslation(key, locale);
 
     <script type="module">
         import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-        import { updateTextsForLocale, getUserLocale, getTranslation } from "../../utils/i18n";
+        import { updateTextsForLocale, getUserLocale, getTranslation, saveUserLocale } from "../../utils/i18n";
 
         // Initialize i18n
         const userLocale = getUserLocale();
         if (userLocale) {
             updateTextsForLocale(userLocale);
+            const currentLangSpan = document.getElementById('current-lang');
+            if (currentLangSpan) currentLangSpan.textContent = userLocale.toUpperCase();
         }
 
         const t = (key) => getTranslation(key, userLocale);
+
+        // Language Toggle
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                const currentLocale = getUserLocale();
+                const newLocale = currentLocale === 'es' ? 'en' : 'es';
+                saveUserLocale(newLocale);
+                updateTextsForLocale(newLocale);
+                document.getElementById('current-lang').textContent = newLocale.toUpperCase();
+            });
+        }
 
         // Initialize Supabase
         const config = document.getElementById('auth-config');

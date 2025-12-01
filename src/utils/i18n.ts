@@ -35,14 +35,14 @@ export function getUserLocale(): Locale {
           return value as Locale;
         }
       }
-      
+
       // Si no hay cookie, detectar el idioma del navegador
       const browserLang = navigator.language || (navigator as any).userLanguage;
       if (browserLang) {
         // Detectar si es español de cualquier país donde el español es el idioma principal
         const isSpanish = browserLang.toLowerCase().startsWith('es');
         const locale = isSpanish ? 'es' : 'en';
-        
+
         // Guardar la preferencia detectada en una cookie
         document.cookie = `selectedLanguage=${locale}; max-age=31536000; path=/; SameSite=Strict`;
         return locale as Locale;
@@ -51,7 +51,7 @@ export function getUserLocale(): Locale {
       console.warn('Error accessing browser cookies or language:', e);
     }
   }
-  
+
   return 'es'; // Idioma predeterminado si no se puede detectar
 }
 
@@ -60,10 +60,10 @@ export function saveUserLocale(locale: Locale): void {
   if (typeof window !== 'undefined') {
     // Guardar en cookie con duración de 1 año
     document.cookie = `selectedLanguage=${locale}; max-age=31536000; path=/; SameSite=Strict`;
-    
+
     // Disparar evento personalizado para notificar a los componentes
-    const event = new CustomEvent('languageChanged', { 
-      detail: { locale } 
+    const event = new CustomEvent('languageChanged', {
+      detail: { locale }
     });
     document.dispatchEvent(event);
   }
@@ -73,19 +73,19 @@ export function saveUserLocale(locale: Locale): void {
 export function getTranslation(key: string, locale: Locale = 'es'): string {
   // Asegurarnos de que el locale nunca sea undefined o null
   const safeLocale = locale === 'en' ? 'en' : 'es';
-  
+
   // Verificar que tenemos las traducciones para este idioma
   if (!translations[safeLocale]) {
     console.error(`No translations found for locale: ${safeLocale}`);
     return key;
   }
-  
+
   // Buscar la traducción
   if (!translations[safeLocale][key]) {
     console.warn(`Missing translation for key: ${key} in locale: ${safeLocale}`);
     return key;
   }
-  
+
   return translations[safeLocale][key];
 }
 
@@ -98,7 +98,7 @@ export function getAllTranslations(locale: Locale): Translations {
 // Función para actualizar dinámicamente los textos en la página
 export function updateTextsForLocale(locale: Locale): void {
   if (typeof window === 'undefined') return;
-  
+
   // Actualizar todos los elementos con atributo data-i18n
   const elements = document.querySelectorAll('[data-i18n]');
   elements.forEach(element => {
@@ -107,13 +107,22 @@ export function updateTextsForLocale(locale: Locale): void {
       element.textContent = getTranslation(key, locale);
     }
   });
-  
+
+  // Actualizar elementos con contenido HTML (data-i18n-html)
+  const htmlElements = document.querySelectorAll('[data-i18n-html]');
+  htmlElements.forEach(element => {
+    const key = element.getAttribute('data-i18n-html');
+    if (key) {
+      element.innerHTML = getTranslation(key, locale);
+    }
+  });
+
   // Actualizar tooltips
   updateTooltipsForLocale(locale);
-  
+
   // Disparar evento personalizado para componentes que necesitan actualización especial
-  const event = new CustomEvent('languageChanged', { 
-    detail: { locale } 
+  const event = new CustomEvent('languageChanged', {
+    detail: { locale }
   });
   document.dispatchEvent(event);
 }
@@ -121,7 +130,7 @@ export function updateTextsForLocale(locale: Locale): void {
 // Función para actualizar tooltips basados en atributos data-i18n-tooltip
 export function updateTooltipsForLocale(locale: Locale): void {
   if (typeof window === 'undefined') return;
-  
+
   // Actualizar todos los elementos con atributo data-i18n-tooltip
   const elements = document.querySelectorAll('[data-i18n-tooltip]');
   elements.forEach(element => {
