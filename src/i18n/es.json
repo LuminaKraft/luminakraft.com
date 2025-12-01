@@ -47,7 +47,6 @@
     "stay-tuned": "Próximamente",
     "new": "Nuevo",
     "coming-soon": "Próximamente",
-    
     "features-title": "Características Principales",
     "trailers-title": "Tráiler",
     "screenshots-title": "Capturas de pantalla",
@@ -55,7 +54,6 @@
     "server-closed-notice": "Este servidor ha finalizado",
     "server-currently-closed": "Servidor actualmente cerrado",
     "inside-game": "dentro del juego",
-
     "server-feature-ancientkraft_rechapter-1-title": "Sistema de Magia Revolucionario",
     "server-feature-ancientkraft_rechapter-1-desc": "Experimenta un sistema de magia completamente rediseñado con creación avanzada de hechizos, dominio elemental y rutas de progresión mágica",
     "server-feature-ancientkraft_rechapter-2-title": "Mecánicas de Combate de Nueva Generación",
@@ -64,7 +62,6 @@
     "server-feature-ancientkraft_rechapter-3-desc": "Explora vastos mundos reimaginados con nuevos biomas, mazmorras mejoradas, artefactos legendarios y secretos esperando ser descubiertos",
     "server-feature-ancientkraft_rechapter-4-title": "Sistemas de Gremios Mejorados",
     "server-feature-ancientkraft_rechapter-4-desc": "Únete a gremios mejorados con progresión avanzada, control territorial, guerras de gremios y contenido colaborativo basado en reinos antiguos",
-
     "server-feature-onepieceworlds2-1-title": "Frutas del Diablo Avanzadas",
     "server-feature-onepieceworlds2-1-desc": "Descubre Frutas del Diablo raras y poderosas con combinaciones únicas y mecánicas de evolución.",
     "server-feature-onepieceworlds2-2-title": "Sistema Avanzado de Haki",
@@ -73,7 +70,6 @@
     "server-feature-onepieceworlds2-3-desc": "Aventúrate en el peligroso Nuevo Mundo, donde te esperan enemigos más fuertes y tesoros mayores.",
     "server-feature-onepieceworlds2-4-title": "Multijugador Mejorado",
     "server-feature-onepieceworlds2-4-desc": "Crea tu propia tripulación pirata, establece territorios y participa en épicas batallas navales.",
-
     "server-feature-luminakraft_world-1-title": "Supervivencia Optimizada con Paper",
     "server-feature-luminakraft_world-1-desc": "Disfruta de una experiencia de supervivencia estable y sin lag gracias a la potencia del software de servidor Paper.",
     "server-feature-luminakraft_world-2-title": "Amplia Compatibilidad de Versiones",
@@ -82,7 +78,6 @@
     "server-feature-luminakraft_world-3-desc": "Descubre una variedad de plugins personalizados que añaden características emocionantes y mejoran la experiencia de supervivencia general.",
     "server-feature-luminakraft_world-4-title": "Comunidad Próspera",
     "server-feature-luminakraft_world-4-desc": "Forma parte de una comunidad de jugadores amigable y activa que comparte tu pasión por la supervivencia y la aventura.",
-    
     "server-feature-onepieceworld-1-title": "Frutas del Diablo",
     "server-feature-onepieceworld-1-desc": "Consume poderosas frutas que te otorgarán habilidades especiales, ¡pero cuidado con el mar!",
     "server-feature-onepieceworld-2-title": "Combate con Haki y Estilos de Lucha",
@@ -91,7 +86,6 @@
     "server-feature-onepieceworld-3-desc": "Navega por islas legendarias, descubre tesoros y enfréntate a peligrosos piratas y marines.",
     "server-feature-onepieceworld-4-title": "Aventuras Multijugador",
     "server-feature-onepieceworld-4-desc": "Únete a una tripulación, enfréntate a otros jugadores, o forma alianzas para dominar los mares.",
-    
     "server-feature-ancientkraft-1-title": "Sistema de Magia Personalizado",
     "server-feature-ancientkraft-1-desc": "Domina hechizos únicos y aprovecha el poder de los elementos",
     "server-feature-ancientkraft-2-title": "Combate Mejorado",
@@ -100,7 +94,6 @@
     "server-feature-ancientkraft-3-desc": "Descubre ruinas antiguas, tesoros ocultos y mazmorras desafiantes",
     "server-feature-ancientkraft-4-title": "Aventuras Multijugador",
     "server-feature-ancientkraft-4-desc": "Forma equipo con amigos o únete a una facción para conquistar el mundo juntos",
-    
     "server-feature-pt-the_full_course-1-title": "Exploración",
     "server-feature-pt-the_full_course-1-desc": "Descubre un mundo lleno de secretos y sorpresas por descubrir",
     "server-feature-pt-the_full_course-2-title": "Comunidad",
@@ -109,36 +102,28 @@
     "server-feature-pt-the_full_course-3-desc": "Disfruta de plugins exclusivos que mejoran la experiencia de juego",
     "server-feature-pt-the_full_course-4-title": "Eventos regulares",
     "server-feature-pt-the_full_course-4-desc": "Participa en eventos especiales y competiciones organizadas por el staff",
-    
     "step1-title-modpack": "Descarga el Instalador",
     "step1-desc-modpack": "Obtén el instalador desde nuestro sitio oficial",
     "step2-title-modpack": "Instala el Modpack",
     "step2-desc-modpack": "Sigue las instrucciones en el instalador",
     "step3-title-modpack": "Inicia el Juego",
     "step3-desc-modpack": "Abre el juego y presiona el botón \"Zarpar hacia",
-    
     "step1-title-vanilla": "Inicia Minecraft",
     "step1-desc-vanilla": "Abre Minecraft Java Edition",
     "step2-title-vanilla": "Multijugador",
     "step2-desc-vanilla": "Selecciona la opción de \"Multijugador\"",
     "step3-title-vanilla": "Conectar al Servidor",
     "step3-desc-vanilla": "Añade y conéctate a nuestro servidor usando la IP",
-    
     "minecraft-version-title": "Versión de Minecraft",
     "minecraft-version-desc": "Usa Minecraft Java Edition versión",
-    
     "server-address-title": "Dirección del servidor",
     "server-address-desc": "Conéctate usando:",
-    
     "modpack-install-title": "Instala el modpack",
     "modpack-install-desc": "Descarga e instala nuestro modpack:",
     "download-installer": "Descargar Instalador",
-    
     "auto-connect-title": "Conexión automática",
     "auto-connect-desc": "¡El modpack se conectará automáticamente al servidor pulsando un botón!",
-    
     "join-discord": "Únete a nuestro Discord",
-    
     "our-services": "Nuestros Servicios",
     "services-intro": "LuminaKraft Studios ofrece soluciones profesionales de servidores Minecraft para empresas y creadores de contenido:",
     "service-1": "Creación y configuración de servidores personalizados",
@@ -296,33 +281,28 @@
     "terms-contact-intro": "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:",
     "terms-contact-email": "legal@luminakraft.com",
     "all-rights-reserved": "Todos los derechos reservados",
-    
     "services-title": "Servicios",
     "services-subtitle": "Soluciones personalizadas para servidores de Minecraft diseñadas para empresas, creadores de contenido y comunidades",
     "services-solutions": "Nuestras Soluciones Profesionales",
     "services-professionally": "Profesionales",
-    
     "service-1-desc": "Diseñamos servidores personalizados que se adaptan a tus objetivos específicos y a la experiencia que quieres ofrecer a tu comunidad. Desde servidores temáticos hasta redes completas con múltiples modos de juego, creamos soluciones únicas.",
     "service-1-includes": "Incluye:",
     "service-1-item-1": "Configuración completa del servidor ajustada a tus especificaciones",
     "service-1-item-2": "Instalación y configuración de plugins esenciales",
     "service-1-item-3": "Optimización para garantizar rendimiento y estabilidad",
     "service-1-item-4": "Configuración de sistemas de permisos y grupos",
-    
     "service-2-desc": "Nos encargamos de todos los aspectos técnicos para que tú puedas centrarte en gestionar tu comunidad. Mantenemos tu servidor actualizado, seguro y optimizado en todo momento.",
     "service-2-includes": "Incluye:",
     "service-2-item-1": "Actualizaciones regulares de software y plugins",
     "service-2-item-2": "Copias de seguridad programadas",
     "service-2-item-3": "Monitorización de rendimiento y seguridad",
     "service-2-item-4": "Resolución rápida de problemas",
-    
     "service-3-desc": "Creamos modpacks equilibrados y optimizados con mecánicas innovadoras que ofrecen experiencias únicas para tus jugadores. Cada modpack se desarrolla pensando en rendimiento y diversión.",
     "service-3-includes": "Incluye:",
     "service-3-item-1": "Selección cuidadosa de mods compatibles",
     "service-3-item-2": "Configuración personalizada para una experiencia balanceada",
     "service-3-item-3": "Optimización para minimizar el impacto en rendimiento",
     "service-3-item-4": "Instalador personalizado para facilitar la distribución",
-
     "service-4-title": "Instalador personalizado para modpacks",
     "service-4-desc": "Desarrollamos un instalador con interfaz gráfica intuitiva que descarga automáticamente el modpack, crea el perfil del servidor y permite jugar con solo pulsar un botón.",
     "service-4-includes": "Incluye:",
@@ -330,39 +310,74 @@
     "service-4-item-2": "Descarga automática de modpacks y dependencias",
     "service-4-item-3": "Creación del perfil Forge/Fabric con memoria optimizada",
     "service-4-item-4": "Conexión one-click al servidor sin configuración manual",
-    
     "service-5-desc": "Ofrecemos soluciones de hosting optimizadas para Minecraft con hardware de alto rendimiento y protección contra DDoS.",
     "service-5-includes": "Incluye:",
     "service-5-item-1": "Servidores con CPUs de alta frecuencia para mejor TPS",
     "service-5-item-2": "Protección anti-DDoS avanzada",
     "service-5-item-3": "Panel de control fácil de usar",
     "service-5-item-4": "Soporte técnico 24/7",
-    
     "service-6-title": "Atención personalizada",
     "service-6-desc": "Trabajamos estrechamente contigo para entender tus necesidades y ofrecerte soluciones adaptadas a tu proyecto específico.",
-    
     "faq-title": "Preguntas Frecuentes",
     "faq-development-time": "¿Cuánto tiempo tarda el desarrollo de un servidor personalizado?",
     "faq-development-time-answer": "El tiempo de desarrollo varía según la complejidad del proyecto. Un servidor básico puede estar listo en 1-2 semanas, mientras que proyectos más complejos pueden llevar entre 1-3 meses. Trabajamos contigo para establecer un cronograma realista.",
-    
     "faq-server-types": "¿Qué tipos de servidores pueden desarrollar?",
     "faq-server-types-answer": "Desarrollamos todo tipo de servidores: supervivencia, facciones, minijuegos, roleplay, SkyBlock, economía, PvP, y servidores temáticos personalizados. Si puedes imaginarlo, podemos construirlo.",
-    
     "faq-maintenance": "¿Ofrecen mantenimiento después del lanzamiento?",
     "faq-maintenance-answer": "Sí, ofrecemos planes de mantenimiento continuo para garantizar que tu servidor siga funcionando de manera óptima. Incluyen actualizaciones, backups, monitoreo y soporte técnico.",
-    
     "faq-development-process": "¿Cómo funciona el proceso de desarrollo?",
     "faq-development-process-answer": "Nuestro proceso incluye: 1) Consulta inicial para entender tus necesidades, 2) Propuesta y presupuesto, 3) Desarrollo y pruebas, 4) Lanzamiento y capacitación, 5) Soporte continuo. Te mantenemos informado durante todo el proceso.",
-    
     "faq-payment-methods": "¿Qué métodos de pago aceptan?",
     "faq-payment-methods-answer": "Aceptamos PayPal, transferencias bancarias y criptomonedas. Generalmente trabajamos con un modelo de 50% anticipado y 50% a la entrega para proyectos grandes.",
-    
     "cta-ready": "¿Listo para llevar tu servidor al siguiente nivel?",
     "cta-contact": "Contáctanos hoy mismo para discutir tu proyecto y cómo podemos ayudarte a crear una experiencia Minecraft excepcional.",
     "request-quote": "Solicitar Presupuesto",
     "discord-chat": "Hablar por Discord",
-    
     "projects-completed": "Proyectos Completados",
     "satisfied-clients": "Clientes Satisfechos",
-    "technical-support": "Soporte Técnico"
+    "technical-support": "Soporte Técnico",
+    "auth-welcome-back": "Bienvenido de nuevo",
+    "auth-signin-subtitle": "Inicia sesión para continuar en LuminaKraft",
+    "auth-create-account": "Crear Cuenta",
+    "auth-signup-subtitle": "Únete a la comunidad de LuminaKraft",
+    "auth-continue-discord": "Discord",
+    "auth-continue-microsoft": "Microsoft",
+    "auth-continue-github": "GitHub",
+    "auth-continue-google": "Google",
+    "auth-signup-discord": "Discord",
+    "auth-signup-microsoft": "Microsoft",
+    "auth-signup-github": "GitHub",
+    "auth-signup-google": "Google",
+    "auth-or-signin-email": "o inicia sesión con email",
+    "auth-or-signup-email": "o regístrate con email",
+    "auth-email-label": "Correo Electrónico",
+    "auth-password-label": "Contraseña",
+    "auth-confirm-password-label": "Confirmar Contraseña",
+    "auth-signin-btn": "Iniciar Sesión",
+    "auth-signup-btn": "Crear Cuenta",
+    "auth-no-account": "¿No tienes una cuenta?",
+    "auth-already-account": "¿Ya tienes una cuenta?",
+    "auth-signin-link": "Inicia sesión",
+    "auth-signup-link": "Regístrate",
+    "auth-terms": "Al registrarte, aceptas nuestros <a href=\"/terms\" class=\"text-white/70 hover:text-white underline\">Términos de Servicio</a> y <a href=\"/privacy\" class=\"text-white/70 hover:text-white underline\">Política de Privacidad</a>",
+    "auth-processing": "Procesando...",
+    "auth-redirecting": "Redirigiendo a la autenticación...",
+    "auth-creating-account": "Creando cuenta...",
+    "auth-signing-in": "Iniciando sesión...",
+    "auth-success-title": "¡Cuenta vinculada exitosamente!",
+    "auth-success-subtitle": "Tu cuenta ha sido vinculada con LuminaKraft.",
+    "auth-success-desc": "El launcher debería abrirse automáticamente.",
+    "auth-error-title": "Error",
+    "auth-close-window": "Cerrar Ventana",
+    "auth-return-home": "Volver al Inicio",
+    "auth-wait-moment": "Por favor espera un momento.",
+    "auth-ready-launcher": "Ya puedes volver al launcher.",
+    "auth-no-credentials": "No se encontraron credenciales.",
+    "auth-invalid-link": "Enlace de autenticación inválido.",
+    "auth-launcher-connect-error": "No se pudo conectar con el launcher.",
+    "auth-passwords-mismatch": "Las contraseñas no coinciden",
+    "auth-password-length": "La contraseña debe tener al menos 6 caracteres",
+    "auth-check-email": "Por favor verifica tu correo para confirmar tu cuenta.",
+    "auth-failed": "Autenticación fallida",
+    "auth-unexpected-error": "Ocurrió un error inesperado"
 }

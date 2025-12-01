@@ -1,176 +1,95 @@
 ---
 // Auth callback page for OAuth - sends tokens to launcher via HTTP POST
+import { getTranslation, getUserLocale, updateTextsForLocale } from "../utils/i18n";
+
+const locale = getUserLocale();
+const t = (key: string) => getTranslation(key, locale);
 ---
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang={locale}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticación Exitosa - LuminaKraft</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            color: white;
-            padding: 1rem;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            animation: scaleIn 0.5s ease-out;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            animation: fadeIn 0.5s ease-out 0.2s both;
-        }
-
-        p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            animation: fadeIn 0.5s ease-out 0.4s both;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .status {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            font-size: 0.9rem;
-            animation: fadeIn 0.5s ease-out 0.6s both;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 12px 32px;
-            background: white;
-            color: #667eea;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .success {
-            background: rgba(76, 175, 80, 0.2);
-        }
-
-        .error {
-            background: rgba(244, 67, 54, 0.2);
-        }
-
-        .warning {
-            background: rgba(255, 152, 0, 0.2);
-        }
-    </style>
+    <title>{t('auth-success-title')} - LuminaKraft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
-<body>
-    <div class="container">
-        <div class="success-icon">✓</div>
-        <h1 id="title">¡Cuenta vinculada exitosamente!</h1>
-        <p id="subtitle">Tu cuenta ha sido vinculada con LuminaKraft.</p>
-        <p id="description">El launcher debería abrirse automáticamente.</p>
-
-        <div class="status" id="status">
-            <span class="spinner"></span>
-            <span id="statusText">Procesando autenticación...</span>
+<body class="bg-secondary text-white font-kanit min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-sm bg-[#0b2545] border border-white/10 rounded-xl shadow-2xl p-8 text-center">
+        <div class="mb-6 flex justify-center">
+            <div id="icon-container" class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center animate-pulse">
+                <i id="status-icon" class="fas fa-circle-notch fa-spin text-2xl text-primary"></i>
+            </div>
         </div>
+        
+        <h1 id="title" class="text-xl font-bold text-white mb-2" data-i18n="auth-processing">{t('auth-processing')}</h1>
+        <p id="subtitle" class="text-white/60 text-sm mb-6" data-i18n="auth-wait-moment">{t('auth-wait-moment')}</p>
 
-        <a href="https://luminakraft.com/" class="button" id="homeButton" style="display: none;">
-            Volver al inicio
+        <button id="closeButton" onclick="window.close()" class="hidden w-full py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm font-medium">
+            <span data-i18n="auth-close-window">{t('auth-close-window')}</span>
+        </button>
+        
+        <a href="/" id="homeButton" class="hidden w-full py-2 bg-primary hover:bg-blue-600 text-white rounded-lg transition-colors text-sm font-medium mt-2">
+            <span data-i18n="auth-return-home">{t('auth-return-home')}</span>
         </a>
     </div>
 
     <script>
+        import { updateTextsForLocale, getUserLocale, getTranslation } from "../utils/i18n";
+
+        // Initialize i18n
+        const userLocale = getUserLocale();
+        if (userLocale) {
+            updateTextsForLocale(userLocale);
+        }
+
+        const t = (key) => getTranslation(key, userLocale);
+
         const hash = window.location.hash;
         const query = new URLSearchParams(window.location.search);
-        const statusEl = document.getElementById('status');
-        const statusText = document.getElementById('statusText');
+        
+        const titleEl = document.getElementById('title');
+        const subtitleEl = document.getElementById('subtitle');
+        const iconContainer = document.getElementById('icon-container');
+        const statusIcon = document.getElementById('status-icon');
+        const closeButton = document.getElementById('closeButton');
         const homeButton = document.getElementById('homeButton');
 
         const isLauncher = query.get('launcher') === 'true';
         const port = query.get('port');
 
-        console.log('Callback mode:', { isLauncher, port, hash });
+        function setSuccess() {
+            titleEl.textContent = t('auth-success-title');
+            subtitleEl.textContent = t('auth-ready-launcher');
+            
+            iconContainer.classList.remove('bg-primary/20', 'animate-pulse');
+            iconContainer.classList.add('bg-green-500/20');
+            
+            statusIcon.className = 'fas fa-check text-3xl text-green-500';
+            
+            closeButton.classList.remove('hidden');
+            
+            // Try to close automatically
+            setTimeout(() => {
+                window.close();
+            }, 2000);
+        }
+
+        function setError(msg) {
+            titleEl.textContent = t('auth-error-title');
+            subtitleEl.textContent = msg;
+            
+            iconContainer.classList.remove('bg-primary/20', 'animate-pulse');
+            iconContainer.classList.add('bg-red-500/20');
+            
+            statusIcon.className = 'fas fa-times text-3xl text-red-500';
+            
+            homeButton.classList.remove('hidden');
+        }
 
         async function handleCallback() {
             // Extract tokens from URL hash
@@ -182,11 +101,7 @@
             
             if (error) {
                 console.error('Auth error:', error, errorDescription);
-                statusEl.className = 'status error';
-                // Decode + to space
-                statusText.textContent = `⚠️ Error: ${errorDescription?.replace(/\+/g, ' ') || error}`;
-                document.getElementById('subtitle').textContent = 'Authentication failed.';
-                homeButton.style.display = 'inline-block';
+                setError(errorDescription?.replace(/\+/g, ' ') || error);
                 return;
             }
 
@@ -196,26 +111,17 @@
             const providerRefreshToken = hashParams.get('provider_refresh_token');
 
             if (!accessToken || !refreshToken) {
-                console.error('No tokens found in URL');
-                statusEl.className = 'status error';
-                statusText.textContent = '⚠️ No se encontraron datos de autenticación';
-                homeButton.style.display = 'inline-block';
+                setError(t('auth-no-credentials'));
                 return;
             }
 
-            console.log('Tokens extracted successfully');
-
             if (!isLauncher || !port) {
-                console.error('Missing launcher or port parameter');
-                statusEl.className = 'status error';
-                statusText.textContent = '⚠️ Parámetros de autenticación incorrectos';
-                homeButton.style.display = 'inline-block';
+                // Not launcher mode, just redirect to home
+                window.location.href = '/';
                 return;
             }
 
             // Send tokens to launcher via HTTP POST
-            statusText.textContent = 'Enviando credenciales al launcher...';
-
             try {
                 const response = await fetch(`http://localhost:${port}`, {
                     method: 'POST',
@@ -231,34 +137,13 @@
                 });
 
                 if (response.ok) {
-                    console.log('✅ Tokens sent successfully to launcher');
-                    statusEl.className = 'status success';
-                    statusText.textContent = '✅ Autenticación exitosa';
-                    document.getElementById('subtitle').textContent = 'Ya puedes cerrar esta ventana.';
-                    homeButton.style.display = 'inline-block';
-
-                    // Attempt to close the window automatically (works in some browsers)
-                    setTimeout(() => {
-                        try {
-                            window.close();
-                            // If close failed (still here after 500ms), show manual message
-                            setTimeout(() => {
-                                statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
-                            }, 500);
-                        } catch (e) {
-                            console.log('Auto-close not supported, showing manual close message');
-                            statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
-                        }
-                    }, 1500);
+                    setSuccess();
                 } else {
                     throw new Error(`HTTP ${response.status}`);
                 }
             } catch (error) {
                 console.error('Failed to send tokens to launcher:', error);
-                statusEl.className = 'status error';
-                statusText.textContent = '❌ Error al comunicarse con el launcher';
-                document.getElementById('subtitle').textContent = 'Por favor, intenta de nuevo.';
-                homeButton.style.display = 'inline-block';
+                setError(t('auth-launcher-connect-error'));
             }
         }
 
@@ -266,18 +151,8 @@
         if (hash) {
             handleCallback();
         } else {
-            statusEl.className = 'status error';
-            statusText.textContent = '⚠️ No se encontraron datos de autenticación';
-            homeButton.style.display = 'inline-block';
+            setError(t('auth-invalid-link'));
         }
-
-        // Allow closing window after 5 seconds
-        setTimeout(() => {
-            const currentText = statusText.innerHTML;
-            if (!currentText.includes('Puedes cerrar')) {
-                statusText.innerHTML += '<br><small>Puedes cerrar esta ventana.</small>';
-            }
-        }, 5000);
     </script>
 </body>
 </html>
