@@ -129,8 +129,8 @@ const t = (key: string) => getTranslation(key, locale);
         </div>
     </div>
 
-    <script type="module">
-        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    <script>
+        import { createClient } from '@supabase/supabase-js';
         import { updateTextsForLocale, getUserLocale, getTranslation, saveUserLocale } from "../../utils/i18n";
 
         // Initialize i18n
@@ -166,6 +166,12 @@ const t = (key: string) => getTranslation(key, locale);
         const isLauncher = urlParams.get('launcher') === 'true';
         const port = urlParams.get('port');
 
+        // Loading element
+        const loadingEl = document.createElement('div');
+        loadingEl.className = 'hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center';
+        loadingEl.innerHTML = '<i class="fas fa-circle-notch fa-spin text-4xl text-primary"></i>';
+        document.body.appendChild(loadingEl);
+
         // Handle OAuth Sign In
         const oauthBtns = document.querySelectorAll('.oauth-btn');
         oauthBtns.forEach(btn => {
@@ -178,9 +184,9 @@ const t = (key: string) => getTranslation(key, locale);
                 try {
                     // Build redirect URL
                     const redirectUrl = new URL('/auth-callback', window.location.origin);
-                    redirectUrl.searchParams.set('launcher', isLauncher ? 'true' : 'false');
-                    if (port) {
-                        redirectUrl.searchParams.set('port', port);
+                    if (isLauncher) {
+                        redirectUrl.searchParams.set('launcher', 'true');
+                        if (port) redirectUrl.searchParams.set('port', port);
                     }
 
                     // Start OAuth flow
