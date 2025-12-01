@@ -248,41 +248,8 @@ const t = (key: string) => getTranslation(key, locale);
                 console.error('Sign up error:', error);
                 showError(t('auth-failed') + ': ' + error.message);
                 submitBtn.disabled = false;
-                        redirectUrl.searchParams.set('port', port);
-                    }
-
-                    // Start OAuth flow
-                    let scopes = undefined;
-                    if (provider === 'discord') {
-                        scopes = 'identify email guilds guilds.members.read';
-                    } else if (provider === 'azure') {
-                        scopes = 'openid profile email offline_access';
-                    }
-
-                    const { data, error } = await supabase.auth.signInWithOAuth({
-                        provider: provider,
-                        options: {
-                            redirectTo: redirectUrl.toString(),
-                            scopes: scopes
-                        }
-                    });
-
-                    if (error) {
-                        console.error('OAuth error:', error);
-                        alert('Authentication failed: ' + error.message);
-                        loadingEl.classList.add('hidden');
-                        btn.disabled = false;
-                        btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                    }
-                    // If successful, browser will redirect to OAuth provider
-                } catch (error) {
-                    console.error('Unexpected error:', error);
-                    alert('An unexpected error occurred');
-                    loadingEl.classList.add('hidden');
-                    btn.disabled = false;
-                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
-                }
-            });
+                submitBtn.querySelector('span').textContent = originalBtnText;
+            }
         });
     </script>
 </body>
