@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
+import DownloadSection from "../components/DownloadSection.astro";
 import ServerCard from "../components/ServerCard.astro";
 import { getTranslation, getUserLocale, updateTextsForLocale } from "../utils/i18n";
 import servers from "../data/servers.json";
@@ -171,6 +172,9 @@ const t = (key: string) => getTranslation(key, locale);
       </div>
     </div>
   </section>
+
+  <!-- Download Section -->
+  <DownloadSection locale={locale} />
 
   <!-- Colaboradores Section -->
   <section id="colaboradores" class="py-20 px-4 relative overflow-hidden">

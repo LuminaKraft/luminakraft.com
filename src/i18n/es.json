@@ -379,5 +379,13 @@
     "auth-password-length": "La contraseña debe tener al menos 6 caracteres",
     "auth-check-email": "Por favor verifica tu correo para confirmar tu cuenta.",
     "auth-failed": "Autenticación fallida",
-    "auth-unexpected-error": "Ocurrió un error inesperado"
+    "auth-unexpected-error": "Ha ocurrido un error inesperado",
+    "download-section-title": "Descarga LuminaKraft Launcher",
+    "download-section-desc": "La mejor forma de jugar nuestros modpacks. Actualizaciones automáticas, gestión de Java y rendimiento optimizado.",
+    "download-button": "Descargar Instalador",
+    "view-github-button": "Ver Código Fuente",
+    "open-source-badge": "100% Código Abierto y Seguro",
+    "download-version-info": "Última Versión Estable",
+    "download-detecting": "Detectando sistema...",
+    "download-for": "Descargar para"
 }
