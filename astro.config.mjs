@@ -12,5 +12,8 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
+  redirects: {
+    '/discord': 'https://discord.gg/UJZRrcUFMj'
+  },
   devToolbar: { enabled: false }
 });
