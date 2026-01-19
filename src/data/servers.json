@@ -30,20 +30,20 @@
     "featureIcons": ["fa-magic", "fa-fist-raised", "fa-map-marked-alt", "fa-users"]
   },
   {
-    "id": "onepieceworlds2",
-    "name": "One Piece World S2",
-    "slug": "onepieceworlds2",
+    "id": "onepieceworld2",
+    "name": "One Piece World 2",
+    "slug": "onepieceworld2",
     "isNew": false,
     "isActive": false,
     "isComingSoon": true,
     "images": [
-      "/imgs/servers/onepieceworlds2/screenshot1.webp",
-      "/imgs/servers/onepieceworlds2/screenshot2.webp",
-      "/imgs/servers/onepieceworlds2/screenshot3.webp",
-      "/imgs/servers/onepieceworlds2/screenshot4.webp",
-      "/imgs/servers/onepieceworlds2/screenshot5.webp"
+      "/imgs/servers/onepieceworld2/screenshot1.webp",
+      "/imgs/servers/onepieceworld2/screenshot2.webp",
+      "/imgs/servers/onepieceworld2/screenshot3.webp",
+      "/imgs/servers/onepieceworld2/screenshot4.webp",
+      "/imgs/servers/onepieceworld2/screenshot5.webp"
     ],
-    "logo": "/imgs/servers/onepieceworlds2/logo.webp",
+    "logo": "/imgs/servers/onepieceworld2/logo.webp",
     "collaborators": [
       {
         "name": "LuminaKraft Studios",
@@ -53,7 +53,7 @@
     "versions": ["1.20.1"],
     "modloader": "Forge",
     "gamemode": "RPG",
-    "descriptionKey": "onepieceworlds2-desc",
+    "descriptionKey": "onepieceworld2-desc",
     "leaderboardPath": null,
     "youtubeEmbed": "",
     "featureIcons": ["fa-apple-whole", "fa-fist-raised", "fa-ship", "fa-users"]
