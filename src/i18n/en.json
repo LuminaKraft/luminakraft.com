@@ -122,7 +122,7 @@
     "modpack-install-desc": "Download and install our modpack:",
     "download-installer": "Download Installer",
     "auto-connect-title": "Auto-connect",
-    "auto-connect-desc": "The modpack will automatically connect to server just by clicking a button!",
+    "auto-connect-desc": "The modpack will automatically connect to the server just by clicking a button!",
     "join-discord": "Join our Discord",
     "our-services": "Our Services",
     "services-intro": "LuminaKraft Studios offers professional Minecraft server solutions for businesses and content creators:",
@@ -135,7 +135,7 @@
     "learn-more": "Learn More About Our Services",
     "our-collaborators": "Our Collaborators",
     "collaborators-intro": "Meet the talented collaborators who make our amazing servers possible:",
-    "colab-codexmc": "Minecraft Servers Developers",
+    "colab-codexmc": "Minecraft Server Developers",
     "colab-lospicaos": "Gaming Community",
     "about-us": "About LuminaKraft Studios",
     "about-1": "Founded in 2024, LuminaKraft Studios has been at the forefront of innovation in Minecraft servers. Our team of passionate Minecraft enthusiasts and expert developers works tirelessly to create unique and engaging multiplayer experiences.",
@@ -169,8 +169,7 @@
     "forum": "Forum",
     "events": "Events",
     "partners": "Partner Program",
-    "copyright": " 2025 LuminaKraft Studios. All rights reserved.",
-    "select-language": "Language:",
+        "select-language": "Language:",
     "leaderboard-title": "Leaderboard",
     "leaderboard-description": "Check out our top players this month!",
     "server-detail-page": "Page",
@@ -388,5 +387,9 @@
     "open-source-badge": "100% Open Source & Safe",
     "download-version-info": "Latest Stable Release",
     "download-detecting": "Detecting OS...",
-    "download-for": "Download for"
+    "download-for": "Download for",
+    "skip-to-content": "Skip to content",
+    "page-not-found-title": "Page not found",
+    "page-not-found-desc": "The page you are looking for does not exist or has been moved.",
+    "back-home": "Back to home"
 }

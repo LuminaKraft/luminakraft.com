@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /auth/
+Disallow: /auth-callback/
+
+Sitemap: https://luminakraft.com/sitemap.xml

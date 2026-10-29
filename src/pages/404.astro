@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTranslation, getUserLocale } from "../utils/i18n";
+
+const locale = getUserLocale();
+const t = (key: string) => getTranslation(key, locale);
+---
+
+<BaseLayout title={`404 | LuminaKraft Studios`} description={t('page-not-found-desc')} locale={locale} noindex>
+  <section class="min-h-[70vh] flex items-center justify-center px-4 pt-24 pb-16">
+    <div class="text-center max-w-xl">
+      <p class="text-7xl font-bold text-primary mb-4">404</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="page-not-found-title">{t('page-not-found-title')}</h1>
+      <p class="text-white/80 mb-8" data-i18n="page-not-found-desc">{t('page-not-found-desc')}</p>
+      <a href="/" class="px-8 py-3 rounded-lg bg-primary/90 text-white font-bold shadow-glow border border-primary/50 transition-all duration-200 hover:bg-primary hover:-translate-y-1" data-i18n="back-home">{t('back-home')}</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -5,6 +5,7 @@ interface Props {
   title?: string;
   description?: string;
   locale?: 'es' | 'en';
+  noindex?: boolean;
 }
 
 // Usar el locale proporcionado como prop (userLocale) 
@@ -26,6 +27,13 @@ const {
 // Forzar el idioma detectado 
 const finalLocale = userLocale;
 
+// SEO: URL canónica y metadatos sociales
+const siteUrl = (Astro.site ?? new URL('https://luminakraft.com')).toString().replace(/\/$/, '');
+const canonicalPath = Astro.url.pathname.endsWith('/') || Astro.url.pathname.includes('.') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalUrl = `${siteUrl}${canonicalPath === '/index.html' ? '/' : canonicalPath}`;
+const ogImage = `${siteUrl}/imgs/og-image.jpg`;
+const noindex = Astro.props.noindex === true;
+
 // Función de traducción simplificada - usar directamente del módulo i18n
 const t = (key) => getTranslation(key, finalLocale);
 ---
@@ -34,7 +42,7 @@ const t = (key) => getTranslation(key, finalLocale);
 <html lang={finalLocale} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#011a38" />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,11 +51,11 @@ const t = (key) => getTranslation(key, finalLocale);
     <meta name="description" content={description} />
     <meta name="keywords" content="LuminaKraft, server development, minecraft server, game studio" />
     <meta name="author" content="LuminaKraft Studios" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
     <!-- DNS prefetch para recursos externos -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="dns-prefetch" href="//mc-heads.net" />
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
     
@@ -57,22 +65,30 @@ const t = (key) => getTranslation(key, finalLocale);
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     
     <!-- Meta etiquetas OpenGraph -->
+    <meta property="og:site_name" content="LuminaKraft Studios" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp" />
-    <meta property="og:url" content="https://www.luminakraft.com" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LuminaKraft Studios" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={finalLocale === 'en' ? 'en_US' : 'es_ES'} />
+    <meta property="og:locale:alternate" content={finalLocale === 'en' ? 'es_ES' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@luminakraft" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://www.luminakraft.com/imgs/luminakraft_studios.webp" />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/imgs/favicon.webp" type="image/webp" />
-    <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.webp" />
+    <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="bg-secondary text-white font-kanit overflow-x-hidden min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded focus:bg-primary focus:text-white" data-i18n="skip-to-content">{t('skip-to-content')}</a>
     <header class="fixed top-0 left-0 w-full z-50 bg-secondary/70 backdrop-blur-sm transition-all duration-300 py-3">
       <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center">
@@ -81,7 +97,7 @@ const t = (key) => getTranslation(key, finalLocale);
               <img src="/imgs/favicon.webp" alt="LuminaKraft Studios Logo" class="w-12 h-12" width="48" height="48" loading="eager" />
             </a>
             <div class="language-selector ml-4">
-              <select id="language-selector" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1 text-sm hover:border-primary transition-colors">
+              <select id="language-selector" aria-label="Idioma / Language" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1 text-sm hover:border-primary transition-colors">
                 <option value="es" selected={finalLocale === 'es'}>ES</option>
                 <option value="en" selected={finalLocale === 'en'}>EN</option>
               </select>
@@ -95,15 +111,14 @@ const t = (key) => getTranslation(key, finalLocale);
             <a href="/#nosotros" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="nosotros">{t('nosotros')}</a>
             <a href="/#donaciones" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="donaciones">{t('donaciones')}</a>
             <a href="/#contacto" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" data-i18n="contacto">{t('contacto')}</a>
-            <a href="https://wiki.luminakraft.com" target="_blank" class="nav-link relative text-white hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
           </div>
-          <button class="md:hidden mobile-menu-button text-2xl text-white" id="mobileMenuBtn" aria-label="Abrir menú">☰</button>
+          <button class="md:hidden mobile-menu-button text-2xl text-white" id="mobileMenuBtn" aria-label="Abrir menú / Open menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
         </nav>
       </div>
     </header>
 
     <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-secondary/95 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-md flex flex-col justify-center items-center" id="mobileMenu">
-      <span class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer">&times;</span>
+      <button type="button" class="close-menu absolute top-6 right-6 text-4xl text-white cursor-pointer" aria-label="Cerrar menú / Close menu">&times;</button>
       <div class="flex flex-col space-y-6 text-center">
         <a href="/#inicio" class="text-xl text-white hover:text-primary transition-colors" data-i18n="inicio">{t('inicio')}</a>
         <a href="/#servidores" class="text-xl text-white hover:text-primary transition-colors" data-i18n="servidores">{t('servidores')}</a>
@@ -112,7 +127,6 @@ const t = (key) => getTranslation(key, finalLocale);
         <a href="/#nosotros" class="text-xl text-white hover:text-primary transition-colors" data-i18n="nosotros">{t('nosotros')}</a>
         <a href="/#donaciones" class="text-xl text-white hover:text-primary transition-colors" data-i18n="donaciones">{t('donaciones')}</a>
         <a href="/#contacto" class="text-xl text-white hover:text-primary transition-colors" data-i18n="contacto">{t('contacto')}</a>
-        <a href="https://wiki.luminakraft.com" target="_blank" class="text-xl text-white hover:text-primary transition-colors">Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
       </div>
       <div class="mt-8">
         <label for="mobile-language-selector" class="text-white mr-2" data-i18n="select-language">{t('select-language')}</label>
@@ -123,7 +137,7 @@ const t = (key) => getTranslation(key, finalLocale);
       </div>
     </div>
 
-    <main class="flex-grow">
+    <main id="main-content" class="flex-grow" tabindex="-1">
       <slot />
     </main>
 
@@ -140,30 +154,25 @@ const t = (key) => getTranslation(key, finalLocale);
               <li><a href="/#nosotros" class="text-white hover:text-primary transition-colors" data-i18n="nosotros">{t('nosotros')}</a></li>
               <li><a href="/#donaciones" class="text-white hover:text-primary transition-colors" data-i18n="donaciones">{t('donaciones')}</a></li>
               <li><a href="/#contacto" class="text-white hover:text-primary transition-colors" data-i18n="contacto">{t('contacto')}</a></li>
-              <li>
-                <a href="https://wiki.luminakraft.com" target="_blank" class="text-white hover:text-primary transition-colors">
-                  Wiki <i class="fas fa-external-link-alt text-xs ml-1"></i>
-                </a>
-              </li>
             </ul>
           </div>
           <div class="footer-section text-center">
             <h3 class="text-xl font-bold mb-4 text-primary relative pb-2 inline-block" data-i18n="social-media">{t('social-media')}</h3>
             <div class="flex justify-center space-x-4">
-              <a href="https://x.com/luminakraft" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="X (Twitter)">
-                <i class="fab fa-x-twitter"></i>
+              <a href="https://x.com/luminakraft" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors text-2xl" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter" aria-hidden="true"></i>
               </a>
-              <a href="https://instagram.com/luminakraft" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
+              <a href="https://instagram.com/luminakraft" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors text-2xl" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="https://tiktok.com/@luminakraft" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
+              <a href="https://tiktok.com/@luminakraft" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors text-2xl" aria-label="TikTok">
+                <i class="fab fa-tiktok" aria-hidden="true"></i>
               </a>
-              <a href="https://youtube.com/@luminakraft" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
+              <a href="https://youtube.com/@luminakraft" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors text-2xl" aria-label="YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
               </a>
-              <a href="https://discord.gg/UJZRrcUFMj" target="_blank" class="text-white hover:text-primary transition-colors text-2xl" aria-label="Discord">
-                <i class="fab fa-discord"></i>
+              <a href="https://discord.gg/UJZRrcUFMj" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors text-2xl" aria-label="Discord">
+                <i class="fab fa-discord" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -199,11 +208,13 @@ const t = (key) => getTranslation(key, finalLocale);
           if (mobileMenuBtn && mobileMenu && closeMenu) {
             mobileMenuBtn.addEventListener('click', function() {
               mobileMenu.classList.remove('translate-x-full');
+              mobileMenuBtn.setAttribute('aria-expanded', 'true');
               document.body.style.overflow = 'hidden';
             });
             
             closeMenu.addEventListener('click', function() {
               mobileMenu.classList.add('translate-x-full');
+              mobileMenuBtn.setAttribute('aria-expanded', 'false');
               document.body.style.overflow = '';
             });
             
@@ -297,6 +308,26 @@ const t = (key) => getTranslation(key, finalLocale);
       });
     </script>
     
+    <style is:global>
+      /* Indicador de foco visible para navegación con teclado */
+      a:focus-visible,
+      button:focus-visible,
+      select:focus-visible,
+      input:focus-visible,
+      [tabindex]:focus-visible {
+        outline: 2px solid #4a90e2;
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+
     <!-- Additional Scripts -->
     <slot name="scripts" />
 
