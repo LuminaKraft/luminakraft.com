@@ -92,9 +92,9 @@ const t = (key: string) => getTranslation(key, locale);
             <h3 class="text-2xl font-bold mt-4 text-primary text-center">???</h3>
             <p class="text-white/80 my-3 min-h-[60px] text-center" data-i18n="coming-soon-desc">{t('coming-soon-desc')}</p>
             <div class="mt-auto">
-              <a href="#" class="block w-full bg-gradient-to-r from-primary/50 to-primary/50 text-white py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden opacity-70 cursor-not-allowed hover:opacity-80">
+              <span aria-disabled="true" class="block w-full bg-gradient-to-r from-primary/50 to-primary/50 text-white py-3 rounded-lg text-center font-bold transition-all duration-300 relative overflow-hidden opacity-70 cursor-not-allowed hover:opacity-80">
                 <span class="relative z-10" data-i18n="stay-tuned">{t('stay-tuned')}</span>
-              </a>
+              </span>
             </div>
           </div>
         </div>
@@ -188,26 +188,16 @@ const t = (key: string) => getTranslation(key, locale);
         <div class="collaborator bg-secondary/40 backdrop-blur rounded-xl p-6 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all flex flex-col md:flex-row items-center md:items-start gap-6">
           <img 
             src="/imgs/colabs/codex/skull.gif" 
-            alt="Colaborador Crucis MC" 
+            alt="Logo de Crucis MC" 
             class="w-24 h-24 rounded-xl border-2 border-primary/50 hover:scale-105 transition-transform"
             width="96"
             height="96"
             loading="lazy"
           />
           <div>
-            <div class="text-xl font-bold text-primary mb-1">Crucis MC</div>
+            <h3 class="text-xl font-bold text-primary mb-1">Crucis MC</h3>
             <div class="text-white/70 mb-4" data-i18n="colab-codexmc">{t('colab-codexmc')}</div>
-            <div class="flex space-x-3">
-              <a 
-                href="https://discord.gg/fXtKgWtzy2"
-                target="_blank"
-                rel="noopener"
-                class="text-white hover:text-primary transition-colors text-2xl"
-                title="Discord"
-              >
-                <i class="fab fa-discord"></i>
-              </a>
-            </div>
+            <!-- Invitación de Discord de Crucis MC caducada (discord.gg/fXtKgWtzy2); añadir nueva cuando esté disponible -->
           </div>
         </div>
         
@@ -215,24 +205,25 @@ const t = (key: string) => getTranslation(key, locale);
         <div class="collaborator bg-secondary/40 backdrop-blur rounded-xl p-6 border border-primary/30 hover:border-primary/70 hover:shadow-glow transition-all flex flex-col md:flex-row items-center md:items-start gap-6">
           <img 
             src="/imgs/servers/ancientkraft/colab.webp" 
-            alt="Colaborador Los Picaos" 
+            alt="Logo de Los Picaos" 
             class="w-24 h-24 rounded-xl border-2 border-primary/50 hover:scale-105 transition-transform"
             width="96"
             height="96"
             loading="lazy"
           />
           <div>
-            <div class="text-xl font-bold text-primary mb-1">Los Picaos</div>
+            <h3 class="text-xl font-bold text-primary mb-1">Los Picaos</h3>
             <div class="text-white/70 mb-4" data-i18n="colab-lospicaos">{t('colab-lospicaos')}</div>
             <div class="flex space-x-3">
               <a 
                 href="https://discord.gg/wB3n78uGY8"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-white hover:text-primary transition-colors text-2xl"
                 title="Discord"
+                aria-label="Discord de Los Picaos"
               >
-                <i class="fab fa-discord"></i>
+                <i class="fab fa-discord" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -428,7 +419,7 @@ const t = (key: string) => getTranslation(key, locale);
               <div class="worker-avatar-container border-2 border-primary/50 rounded-lg overflow-hidden w-16 h-16 md:w-20 md:h-20 hover:scale-110 transition-transform duration-200 mx-auto">
                 <img 
                   src="https://mc-heads.net/avatar/${worker.username}/64" 
-                  alt="${worker.username}" 
+                  alt="" 
                   class="w-full h-full object-cover"
                   width="64"
                   height="64"

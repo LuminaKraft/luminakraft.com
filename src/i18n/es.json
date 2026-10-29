@@ -33,7 +33,7 @@
     "hero-desc": "Experimenta mundos únicos e inmersivos de Minecraft con LuminaKraft Studios",
     "explore-servers": "Explora Nuestros Servidores",
     "featured-servers": "Nuestros Servidores Destacados",
-    "ancientkraft_rechapter-desc": "La experiencia de aventura RPG definitiva - completamente reconstruida con magia revolucionaria, combate de nueva generación y mundos expandidos. Ahora sin LAG!",
+    "ancientkraft_rechapter-desc": "La experiencia de aventura RPG definitiva - completamente reconstruida con magia revolucionaria, combate de nueva generación y mundos expandidos. ¡Ahora sin LAG!",
     "onepieceworld2-desc": "Domina el Haki avanzado, descubre Frutas del Diablo raras y conquista el Nuevo Mundo en esta experiencia mejorada de One Piece.",
     "luminakraft_world-desc": "Mundo custom, dungeons únicas, mobs escalables, habilidades, economía, reclamo de tierras, control PvP, mapa en vivo.",
     "onepieceworld-desc": "Vive la gran aventura de One Piece: encuentra Frutas del Diablo y domina los mares.",
@@ -168,8 +168,7 @@
     "forum": "Foro",
     "events": "Eventos",
     "partners": "Programa de Partners",
-    "copyright": " 2025 LuminaKraft Studios. Todos los derechos reservados.",
-    "select-language": "Idioma:",
+        "select-language": "Idioma:",
     "leaderboard-title": "Tabla de Clasificación",
     "leaderboard-description": "¡Mira nuestros mejores jugadores de este mes!",
     "leaderboard-error": "Error al cargar la tabla de clasificación",
@@ -387,5 +386,9 @@
     "open-source-badge": "100% Código Abierto y Seguro",
     "download-version-info": "Última Versión Estable",
     "download-detecting": "Detectando sistema...",
-    "download-for": "Descargar para"
+    "download-for": "Descargar para",
+    "skip-to-content": "Saltar al contenido",
+    "page-not-found-title": "Página no encontrada",
+    "page-not-found-desc": "La página que buscas no existe o ha sido movida.",
+    "back-home": "Volver al inicio"
 }
