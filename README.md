@@ -48,12 +48,9 @@
 │       └── services/          # Service page images
 ├── src/
 │   ├── components/            # Reusable UI components
-│   │   ├── GradientBackground.astro
 │   │   ├── HeroSection.astro
-│   │   ├── InteractiveCard.astro
 │   │   ├── ParallaxStars.astro
 │   │   ├── RotatingWords.astro
-│   │   ├── ScrollReveal.astro
 │   │   └── ServerCard.astro
 │   ├── data/                  # JSON data files
 │   │   └── servers.json       # Server information
@@ -77,10 +74,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/luminakraft-web.git
+git clone https://github.com/LuminaKraft/luminakraft.com.git
 
 # Navigate to the project directory
-cd luminakraft-web
+cd luminakraft.com
 
 # Install dependencies
 npm install
