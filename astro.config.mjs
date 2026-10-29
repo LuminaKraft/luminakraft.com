@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://luminakraft.com',
   integrations: [tailwind()],
   output: 'static',
   i18n: {
