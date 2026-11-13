@@ -304,6 +304,7 @@ if (serverFromSlug.id === "onepieceworld" || serverFromSlug.id === "onepieceworl
             <iframe 
               class="absolute top-0 left-0 w-full h-full border-0"
               src={serverFromSlug.youtubeEmbed}
+              title={`${serverFromSlug.name} – trailer (YouTube)`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen
               loading="lazy"
@@ -527,7 +528,7 @@ if (serverFromSlug.id === "onepieceworld" || serverFromSlug.id === "onepieceworl
             <!-- Controles de leaderboard -->
             <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
               <div class="flex items-center gap-2">
-                <label class="text-white/80 players-per-page-label" data-i18n="leaderboard-player-per-page">{t('leaderboard-player-per-page')}</label>
+                <label for="playersPerPage" class="text-white/80 players-per-page-label" data-i18n="leaderboard-player-per-page">{t('leaderboard-player-per-page')}</label>
                 <select id="playersPerPage" class="bg-secondary/80 text-white border border-primary/50 rounded px-2 py-1">
                   <option value="12">12</option>
                   <option value="24">24</option>

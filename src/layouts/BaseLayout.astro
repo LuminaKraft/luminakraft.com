@@ -24,13 +24,19 @@ const {
   locale = userLocale
 } = Astro.props;
 
+// Títulos de subpáginas ("Servicios", "Términos de Servicio"...) con la marca, para que sean únicos y reconocibles en buscadores.
+const pageTitle = title.includes('LuminaKraft') ? title : `${title} | LuminaKraft Studios`;
+
 // Forzar el idioma detectado 
 const finalLocale = userLocale;
 
 // SEO: URL canónica y metadatos sociales
 const siteUrl = (Astro.site ?? new URL('https://luminakraft.com')).toString().replace(/\/$/, '');
-const canonicalPath = Astro.url.pathname.endsWith('/') || Astro.url.pathname.includes('.') ? Astro.url.pathname : `${Astro.url.pathname}/`;
-const canonicalUrl = `${siteUrl}${canonicalPath === '/index.html' ? '/' : canonicalPath}`;
+// El hosting (Cloudflare assets, html_handling "drop-trailing-slash") redirige /ruta/ -> /ruta con un 307,
+// así que la URL canónica va sin barra final (salvo la portada) para no apuntar a una redirección.
+const rawPath = Astro.url.pathname.replace(/index\.html$/, '');
+const canonicalPath = rawPath === '/' ? '/' : rawPath.replace(/\/+$/, '');
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImage = `${siteUrl}/imgs/og-image.jpg`;
 const noindex = Astro.props.noindex === true;
 
@@ -47,7 +53,7 @@ const t = (key) => getTranslation(key, finalLocale);
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content="LuminaKraft, server development, minecraft server, game studio" />
     <meta name="author" content="LuminaKraft Studios" />
@@ -66,7 +72,7 @@ const t = (key) => getTranslation(key, finalLocale);
     
     <!-- Meta etiquetas OpenGraph -->
     <meta property="og:site_name" content="LuminaKraft Studios" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
@@ -78,7 +84,7 @@ const t = (key) => getTranslation(key, finalLocale);
     <meta property="og:locale:alternate" content={finalLocale === 'en' ? 'es_ES' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@luminakraft" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/imgs/favicon.webp" type="image/webp" />
@@ -86,6 +92,39 @@ const t = (key) => getTranslation(key, finalLocale);
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Datos estructurados (schema.org): organización y web, con los datos publicados en la propia página -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': `${siteUrl}/#organization`,
+          name: 'LuminaKraft Studios',
+          url: `${siteUrl}/`,
+          logo: `${siteUrl}/imgs/apple-touch-icon.png`,
+          image: ogImage,
+          founder: [
+            { '@type': 'Person', name: 'Kristian García Paulsen', url: 'https://kristiangarcia.com' },
+            { '@type': 'Person', name: 'Jose Rafael Díaz' },
+          ],
+          sameAs: [
+            'https://x.com/luminakraft',
+            'https://instagram.com/luminakraft',
+            'https://tiktok.com/@luminakraft',
+            'https://youtube.com/@luminakraft',
+            'https://github.com/LuminaKraft',
+          ],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${siteUrl}/#website`,
+          url: `${siteUrl}/`,
+          name: 'LuminaKraft Studios',
+          inLanguage: ['es', 'en'],
+          publisher: { '@id': `${siteUrl}/#organization` },
+        },
+      ],
+    })} />
   </head>
   <body class="bg-secondary text-white font-kanit overflow-x-hidden min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded focus:bg-primary focus:text-white" data-i18n="skip-to-content">{t('skip-to-content')}</a>
